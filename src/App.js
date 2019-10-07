@@ -2,10 +2,6 @@ import React from "react";
 import "./App.css";
 import "./functions/APICall";
 
-// const fetchData = async () => {
-//   await (await fetch("http://localhost:9000/APICall")).json();
-// };
-
 function App(props) {
   const [data, setData] = React.useState([]);
   const [names, setNames] = React.useState([]);
@@ -30,13 +26,6 @@ function App(props) {
       <h1>
         {names} {skills} {activity}
       </h1>
-      {/* <p> {data[1].fields} </p> */}
-
-      {/* {data.map(e => (
-          <li key={e.id}>hi</li>
-
-          // <Repo key={repo.id} {...repo} />
-        ))} */}
     </div>
   );
 }
