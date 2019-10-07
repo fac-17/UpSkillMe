@@ -12,10 +12,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "lambda-serve": "netlify-lambda serve src/functions",
     "lambda-build": "netlify-lambda build src/functions"
+
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -31,5 +32,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "nyc": "^14.1.1"
   }
 }

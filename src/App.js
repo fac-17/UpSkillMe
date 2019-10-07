@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
-import "./functions/APICall";
+import Badges from "./components/badges/Badges"
+
 
 function App(props) {
   const [data, setData] = React.useState([]);
@@ -21,11 +22,17 @@ function App(props) {
       });
   }, []);
 
+
   return (
     <div className="App">
       <h1>
         {names} {skills} {activity}
       </h1>
+      <Badges selectedBadges={[
+        "Innovation",
+        "Teamwork",
+        "Technology"
+      ]} />
     </div>
   );
 }
