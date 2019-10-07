@@ -1,20 +1,17 @@
 import React from "react";
 const allBadges = [
   "Communication",
-  //   ,
-  //   "Creativity",
-  //   "Innovation",
-  //   "Leadership",
-  "Media"
-  //   "Problem Solving",
-  //   "Teamwork",
-  //   "Technology"
+  "Creativity",
+  "Innovation",
+  "Leadership",
+  "Media",
+  "Problem-solving",
+  "Teamwork",
+  "Technology"
 ];
-export default function Badges({ selectAllBadges, selectedBadges }) {
-  let badges;
-  if (selectAllBadges === true) {
-    badges = allBadges;
-  } else {
+export default function Badges({ selectedBadges }) {
+  let badges = allBadges
+  if (selectedBadges) {
     badges = selectedBadges;
   }
   return (

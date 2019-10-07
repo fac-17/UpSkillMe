@@ -6,7 +6,11 @@ function App() {
   return (
     <div className="App">
       <h1>Hello World</h1>
-      <Badges selectedBadges={["Media", "Communication"]} />
+      <Badges selectedBadges={[
+        "Innovation",
+        "Teamwork",
+        "Technology"
+      ]} />
     </div>
   );
 }
