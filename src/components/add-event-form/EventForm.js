@@ -33,7 +33,7 @@ export default function EventForm() {
     "Other"
   ];
 
-  const [duration, setDuration] = React.useState("");
+  const [duration, setDuration] = React.useState(0);
   const durationOptions = [1, 2, 3, 4, 5, 6, 7, 14, 21, 28, 35, 70, 105, 140];
 
   const [supportingLink, setSupportingLink] = React.useState("");
@@ -47,17 +47,22 @@ export default function EventForm() {
   };
 
   const updateDuration = e => {
-    setDuration(e.target.value);
+    setDuration(parseInt(e.target.value));
   };
 
   const handleSubmit = e => {
+    console.log("this is the duration", duration);
     const stringtest = JSON.stringify({
       records: [
         {
           fields: {
-            name: "tonyjacktest",
-            schoolEmail: "tony@arkacademy.ac.uk",
-            nameOfActivity: "test for post data"
+            nameOfActivity: activityName,
+            activityType: activityType,
+            date: date,
+            durationHours: duration,
+            link: supportingLink,
+            skills: badgeValues,
+            schoolEmail: "tbd@gmail.com"
           }
         }
       ]
@@ -79,7 +84,6 @@ export default function EventForm() {
         <input
           type="text"
           value={activityName}
-          required
           onChange={e => setActivityName(e.target.value)}
         />
       </label>
@@ -89,7 +93,6 @@ export default function EventForm() {
         <input
           type="date"
           value={date}
-          required
           onChange={e => setDate(e.target.value)}
         />
       </label>
@@ -99,7 +102,6 @@ export default function EventForm() {
         <select
           name="activityType"
           value={activityType}
-          required
           onChange={updateActivityType}
         >
           {activityTypeOptions.map(opt => {
@@ -110,12 +112,7 @@ export default function EventForm() {
 
       <label>
         Duration:
-        <select
-          name="duration"
-          value={duration}
-          required
-          onChange={updateDuration}
-        >
+        <select name="duration" value={duration} onChange={updateDuration}>
           {durationOptions.map(opt => {
             return <option value={opt}>{opt}</option>;
           })}
@@ -128,7 +125,6 @@ export default function EventForm() {
           name="badgeValues"
           multiple={true}
           value={badgeValues}
-          required
           onChange={updateBadges}
         >
           {badgeOptions.map(opt => {
