@@ -4,6 +4,7 @@ import Badges from "./components/badges/Badges";
 import Profile from "./components/profile/Profile";
 import Activities from "./components/activities/Activities"
 import ActivityButton from './components/add-activity-button/ActivityButton';
+import EventForm from './components/add-event-form/EventForm';
 
 const exampleActivities = [{
   name: 'Football session',
@@ -45,10 +46,10 @@ function App(props) {
   return (
     <div className="App">
       < Profile name={name} avatar={avatar} totalScore={totalScore} />
-      <Badges />
+      < Badges />
       < Activities activities={exampleActivities} />
-
-      <ActivityButton />
+      < ActivityButton />
+      < EventForm />
     </div>
   );
 }
