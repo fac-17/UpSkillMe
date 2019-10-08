@@ -4,13 +4,38 @@ export default function EventForm() {
   const [activityName, setActivityName] = React.useState("");
   const [date, setDate] = React.useState("");
   const [badgeValues, setBadgeValues] = React.useState([]);
-  const badgeOptions = ["Leadership", "Media", "Teamwork", "Creativity"];
+  const badgeOptions = ["Communication", "Creativity", "Innovation", "Leadership", "Media", "Problem Solving", "Teamwork", "Technology"];
 
   const [activityType, setActivityType] = React.useState("");
-  const activityTypeOptions = ["AfterSchool", "Homework"];
+  const activityTypeOptions = ["After School Club",
+  "Careers Workshop",
+  "Competition ",
+  "Employer Event",
+  "Mentoring",
+  "Online Course ",
+  "School Project ",
+  "Skills Workshop",
+  "Sports Club",
+  "Summer School ",
+  "University Event ",
+  "Volunteering ",
+  "Work Experience ",
+  "Other"];
 
   const [duration, setDuration] = React.useState("");
-  const durationOptions = ["1 hour", "2 hours", "3 hours", "4 hours"];
+  const durationOptions = ["1 hour",
+  "2 hours",
+  "3 hours ",
+  "4 hours",
+  "5 hours",
+  "1 day (7 hours)",
+  "2 days ",
+  "3 days ",
+  "4 days ",
+  "1 week ",
+  "2 weeks ",
+  "3 weeks ",
+  "4 weeks"];
 
   const [supportingLink, setSupportingLink] = React.useState("");
 
@@ -26,8 +51,13 @@ export default function EventForm() {
     setDuration(e.target.value);
   };
 
+  const handleSubmit = e => {
+      alert('This form was submitted')
+      e.preventDefault();
+    }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>
         Name of Activity:
         <input
@@ -94,7 +124,7 @@ export default function EventForm() {
           onChange={e => setSupportingLink(e.target.value)}
         />
       </label>
-
+      <input type ="submit" value="Submit" />
     </form>
   );
 }
