@@ -1,4 +1,5 @@
 const pointsCalculator = (time, activityType, skills) => {
+  let pointsObj = {};
   let points = 0;
 
   const activtyObj = {
@@ -18,15 +19,13 @@ const pointsCalculator = (time, activityType, skills) => {
     Other: 20
   };
 
-  if (!activityType) {
-    points += time;
-  } else if (!skills) {
-    points += time * activtyObj[activityType];
-  } else {
-    points += (time * activtyObj[activityType]) / skills.length;
-  }
+  points += (time * activtyObj[activityType]) / skills.length;
 
-  return points;
+  skills.forEach(element => {
+    pointsObj[element] = Math.round(points);
+  });
+
+  return pointsObj;
 };
 
 export default pointsCalculator;

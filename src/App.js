@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Badges from "./components/badges/Badges";
+import pointsCalculator from "./utils/pointsHelper";
 
 function App(props) {
   const [data, setData] = React.useState([]);
