@@ -62,6 +62,7 @@ export default function EventForm() {
         <input
           type="text"
           value={activityName}
+          required
           onChange={e => setActivityName(e.target.value)}
         />
       </label>
@@ -71,6 +72,7 @@ export default function EventForm() {
         <input
           type="date"
           value={date}
+          required
           onChange={e => setDate(e.target.value)}
         />
       </label>
@@ -80,6 +82,7 @@ export default function EventForm() {
         <select
           name="activityType"
           value={activityType}
+          required
           onChange={updateActivityType}
         >
           {activityTypeOptions.map(opt => {
@@ -90,7 +93,12 @@ export default function EventForm() {
 
       <label>
         Duration:
-        <select name="duration" value={duration} onChange={updateDuration}>
+        <select
+          name="duration"
+          value={duration}
+          required
+          onChange={updateDuration}
+        >
           {durationOptions.map(opt => {
             return <option value={opt}>{opt}</option>;
           })}
@@ -103,6 +111,7 @@ export default function EventForm() {
           name="badgeValues"
           multiple={true}
           value={badgeValues}
+          required
           onChange={updateBadges}
         >
           {badgeOptions.map(opt => {

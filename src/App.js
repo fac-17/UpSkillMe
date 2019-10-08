@@ -2,25 +2,28 @@ import React from "react";
 import "./App.css";
 import Badges from "./components/badges/Badges";
 import Profile from "./components/profile/Profile";
-import Activities from "./components/activities/Activities"
-import ActivityButton from './components/add-activity-button/ActivityButton';
-import EventForm from './components/add-event-form/EventForm';
+import Activities from "./components/activities/Activities";
+import ActivityButton from "./components/add-activity-button/ActivityButton";
+import EventForm from "./components/add-event-form/EventForm";
 
-const exampleActivities = [{
-  name: 'Football session',
-  date: 'May 1st',
-  duration: '3 hours',
-  badges: ['Leadership', 'Teamwork'],
-  activityScore: 3,
-  link: 'www.google.com'
-}, {
-  name: 'Maths session',
-  date: 'April 1st',
-  duration: '6 hours',
-  badges: ['Media', 'Problem-solving', 'Leadership'],
-  activityScore: 6,
-  link: 'www.facebook.com'
-}]
+const exampleActivities = [
+  {
+    name: "Football session",
+    date: "May 1st",
+    duration: "3 hours",
+    badges: ["Leadership", "Teamwork"],
+    activityScore: 3,
+    link: "www.google.com"
+  },
+  {
+    name: "Maths session",
+    date: "April 1st",
+    duration: "6 hours",
+    badges: ["Media", "Problem-solving", "Leadership"],
+    activityScore: 6,
+    link: "www.facebook.com"
+  }
+];
 
 function App(props) {
   const [data, setData] = React.useState([]);
@@ -64,18 +67,17 @@ function App(props) {
   return (
     <div className="App">
       <h1>
-        {names} {skills} {activity}
+        {name} {skills} {activity}
       </h1>
       <Badges selectedBadges={["Innovation", "Teamwork", "Technology"]} />
-  
 
-      < Profile name={name} avatar={avatar} totalScore={totalScore} />
-      < Badges />
-      < Activities activities={exampleActivities} />
-      < ActivityButton />
-      < EventForm />
-)
-  
+      <Profile name={name} avatar={avatar} totalScore={totalScore} />
+      <Badges />
+      <Activities activities={exampleActivities} />
+      <ActivityButton />
+      <EventForm />
+    </div>
+  );
 }
 
 export default App;
