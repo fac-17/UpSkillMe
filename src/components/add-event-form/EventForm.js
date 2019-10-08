@@ -17,7 +17,7 @@ export default function EventForm() {
 
   const [activityType, setActivityType] = React.useState("");
   const activityTypeOptions = [
-    "After School Club",
+    "After school club",
     "Careers workshop",
     "Competition ",
     "Employer event",
