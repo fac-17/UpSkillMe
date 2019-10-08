@@ -1,5 +1,5 @@
 import React from "react";
-import pointsCalculator from "./pointsHelper";
+import pointsCalculator from "./pointsCalculator";
 import { tsParenthesizedType } from "@babel/types";
 
 const activity = "Mentoring";
