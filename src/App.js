@@ -45,13 +45,9 @@ function App(props) {
   return (
     <div className="App">
       < Profile name={name} avatar={avatar} totalScore={totalScore} />
+      <Badges />
       < Activities activities={exampleActivities} />
 
-      <Badges selectedBadges={[
-        "Innovation",
-        "Teamwork",
-        "Technology"
-      ]} />
       <ActivityButton />
     </div>
   );
