@@ -1,13 +1,22 @@
-import React from "react";
 import pointsCalculator from "./pointsCalculator";
-import { tsParenthesizedType } from "@babel/types";
 
 const activity = "Mentoring";
 const skills = ["Communication", "Leadership"];
 const skills2 = ["Communication", "Leadership", "Media"];
 
-test("Jest is working", () => {
-  expect(true).toBeTruthy();
+test("function returns an object that has the correct number of points", () => {
+  const value = pointsCalculator(4, activity, skills);
+  expect(value).toStrictEqual({ Communication: 40, Leadership: 40 });
+});
+
+test("function returns an object that has points assigned to skills where points is only ever an integer", () => {
+  const value = pointsCalculator(4, activity, skills2);
+  expect(value).toStrictEqual({ Communication: 27, Leadership: 27, Media: 27 });
+});
+
+test("function returns an object", () => {
+  const value = pointsCalculator(4, activity, skills);
+  expect(typeof value).toBe("object");
 });
 
 //Removed due to changing to object not integer
@@ -31,22 +40,8 @@ test("Jest is working", () => {
 //   expect(value).toEqual(40);
 // });
 
-test("function returns an object", () => {
-  let value = pointsCalculator(4, activity, skills);
-  expect(typeof value).toBe("object");
-});
-
 // test("function returns an object that contains keys equal to the input skills", () => {
 //   let value = pointsCalculator(4, activity, skills);
 //   expect(value).toStrictEqual({ Communication: 0, Leadership: 0 });
 // });
 
-test("function returns an object that has the correct number of points", () => {
-  let value = pointsCalculator(4, activity, skills);
-  expect(value).toStrictEqual({ Communication: 40, Leadership: 40 });
-});
-
-test("function returns an object that has points assigned to skills where points is only ever an integer", () => {
-  let value = pointsCalculator(4, activity, skills2);
-  expect(value).toStrictEqual({ Communication: 27, Leadership: 27, Media: 27 });
-});

@@ -8,9 +8,9 @@ function App(props) {
   const [names, setNames] = React.useState([]);
   const [skills, setSkills] = React.useState([]);
   const [activity, setActivity] = React.useState("");
-  const [date, setDate] = React.useState("");
-  const [duration, setDuration] = React.useState("");
-  const [link, setLink] = React.useState("");
+  // const [date, setDate] = React.useState("");
+  // const [duration, setDuration] = React.useState("");
+  // const [link, setLink] = React.useState("");
   React.useEffect(() => {
     // fetch("/.netlify/functions/APICall")
     fetch("http://localhost:9000/APICall")
@@ -28,7 +28,7 @@ function App(props) {
     fetch("http://localhost:9000/GetUserData")
       .then(res => res.json())
       .then(res => {
-        let pointsArray = [];
+        const pointsArray = [];
         res.records.forEach(e => {
           pointsArray.push(
             pointsCalculator(
