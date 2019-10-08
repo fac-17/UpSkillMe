@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
-import Badges from "./components/badges/Badges"
-
+import Badges from "./components/badges/Badges";
 
 function App(props) {
   const [data, setData] = React.useState([]);
@@ -12,7 +11,8 @@ function App(props) {
   const [duration, setDuration] = React.useState("");
   const [link, setLink] = React.useState("");
   React.useEffect(() => {
-    fetch("/.netlify/functions/APICall")
+    // fetch("/.netlify/functions/APICall")
+    fetch("http://localhost:9000/APICall")
       .then(res => res.json())
       .then(res => {
         setData(res.records);
@@ -22,17 +22,20 @@ function App(props) {
       });
   }, []);
 
-
+  React.useEffect(() => {
+    // fetch("/.netlify/functions/APICall")
+    fetch("http://localhost:9000/GetUserData")
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+      });
+  }, []);
   return (
     <div className="App">
       <h1>
         {names} {skills} {activity}
       </h1>
-      <Badges selectedBadges={[
-        "Innovation",
-        "Teamwork",
-        "Technology"
-      ]} />
+      <Badges selectedBadges={["Innovation", "Teamwork", "Technology"]} />
     </div>
   );
 }
