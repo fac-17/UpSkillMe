@@ -5,6 +5,8 @@ import Profile from "./components/profile/Profile";
 import Activities from "./components/activities/Activities";
 import ActivityButton from "./components/add-activity-button/ActivityButton";
 import EventForm from "./components/add-event-form/EventForm";
+import pointsCalculator from "./utils/pointsCalculator";
+
 
 const exampleActivities = [
   {
@@ -30,11 +32,14 @@ function App(props) {
   const [name, setName] = React.useState(["Joseph McBloggs"]);
   const [skills, setSkills] = React.useState([]);
   const [activity, setActivity] = React.useState("");
+
   const [date, setDate] = React.useState("");
   const [duration, setDuration] = React.useState("");
   const [link, setLink] = React.useState("");
   const [avatar, setAvatar] = React.useState("assets/avatarAlien.svg");
   const [totalScore, setTotalScore] = React.useState(10);
+
+
   React.useEffect(() => {
     // fetch("/.netlify/functions/APICall")
     fetch("http://localhost:9000/APICall")
@@ -52,7 +57,17 @@ function App(props) {
     fetch("http://localhost:9000/GetUserData")
       .then(res => res.json())
       .then(res => {
-        // console.log(res);
+        const pointsArray = [];
+        res.records.forEach(e => {
+          pointsArray.push(
+            pointsCalculator(
+              e.fields.durationHours,
+              e.fields.activityType[0],
+              e.fields.skills
+            )
+          );
+          console.log(pointsArray);
+        });
       });
   }, []);
 
@@ -60,7 +75,7 @@ function App(props) {
     fetch("http://localhost:9000/CreateUserActivity")
       .then(res => res.json())
       .then(res => {
-        console.log(res);
+        // console.log(res);
       });
   }, []);
 
