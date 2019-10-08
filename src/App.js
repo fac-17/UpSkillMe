@@ -1,15 +1,16 @@
 import React from "react";
 import "./App.css";
 import Badges from "./components/badges/Badges";
+import pointsCalculator from "./utils/pointsCalculator";
 
 function App(props) {
   const [data, setData] = React.useState([]);
   const [names, setNames] = React.useState([]);
   const [skills, setSkills] = React.useState([]);
   const [activity, setActivity] = React.useState("");
-  const [date, setDate] = React.useState("");
-  const [duration, setDuration] = React.useState("");
-  const [link, setLink] = React.useState("");
+  // const [date, setDate] = React.useState("");
+  // const [duration, setDuration] = React.useState("");
+  // const [link, setLink] = React.useState("");
   React.useEffect(() => {
     // fetch("/.netlify/functions/APICall")
     fetch("http://localhost:9000/APICall")
@@ -27,7 +28,17 @@ function App(props) {
     fetch("http://localhost:9000/GetUserData")
       .then(res => res.json())
       .then(res => {
-        // console.log(res);
+        const pointsArray = [];
+        res.records.forEach(e => {
+          pointsArray.push(
+            pointsCalculator(
+              e.fields.durationHours,
+              e.fields.activityType[0],
+              e.fields.skills
+            )
+          );
+          console.log(pointsArray);
+        });
       });
   }, []);
 
@@ -35,7 +46,7 @@ function App(props) {
     fetch("http://localhost:9000/CreateUserActivity")
       .then(res => res.json())
       .then(res => {
-        console.log(res);
+        // console.log(res);
       });
   }, []);
 
