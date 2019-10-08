@@ -7,7 +7,6 @@ import ActivityButton from "./components/add-activity-button/ActivityButton";
 import EventForm from "./components/add-event-form/EventForm";
 import pointsCalculator from "./utils/pointsCalculator";
 
-
 const exampleActivities = [
   {
     name: "Football session",
@@ -39,7 +38,6 @@ function App(props) {
   const [avatar, setAvatar] = React.useState("assets/avatarAlien.svg");
   const [totalScore, setTotalScore] = React.useState(10);
 
-
   React.useEffect(() => {
     // fetch("/.netlify/functions/APICall")
     fetch("http://localhost:9000/APICall")
@@ -68,14 +66,6 @@ function App(props) {
           );
           console.log(pointsArray);
         });
-      });
-  }, []);
-
-  React.useEffect(() => {
-    fetch("http://localhost:9000/CreateUserActivity")
-      .then(res => res.json())
-      .then(res => {
-        // console.log(res);
       });
   }, []);
 

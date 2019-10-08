@@ -51,6 +51,23 @@ export default function EventForm() {
   };
 
   const handleSubmit = e => {
+    const stringtest = JSON.stringify({
+      records: [
+        {
+          fields: {
+            name: "tonyjacktest",
+            schoolEmail: "tony@arkacademy.ac.uk",
+            nameOfActivity: "test for post data"
+          }
+        }
+      ]
+    });
+    fetch(`http://localhost:9000/CreateUserActivity?activityData=${stringtest}`)
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+      });
+
     alert("This form was submitted");
     e.preventDefault();
   };
