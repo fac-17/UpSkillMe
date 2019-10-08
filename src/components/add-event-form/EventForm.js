@@ -1,13 +1,28 @@
 import React from 'react';
 
-export default function EventForm(){
+export default function EventForm() {
     const [activityName, setActivityName] = React.useState("");
     const [date, setDate] = React.useState("");
+    const [badgeValues, setBadgeValues] = React.useState([]);
+    const badgeOptions = ['Leadership', 'Media', 'Teamwork', 'Creativity'];
+
+    const [activityType, setActivityType] = React.useState('');
+    const activityTypeOptions = ['AfterSchool', 'Homework'];
+
+
+
+    const updateBadges = (e) => {
+        const value = Array.from(e.target.selectedOptions, option => option.value);
+        setBadgeValues(value);
+    }
+    const updateActivityType = (e) => {
+        setActivityType(e.target.value);
+    }
 
     return (
         <form>
             <label>
-                Name of Activity: 
+                Name of Activity:
                 <input
                     type="text"
                     value={activityName}
@@ -15,7 +30,7 @@ export default function EventForm(){
                 />
             </label>
             <label>
-                Date: 
+                Date:
                 <input
                     type="date"
                     value={date}
@@ -24,29 +39,23 @@ export default function EventForm(){
             </label>
             <label>
                 Activity type:
-                <select name="activityType">
-                    <option>After school club</option>
-                    <option>Careers workshop</option>
-                    <option>Competition</option>
-                    <option>Employer event</option>
-                    <option>Mentoring</option>
-                    <option>Online course</option>
-                    <option>Other</option>
-                    <option>School project</option>
-                    <option>Skills workshop</option>
-                    <option>Sports club</option>
-                    <option>Summer school</option>
-                    <option>University event</option>
-                    <option>Volunteering</option>
-                    <option>Work experience</option>
+                <select name="activityType" value={activityType} onChange={updateActivityType}>
+                    {activityTypeOptions.map(opt => {
+                        return (<option value={opt}>{opt}</option>)
+                    })}
                 </select>
             </label>
             <label>
-                
-
+                Select Skills
+                <select name="badgeValues" multiple={true} value={badgeValues} onChange={updateBadges}>
+                    {badgeOptions.map(opt => {
+                        return (<option value={opt}>{opt}</option>)
+                    })}
+                </select>
             </label>
 
-        
+
+
         </form>
 
 
