@@ -3,6 +3,7 @@ import "./App.css";
 import Badges from "./components/badges/Badges";
 import Profile from "./components/profile/Profile";
 import Activities from "./components/activities/Activities"
+import ActivityButton from './components/add-activity-button/ActivityButton';
 
 const exampleActivities = [{
   name: 'Football session',
@@ -51,6 +52,7 @@ function App(props) {
         "Teamwork",
         "Technology"
       ]} />
+      <ActivityButton />
     </div>
   );
 }
