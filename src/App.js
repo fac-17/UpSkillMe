@@ -23,13 +23,22 @@ function App(props) {
   }, []);
 
   React.useEffect(() => {
-    // fetch("/.netlify/functions/APICall")
+    // fetch("/.netlify/functions/GetUserData")
     fetch("http://localhost:9000/GetUserData")
+      .then(res => res.json())
+      .then(res => {
+        // console.log(res);
+      });
+  }, []);
+
+  React.useEffect(() => {
+    fetch("http://localhost:9000/CreateUserActivity")
       .then(res => res.json())
       .then(res => {
         console.log(res);
       });
   }, []);
+
   return (
     <div className="App">
       <h1>
