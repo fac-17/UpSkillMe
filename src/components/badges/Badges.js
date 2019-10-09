@@ -23,7 +23,21 @@ export default function Badges({ selectedBadges, data }) {
   React.useEffect(() => {
     // make API call and use setSkill points
     console.log("data", data);
+    const targetBadge = "recilXHxEAlJqZFeu";
+    if (data) {
+      console.log("about to print the activities");
+
+      allBadges.forEach(skill => {
+        data.forEach(actitest => {
+          console.log("current badge: ", skill);
+          if (actitest.fields.skills.includes(targetBadge)) {
+            console.log(actitest.fields.nameOfActivity);
+          }
+        });
+      });
+    }
   }, [data]);
+
   return (
     <ul className="badges">
       {badges.map(item => {
