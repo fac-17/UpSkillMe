@@ -43,7 +43,6 @@ function App(props) {
     fetch("http://localhost:9000/APICall")
       .then(res => res.json())
       .then(res => {
-        setData(res.records);
         setName(res.records.map(e => e.fields.name));
         setSkills(res.records.map(e => e.fields.skills));
         setActivity(res.records.map(e => e.fields.nameOfActivity));
@@ -55,6 +54,7 @@ function App(props) {
     fetch("http://localhost:9000/GetUserData")
       .then(res => res.json())
       .then(res => {
+        setData(res.records);
         const pointsArray = [];
         res.records.forEach(e => {
           pointsArray.push(
@@ -74,10 +74,9 @@ function App(props) {
       <h1>
         {name} {skills} {activity}
       </h1>
-      <Badges selectedBadges={["Innovation", "Teamwork", "Technology"]} />
 
       <Profile name={name} avatar={avatar} totalScore={totalScore} />
-      <Badges />
+      <Badges data={data} />
       <Activities activities={exampleActivities} />
       <ActivityButton />
       <EventForm />
