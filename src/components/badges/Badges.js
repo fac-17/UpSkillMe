@@ -49,12 +49,9 @@ export default function Badges({ selectedBadges, data }) {
   });
   React.useEffect(() => {
     // make API call and use setSkill points
-    data = exampleActivities;
-    console.log(data)
     if (data) {
       // copy of the skill points object
       const temporarySkillPoints = { ...skillPoints }
-      console.log(temporarySkillPoints)
       // loop through each skill
       allBadges.forEach(skill => {
         // loop through each activity for this user
@@ -69,7 +66,7 @@ export default function Badges({ selectedBadges, data }) {
       // After running through all skills/acticities, update the state of skill points with the copy 
       setSkillPoints(temporarySkillPoints)
     }
-  }, []);
+  }, [data]);
 
   return (
     <ul className="badges">
