@@ -13,7 +13,6 @@ const skillsConverter = idArray => {
     Technology: "recVncOYn99qVNwir"
   };
   let keyArray = Object.keys(skills);
-  let valueArray = Object.values(skills);
   let result = [];
 
   if (keyArray.includes(idArray[0])) {
