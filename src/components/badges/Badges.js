@@ -11,32 +11,6 @@ const allBadges = [
 ];
 
 
-const exampleActivities = [{
-  fields:
-  {
-    name: "Football session",
-    date: "May 1st",
-    duration: "3 hours",
-    skills: ["Communication"],
-    activityScore: 3,
-    pointsPerSkill: 1,
-    link: "www.google.com"
-  }
-},
-{
-  fields:
-  {
-    name: "Maths session",
-    date: "April 1st",
-    duration: "6 hours",
-    skills: ["Creativity", "Communication", "Innovation"],
-    activityScore: 6,
-    pointsPerSkill: 2,
-    link: "www.facebook.com"
-  }
-}
-];
-
 export default function Badges({ selectedBadges, data }) {
   let badges = allBadges;
   if (selectedBadges) {
