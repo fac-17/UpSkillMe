@@ -7,6 +7,64 @@ import ActivityButton from "./components/add-activity-button/ActivityButton";
 import EventForm from "./components/add-event-form/EventForm";
 import pointsCalculator from "./utils/pointsCalculator";
 
+const APImockData = {
+  "records": [
+      {
+          "id": "recAMfgpaVU5nsKfh",
+          "fields": {
+              "name": "Joe Bloggs",
+              "schoolEmail": "joe.bloggs@arkacademy.ac.uk",
+              "nameOfActivity": "cool thing",
+              "activityType": [
+                  "recbt3yRDLY9GjPc2"
+              ],
+              "date": "2019-10-06",
+              "durationHours": 7,
+              "skills": [
+                  "recilXHxEAlJqZFeu",
+                  "recQtkW5IWh0z3tH5"
+              ],
+              "link": "www.google.com",
+              "totalPoints (Activity points x duration)": 140,
+              "Skills frequency": 2,
+              "Activity Points Lookup": [
+                  20
+              ],
+              "Points per Skill": 70
+          },
+          "createdTime": "2019-10-08T10:55:20.000Z"
+      },
+      {
+          "id": "recar3twJVqiKVtBt",
+          "fields": {
+              "name": "Joe Bloggs",
+              "schoolEmail": "joe.bloggs@arkacademy.ac.uk",
+              "nameOfActivity": "Sick online coding course",
+              "activityType": [
+                  "recbt3yRDLY9GjPc2"
+              ],
+              "date": "2019-10-06",
+              "durationHours": 4,
+              "skills": [
+                  "recilXHxEAlJqZFeu",
+                  "recVncOYn99qVNwir",
+                  "recQtkW5IWh0z3tH5"
+              ],
+              "link": "http://www.foodhack.london/",
+              "totalPoints (Activity points x duration)": 80,
+              "Skills frequency": 3,
+              "Activity Points Lookup": [
+                  20
+              ],
+              "Points per Skill": 26.666666666666668
+          },
+          "createdTime": "2019-10-07T09:56:34.000Z"
+      }
+  ]
+}
+
+
+
 const exampleActivities = [
   {
     name: "Football session",
@@ -64,7 +122,7 @@ function App(props) {
               e.fields.skills
             )
           );
-          console.log(pointsArray);
+          // console.log(pointsArray);
         });
       });
   }, []);
@@ -74,7 +132,7 @@ function App(props) {
       <h1>
         {name} {skills} {activity}
       </h1>
-      <Badges selectedBadges={["Innovation", "Teamwork", "Technology"]} />
+      
 
       <Profile name={name} avatar={avatar} totalScore={totalScore} />
       <Badges />

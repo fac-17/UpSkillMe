@@ -21,6 +21,7 @@ export default function Badges({ selectedBadges }) {
           <li>
             <h2>{item}</h2>
             <img src={`assets/${item}.svg`} alt={item} />
+            <h3>test</h3>
           </li>
         );
       })}
