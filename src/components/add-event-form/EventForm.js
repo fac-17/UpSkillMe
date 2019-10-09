@@ -1,4 +1,6 @@
 import React from "react";
+import skillsConverter from "../../utils/skillsConverter";
+import activityConverter from "../../utils/activityTypeConverter";
 
 export default function EventForm() {
   const [activityName, setActivityName] = React.useState("");
@@ -39,11 +41,13 @@ export default function EventForm() {
   const [supportingLink, setSupportingLink] = React.useState("");
 
   const updateBadges = e => {
-    const value = Array.from(e.target.selectedOptions, option => option.value);
-    setBadgeValues(value);
+    let value = Array.from(e.target.selectedOptions, option => option.value);
+    let newValue = skillsConverter(value);
+    setBadgeValues(newValue);
   };
   const updateActivityType = e => {
-    setActivityType(e.target.value);
+    let convertedActivity = activityConverter(e.target.value);
+    setActivityType(convertedActivity);
   };
 
   const updateDuration = e => {
@@ -51,7 +55,6 @@ export default function EventForm() {
   };
 
   const handleSubmit = e => {
-    console.log("this is the duration", duration);
     const stringtest = JSON.stringify({
       records: [
         {
@@ -70,7 +73,7 @@ export default function EventForm() {
     fetch(`http://localhost:9000/CreateUserActivity?activityData=${stringtest}`)
       .then(res => res.json())
       .then(res => {
-        console.log(res);
+        // console.log(res);
       });
 
     alert("This form was submitted");
