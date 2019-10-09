@@ -74,10 +74,9 @@ function App(props) {
       <h1>
         {name} {skills} {activity}
       </h1>
-      <Badges selectedBadges={["Innovation", "Teamwork", "Technology"]} />
 
       <Profile name={name} avatar={avatar} totalScore={totalScore} />
-      <Badges />
+      <Badges data={data} />
       <Activities activities={exampleActivities} />
       <ActivityButton />
       <EventForm />
