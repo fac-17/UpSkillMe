@@ -6,6 +6,8 @@ import Activities from "./components/activities/Activities";
 import ActivityButton from "./components/add-activity-button/ActivityButton";
 import EventForm from "./components/add-event-form/EventForm";
 import pointsCalculator from "./utils/pointsCalculator";
+import activityConverter from "./utils/activityTypeConverter";
+import skillsConverter from "./utils/skillsConverter";
 
 const APImockData = {
   records: [
@@ -95,19 +97,30 @@ function App(props) {
     fetch("http://localhost:9000/GetUserData")
       .then(res => res.json())
       .then(res => {
-        setData(res.records);
-        const pointsArray = [];
+        let convertedData = {};
         res.records.forEach(e => {
-          pointsArray.push(
-            pointsCalculator(
-              e.fields.durationHours,
-              e.fields.activityType[0],
-              e.fields.skills
-            )
-          );
-          // console.log(pointsArray);
+          e.fields.skills = skillsConverter(e.fields.skills);
         });
-      });
+        return res;
+      })
+      .then(res => console.log(res));
+      
+    // .then(res => console.log('this is converted res.records', skillsConverter(res.records[0].fields.skills)))
+
+    // .then(res => {
+    //   setData(res.records);
+    //   const pointsArray = [];
+    //   res.records.forEach(e => {
+    //     pointsArray.push(
+    //       pointsCalculator(
+    //         e.fields.durationHours,
+    //         e.fields.activityType[0],
+    //         e.fields.skills
+    //       )
+    //     );
+    //     // console.log(pointsArray);
+    //   });
+    // });
   }, []);
 
   return (
