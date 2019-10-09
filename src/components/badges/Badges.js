@@ -10,6 +10,33 @@ const allBadges = [
   "Technology"
 ];
 
+
+const exampleActivities = [{
+  fields:
+  {
+    name: "Football session",
+    date: "May 1st",
+    duration: "3 hours",
+    skills: ["Communication"],
+    activityScore: 3,
+    pointsPerSkill: 1,
+    link: "www.google.com"
+  }
+},
+{
+  fields:
+  {
+    name: "Maths session",
+    date: "April 1st",
+    duration: "6 hours",
+    skills: ["Creativity", "Communication", "Innovation"],
+    activityScore: 6,
+    pointsPerSkill: 2,
+    link: "www.facebook.com"
+  }
+}
+];
+
 export default function Badges({ selectedBadges, data }) {
   let badges = allBadges;
   if (selectedBadges) {
@@ -22,21 +49,27 @@ export default function Badges({ selectedBadges, data }) {
   });
   React.useEffect(() => {
     // make API call and use setSkill points
-    console.log("data", data);
-    const targetBadge = "recilXHxEAlJqZFeu";
+    data = exampleActivities;
+    console.log(data)
     if (data) {
-      console.log("about to print the activities");
-
+      // copy of the skill points object
+      const temporarySkillPoints = { ...skillPoints }
+      console.log(temporarySkillPoints)
+      // loop through each skill
       allBadges.forEach(skill => {
-        data.forEach(actitest => {
-          console.log("current badge: ", skill);
-          if (actitest.fields.skills.includes(targetBadge)) {
-            console.log(actitest.fields.nameOfActivity);
+        // loop through each activity for this user
+        data.forEach(activity => {
+          // if the curr actvitity involves current skill
+          if (activity.fields.skills.includes(skill)) {
+            // increase the number of points by the amount per skill in that activity
+            temporarySkillPoints[skill] = temporarySkillPoints[skill] += activity.fields.pointsPerSkill;
           }
         });
       });
+      // After running through all skills/acticities, update the state of skill points with the copy 
+      setSkillPoints(temporarySkillPoints)
     }
-  }, [data]);
+  }, []);
 
   return (
     <ul className="badges">
