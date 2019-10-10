@@ -111,10 +111,8 @@ function App(props) {
 
   return (
     <div className="App">
-      <h1>
-        {name} {skills} {activity}
-      </h1>
-      <Profile name={name} avatar={avatar} data={data}/>
+      
+      <Profile avatar={avatar} data={data}/>
       <Badges data={data} />
       <Activities activities={exampleActivities} />
       <ActivityButton />
