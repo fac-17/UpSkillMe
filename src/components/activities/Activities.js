@@ -5,9 +5,10 @@ export default function Activities({ activities }) {
     return (
         <div>
             <h2>Activity log</h2>
-            {activities.map(activity => {
+            <h3>Displaying {activities.length} of {activities.length}</h3>
+            {activities.map((activity, index) => {
                 return (
-                    <Activity activity={activity} />
+                    <Activity activity={activity} index={index} />
                 )
             })}
         </div>

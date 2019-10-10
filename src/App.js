@@ -77,6 +77,7 @@ function App(props) {
   const [duration, setDuration] = React.useState("");
   const [link, setLink] = React.useState("");
   const [avatar, setAvatar] = React.useState("assets/avatarAlien.svg");
+  const [dataRefresh, setDataRefresh] = React.useState(true);
 
   React.useEffect(() => {
     // fetch("/.netlify/functions/APICall")
@@ -91,30 +92,34 @@ function App(props) {
 
   React.useEffect(() => {
     // fetch("/.netlify/functions/GetUserData")
-    fetch("http://localhost:9000/GetUserData")
-      .then(res => res.json())
-      .then(res => {
-        res.records.forEach(e => {
-          e.fields.skills = skillsConverter(e.fields.skills);
-          e.fields.activityType = activityConverter(e.fields.activityType[0]);
+    if (dataRefresh) {
+      fetch("http://localhost:9000/GetUserData")
+        .then(res => res.json())
+        .then(res => {
+          res.records.forEach(e => {
+            e.fields.skills = skillsConverter(e.fields.skills);
+            e.fields.activityType = activityConverter(e.fields.activityType[0]);
+          });
+          return res;
+        })
+        .then(res => {
+          setData(res.records);
+          setDataRefresh(false)
         });
-        return res;
-      })
-      .then(res => {
-        setData(res.records);
-      });
-  }, []);
+
+    }
+  }, [dataRefresh]);
 
   return (
     <div className="App">
-      <h1>
-        {name} {skills} {activity}
-      </h1>
-      <Profile name={name} avatar={avatar} data={data} />
+
+
+      <Profile avatar={avatar} data={data} />
+
       <Badges data={data} />
-      <Activities activities={exampleActivities} />
+      <Activities activities={data} />
       <ActivityButton />
-      <EventForm />
+      <EventForm setDataRefresh={setDataRefresh} />
     </div>
   );
 }

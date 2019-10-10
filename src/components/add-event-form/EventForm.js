@@ -2,7 +2,7 @@ import React from "react";
 import skillsConverter from "../../utils/skillsConverter";
 import activityConverter from "../../utils/activityTypeConverter";
 
-export default function EventForm() {
+export default function EventForm({setDataRefresh }) {
   const [activityName, setActivityName] = React.useState("");
   const [date, setDate] = React.useState("");
   const [badgeValues, setBadgeValues] = React.useState([]);
@@ -65,7 +65,7 @@ export default function EventForm() {
             durationHours: duration,
             link: supportingLink,
             skills: badgeValues,
-            schoolEmail: "tbd@gmail.com"
+            schoolEmail: "emaggy@arkacademy.ac.uk"
           }
         }
       ]
@@ -73,7 +73,9 @@ export default function EventForm() {
     fetch(`http://localhost:9000/CreateUserActivity?activityData=${stringtest}`)
       .then(res => res.json())
       .then(res => {
-        // console.log(res);
+        console.log('came into refresh')
+        setDataRefresh(true);
+
       });
 
     alert("This form was submitted");
