@@ -10,7 +10,7 @@ export default function Activity({ activity, index }) {
     return (<ul>
         <h4> Activity #{index + 1} </h4>
         <li>{activity.fields.nameOfActivity}</li>
-        <li>{activity.fields.date}</li>
+        <li>{activity.fields.daysAgo} days ago</li>
         <li>{activity.fields.durationHours} Hours</li>
         <li><Badges selectedBadges={activity.fields.skills} />
         </li>
