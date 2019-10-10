@@ -8,6 +8,13 @@ import EventForm from "./components/add-event-form/EventForm";
 import activityConverter from "./utils/activityTypeConverter";
 import skillsConverter from "./utils/skillsConverter";
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 const APImockData = {
   records: [
     {
@@ -111,17 +118,30 @@ function App(props) {
   }, [dataRefresh]);
 
   return (
-    <div className="App">
-
-
-      <Profile avatar={avatar} data={data} />
-
-      <Badges data={data} />
-      <Activities activities={data} />
-      <ActivityButton />
-      <EventForm setDataRefresh={setDataRefresh} />
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <h1>Welcome to UpSkillMe</h1>
+          </Route>
+          <Route path="/profile">
+            <Profile avatar={avatar} data={data} />
+            <Badges data={data} />
+            <Activities activities={data} />
+            <ActivityButton />
+            <EventForm setDataRefresh={setDataRefresh} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
+
+
 }
 
 export default App;
+
+
+
+
+
