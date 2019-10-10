@@ -5,7 +5,8 @@ import Profile from "./components/profile/Profile";
 import Activities from "./components/activities/Activities";
 import ActivityButton from "./components/add-activity-button/ActivityButton";
 import EventForm from "./components/add-event-form/EventForm";
-import pointsCalculator from "./utils/pointsCalculator";
+import activityConverter from "./utils/activityTypeConverter";
+import skillsConverter from "./utils/skillsConverter";
 
 const APImockData = {
   records: [
@@ -72,12 +73,11 @@ function App(props) {
   const [name, setName] = React.useState(["Joseph McBloggs"]);
   const [skills, setSkills] = React.useState([]);
   const [activity, setActivity] = React.useState("");
-
   const [date, setDate] = React.useState("");
   const [duration, setDuration] = React.useState("");
   const [link, setLink] = React.useState("");
   const [avatar, setAvatar] = React.useState("assets/avatarAlien.svg");
-  
+
   React.useEffect(() => {
     // fetch("/.netlify/functions/APICall")
     fetch("http://localhost:9000/APICall")
@@ -94,18 +94,14 @@ function App(props) {
     fetch("http://localhost:9000/GetUserData")
       .then(res => res.json())
       .then(res => {
-        setData(res.records);
-        const pointsArray = [];
         res.records.forEach(e => {
-          pointsArray.push(
-            pointsCalculator(
-              e.fields.durationHours,
-              e.fields.activityType[0],
-              e.fields.skills
-            )
-          );
-          // console.log(pointsArray);
+          e.fields.skills = skillsConverter(e.fields.skills);
+          e.fields.activityType = activityConverter(e.fields.activityType[0]);
         });
+        return res;
+      })
+      .then(res => {
+        setData(res.records);
       });
   }, []);
 
@@ -114,7 +110,7 @@ function App(props) {
       <h1>
         {name} {skills} {activity}
       </h1>
-      <Profile name={name} avatar={avatar} data={data}/>
+      <Profile name={name} avatar={avatar} data={data} />
       <Badges data={data} />
       <Activities activities={exampleActivities} />
       <ActivityButton />
