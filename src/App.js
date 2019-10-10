@@ -77,8 +77,7 @@ function App(props) {
   const [duration, setDuration] = React.useState("");
   const [link, setLink] = React.useState("");
   const [avatar, setAvatar] = React.useState("assets/avatarAlien.svg");
-  const [totalScore, setTotalScore] = React.useState(10);
-
+  
   React.useEffect(() => {
     // fetch("/.netlify/functions/APICall")
     fetch("http://localhost:9000/APICall")
@@ -115,7 +114,7 @@ function App(props) {
       <h1>
         {name} {skills} {activity}
       </h1>
-      <Profile name={name} avatar={avatar} totalScore={totalScore} />
+      <Profile name={name} avatar={avatar} data={data}/>
       <Badges data={data} />
       <Activities activities={exampleActivities} />
       <ActivityButton />
