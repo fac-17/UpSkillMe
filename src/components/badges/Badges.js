@@ -16,11 +16,18 @@ export default function Badges({ selectedBadges, data }) {
   if (selectedBadges) {
     badges = selectedBadges;
   }
-  const [skillPoints, setSkillPoints] = React.useState({
-    Communication: 10,
-    Creativity: 50,
-    Innovation: 20
-  });
+  const [skillPoints, setSkillPoints] = React.useState(
+    {
+  "Communication" : 0,
+  "Creativity" : 0,
+  "Innovation": 0,
+  "Leadership": 0,
+  "Media": 0,
+  "Problem-solving": 0,
+  "Teamwork": 0,
+  "Technology": 0
+  }
+  , []);
   React.useEffect(() => {
     // make API call and use setSkill points
     if (data) {

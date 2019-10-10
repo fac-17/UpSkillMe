@@ -77,6 +77,7 @@ function App(props) {
   const [duration, setDuration] = React.useState("");
   const [link, setLink] = React.useState("");
   const [avatar, setAvatar] = React.useState("assets/avatarAlien.svg");
+  const [dataRefresh, setDataRefresh] = React.useState(true);
 
   React.useEffect(() => {
     // fetch("/.netlify/functions/APICall")
@@ -91,6 +92,7 @@ function App(props) {
 
   React.useEffect(() => {
     // fetch("/.netlify/functions/GetUserData")
+    if (dataRefresh) {
     fetch("http://localhost:9000/GetUserData")
       .then(res => res.json())
       .then(res => {
@@ -102,8 +104,11 @@ function App(props) {
       })
       .then(res => {
         setData(res.records);
+        setDataRefresh(false)
       });
-  }, []);
+
+    }
+  }, [dataRefresh]);
 
   return (
     <div className="App">
@@ -111,10 +116,10 @@ function App(props) {
       
       <Profile avatar={avatar} data={data}/>
 
-      <Badges data={data} />
-      <Activities activities={exampleActivities} />
+      {/* <Badges data={data} /> */}
+      <Activities activities={data} />
       <ActivityButton />
-      <EventForm />
+      <EventForm setDataRefresh ={setDataRefresh} />
     </div>
   );
 }
