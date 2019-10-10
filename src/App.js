@@ -93,19 +93,19 @@ function App(props) {
   React.useEffect(() => {
     // fetch("/.netlify/functions/GetUserData")
     if (dataRefresh) {
-    fetch("http://localhost:9000/GetUserData")
-      .then(res => res.json())
-      .then(res => {
-        res.records.forEach(e => {
-          e.fields.skills = skillsConverter(e.fields.skills);
-          e.fields.activityType = activityConverter(e.fields.activityType[0]);
+      fetch("http://localhost:9000/GetUserData")
+        .then(res => res.json())
+        .then(res => {
+          res.records.forEach(e => {
+            e.fields.skills = skillsConverter(e.fields.skills);
+            e.fields.activityType = activityConverter(e.fields.activityType[0]);
+          });
+          return res;
+        })
+        .then(res => {
+          setData(res.records);
+          setDataRefresh(false)
         });
-        return res;
-      })
-      .then(res => {
-        setData(res.records);
-        setDataRefresh(false)
-      });
 
     }
   }, [dataRefresh]);
@@ -113,13 +113,13 @@ function App(props) {
   return (
     <div className="App">
 
-      
-      <Profile avatar={avatar} data={data}/>
 
-      {/* <Badges data={data} /> */}
+      <Profile avatar={avatar} data={data} />
+
+      <Badges data={data} />
       <Activities activities={data} />
       <ActivityButton />
-      <EventForm setDataRefresh ={setDataRefresh} />
+      <EventForm setDataRefresh={setDataRefresh} />
     </div>
   );
 }

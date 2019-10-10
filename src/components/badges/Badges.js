@@ -18,21 +18,30 @@ export default function Badges({ selectedBadges, data }) {
   }
   const [skillPoints, setSkillPoints] = React.useState(
     {
-  "Communication" : 0,
-  "Creativity" : 0,
-  "Innovation": 0,
-  "Leadership": 0,
-  "Media": 0,
-  "Problem-solving": 0,
-  "Teamwork": 0,
-  "Technology": 0
-  }
-  , []);
+      "Communication": 0,
+      "Creativity": 0,
+      "Innovation": 0,
+      "Leadership": 0,
+      "Media": 0,
+      "Problem-solving": 0,
+      "Teamwork": 0,
+      "Technology": 0
+    }
+    , []);
   React.useEffect(() => {
     // make API call and use setSkill points
     if (data) {
       // copy of the skill points object
-      const temporarySkillPoints = { ...skillPoints }
+      const temporarySkillPoints = {
+        "Communication": 0,
+        "Creativity": 0,
+        "Innovation": 0,
+        "Leadership": 0,
+        "Media": 0,
+        "Problem-solving": 0,
+        "Teamwork": 0,
+        "Technology": 0
+      }
       // loop through each skill
       allBadges.forEach(skill => {
         // loop through each activity for this user
@@ -56,7 +65,7 @@ export default function Badges({ selectedBadges, data }) {
           <li>
             <h2>{item}</h2>
             <img src={`assets/${item}.svg`} alt={item} />
-            <p>Points:{skillPoints[item]}</p>
+            {!selectedBadges ? <p>Points:{skillPoints[item]}</p> : ''}
           </li>
         );
       })}
