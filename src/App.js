@@ -76,7 +76,7 @@ function App(props) {
   const [date, setDate] = React.useState("");
   const [duration, setDuration] = React.useState("");
   const [link, setLink] = React.useState("");
-  const [avatar, setAvatar] = React.useState("assets/avatarAlien.svg");
+  const [avatar, setAvatar] = React.useState("assets/Alien_blob_avatar.svg");
   const [dataRefresh, setDataRefresh] = React.useState(true);
 
   React.useEffect(() => {

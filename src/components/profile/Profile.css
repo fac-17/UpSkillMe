@@ -1,7 +1,12 @@
 
 body {
     font-family: 'Nunito', sans-serif;
-    display: flex;
-    flex-direction: column;
-    text-align: center
+}
+
+
+.profile {
+flex-direction: column;
+text-align: center;
+background-color: #ecebe4;
+border: 
 }
