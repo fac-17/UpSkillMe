@@ -79,7 +79,7 @@ function App(props) {
   const [duration, setDuration] = React.useState("");
   const [link, setLink] = React.useState("");
   const [avatar, setAvatar] = React.useState("assets/avatarAlien.svg");
-  
+
   React.useEffect(() => {
     // fetch("/.netlify/functions/APICall")
     fetch("http://localhost:9000/APICall")
@@ -96,30 +96,20 @@ function App(props) {
     fetch("http://localhost:9000/GetUserData")
       .then(res => res.json())
       .then(res => {
-        let convertedData = {};
         res.records.forEach(e => {
           e.fields.skills = skillsConverter(e.fields.skills);
         });
         return res;
       })
-      .then(res => console.log(res));
-      
-    // .then(res => console.log('this is converted res.records', skillsConverter(res.records[0].fields.skills)))
-
-    // .then(res => {
-    //   setData(res.records);
-    //   const pointsArray = [];
-    //   res.records.forEach(e => {
-    //     pointsArray.push(
-    //       pointsCalculator(
-    //         e.fields.durationHours,
-    //         e.fields.activityType[0],
-    //         e.fields.skills
-    //       )
-    //     );
-    //     // console.log(pointsArray);
-    //   });
-    // });
+      .then(res => {
+        res.records.forEach(e => {
+          e.fields.activityType = activityConverter(e.fields.activityType[0]);
+        });
+        return res;
+      })
+      .then(res => {
+        setData(res.records);
+      });
   }, []);
 
   return (
@@ -127,7 +117,7 @@ function App(props) {
       <h1>
         {name} {skills} {activity}
       </h1>
-      <Profile name={name} avatar={avatar} data={data}/>
+      <Profile name={name} avatar={avatar} data={data} />
       <Badges data={data} />
       <Activities activities={exampleActivities} />
       <ActivityButton />

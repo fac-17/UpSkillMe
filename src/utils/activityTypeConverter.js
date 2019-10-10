@@ -5,7 +5,7 @@ const activityConverter = input => {
   const getKeyByValue = (array, object, value) => {
     return array.find(key => object[key] === value);
   };
-  const skills = {
+  const activity = {
     "After school club": "recbt3yRDLY9GjPc2",
     "Careers workshop": "rec7lzaalxuMGOc1z",
     Competition: "recX0DSvfI0EkTWzP",
@@ -22,16 +22,16 @@ const activityConverter = input => {
     Other: "reczhkJJNz2JsLvxW"
   };
 
-  let keyArray = Object.keys(skills);
+  let keyArray = Object.keys(activity);
   let result = [];
 
   if (keyArray.includes(activityArray[0])) {
     result = activityArray.map(e => {
-      return skills[e];
+      return activity[e];
     });
   } else {
     result = activityArray.map(e => {
-      return getKeyByValue(keyArray, skills, e);
+      return getKeyByValue(keyArray, activity, e);
     });
   }
   return result;
