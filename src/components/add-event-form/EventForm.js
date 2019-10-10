@@ -12,7 +12,7 @@ export default function EventForm() {
     "Innovation",
     "Leadership",
     "Media",
-    "Problem Solving",
+    "Problem solving",
     "Teamwork",
     "Technology"
   ];
@@ -63,7 +63,7 @@ export default function EventForm() {
     Innovation: "recQtkW5IWh0z3tH5",
     Leadership: "reczDCLXfOC5iHLiQ",
     Media: "recSIsNHGiRbV8CR7",
-    "Problem-solving": "recOt8tI1ZLivhoZV",
+    "Problem solving": "recOt8tI1ZLivhoZV",
     Teamwork: "recTHKDy3NJghbCrJ",
     Technology: "recVncOYn99qVNwir"
   };
@@ -75,8 +75,9 @@ export default function EventForm() {
 
   const updateBadges = e => {
     let value = Array.from(e.target.selectedOptions, option => option.value);
-    let newValue = skillsConverter(value);
-    setBadgeValues(newValue);
+    value = value.slice(-3);
+    // let newValue = skillsConverter(value);
+    setBadgeValues(value);
   };
   const updateActivityType = e => {
     let convertedActivity = activityConverter(e.target.value);
@@ -97,7 +98,7 @@ export default function EventForm() {
             date: date,
             durationHours: duration,
             link: supportingLink,
-            skills: badgeValues,
+            skills: skillsConverter(badgeValues),
             schoolEmail: "tbd@gmail.com"
           }
         }
@@ -160,15 +161,14 @@ export default function EventForm() {
         <select
           name="badgeValues"
           multiple={true}
-          value={skillsDictionary[badgeValues]}
+          value={badgeValues}
           onChange={updateBadges}
         >
-          {badgeValues.length >= 3 ? badgeValues.map(
-              opt => {
-                return <option value={opt}>{skillsDictionary[opt]}</option>;
-            }) : badgeOptions.map(opt => {
+          {badgeOptions.map(
+            opt => {
               return <option value={opt}>{opt}</option>;
-          })  
+            })
+          })
 
           }
         </select>
