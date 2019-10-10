@@ -17,23 +17,56 @@ export default function EventForm() {
     "Technology"
   ];
 
+  // const emptyBadgeOptions = React.useState(badgeOptions);
+  // if(badgeOptions !== null && badgeOptions.length === 3) {
+
+  // }
+
   const [activityType, setActivityType] = React.useState("");
   const activityTypeOptions = [
     "After school club",
     "Careers workshop",
-    "Competition ",
+    "Competition",
     "Employer event",
     "Mentoring",
-    "Online course ",
-    "School project ",
+    "Online course",
+    "School project",
     "Skills workshop",
     "Sports club",
-    "Summer school ",
-    "University event ",
-    "Volunteering ",
-    "Work experience ",
+    "Summer school",
+    "University event",
+    "Volunteering",
+    "Work experience",
     "Other"
   ];
+
+  const activityDictionary = {
+    "After school club": "recbt3yRDLY9GjPc2",
+    "Careers workshop": "rec7lzaalxuMGOc1z",
+    Competition: "recX0DSvfI0EkTWzP",
+    "Employer event": "recO6WjBempBCwXPW",
+    Mentoring: "recINqvhi14OEQ16V",
+    "Online course": "recan6J6O1yDNNaum",
+    "School project": "recKUogjAsEuiz7LZ",
+    "Skills workshop": "recWvSVTJnacRMxGi",
+    "Summer school": "recKKc2X7Rx40sy7T",
+    "University event": "rec7KmKGVf7Bj2IrE",
+    Volunteering: "recv1xg4hehyyybA4",
+    "Work experience": "recFP2EcUV54UQiDB",
+    "Sports club": "recUe5uzB4CJoT6Xk",
+    Other: "reczhkJJNz2JsLvxW"
+  };
+
+  const skillsDictionary = {
+    Communication: "rec1aXpu34QFpVnDc",
+    Creativity: "recilXHxEAlJqZFeu",
+    Innovation: "recQtkW5IWh0z3tH5",
+    Leadership: "reczDCLXfOC5iHLiQ",
+    Media: "recSIsNHGiRbV8CR7",
+    "Problem-solving": "recOt8tI1ZLivhoZV",
+    Teamwork: "recTHKDy3NJghbCrJ",
+    Technology: "recVncOYn99qVNwir"
+  };
 
   const [duration, setDuration] = React.useState(0);
   const durationOptions = [1, 2, 3, 4, 5, 6, 7, 14, 21, 28, 35, 70, 105, 140];
@@ -104,7 +137,7 @@ export default function EventForm() {
         Activity type:
         <select
           name="activityType"
-          value={activityType}
+          value={activityDictionary[activityType]}
           onChange={updateActivityType}
         >
           {activityTypeOptions.map(opt => {
@@ -127,12 +160,17 @@ export default function EventForm() {
         <select
           name="badgeValues"
           multiple={true}
-          value={badgeValues}
+          value={skillsDictionary[badgeValues]}
           onChange={updateBadges}
         >
-          {badgeOptions.map(opt => {
-            return <option value={opt}>{opt}</option>;
-          })}
+          {badgeValues.length >= 3 ? badgeValues.map(
+              opt => {
+                return <option value={opt}>{skillsDictionary[opt]}</option>;
+            }) : badgeOptions.map(opt => {
+              return <option value={opt}>{opt}</option>;
+          })  
+
+          }
         </select>
       </label>
 
