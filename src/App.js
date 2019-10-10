@@ -7,73 +7,8 @@ import ActivityButton from "./components/add-activity-button/ActivityButton";
 import EventForm from "./components/add-event-form/EventForm";
 import activityConverter from "./utils/activityTypeConverter";
 import skillsConverter from "./utils/skillsConverter";
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
-const APImockData = {
-  records: [
-    {
-      id: "recAMfgpaVU5nsKfh",
-      fields: {
-        name: "Joe Bloggs",
-        schoolEmail: "joe.bloggs@arkacademy.ac.uk",
-        nameOfActivity: "cool thing",
-        activityType: ["recbt3yRDLY9GjPc2"],
-        date: "2019-10-06",
-        durationHours: 7,
-        skills: ["recilXHxEAlJqZFeu", "recQtkW5IWh0z3tH5"],
-        link: "www.google.com",
-        "totalPoints (Activity points x duration)": 140,
-        "Skills frequency": 2,
-        "Activity Points Lookup": [20],
-        "Points per Skill": 70
-      },
-      createdTime: "2019-10-08T10:55:20.000Z"
-    },
-    {
-      id: "recar3twJVqiKVtBt",
-      fields: {
-        name: "Joe Bloggs",
-        schoolEmail: "joe.bloggs@arkacademy.ac.uk",
-        nameOfActivity: "Sick online coding course",
-        activityType: ["recbt3yRDLY9GjPc2"],
-        date: "2019-10-06",
-        durationHours: 4,
-        skills: ["recilXHxEAlJqZFeu", "recVncOYn99qVNwir", "recQtkW5IWh0z3tH5"],
-        link: "http://www.foodhack.london/",
-        "totalPoints (Activity points x duration)": 80,
-        "Skills frequency": 3,
-        "Activity Points Lookup": [20],
-        "Points per Skill": 26.666666666666668
-      },
-      createdTime: "2019-10-07T09:56:34.000Z"
-    }
-  ]
-};
-
-const exampleActivities = [
-  {
-    name: "Football session",
-    date: "May 1st",
-    duration: "3 hours",
-    badges: ["Leadership", "Teamwork"],
-    activityScore: 3,
-    link: "www.google.com"
-  },
-  {
-    name: "Maths session",
-    date: "April 1st",
-    duration: "6 hours",
-    badges: ["Media", "Problem-solving", "Leadership"],
-    activityScore: 6,
-    link: "www.facebook.com"
-  }
-];
+import LogInForm from "./components/log-in-form/LogInForm";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App(props) {
   const [data, setData] = React.useState([]);
@@ -85,6 +20,7 @@ function App(props) {
   const [link, setLink] = React.useState("");
   const [avatar, setAvatar] = React.useState("assets/avatarAlien.svg");
   const [dataRefresh, setDataRefresh] = React.useState(true);
+  const [emailInput, setEmailInput] = React.useState("");
 
   React.useEffect(() => {
     // fetch("/.netlify/functions/APICall")
@@ -97,23 +33,49 @@ function App(props) {
       });
   }, []);
 
+  // React.useEffect(() => {
+  //   // fetch("/.netlify/functions/GetUserData")
+  //   const userData = JSON.stringify({ email: emailInput });
+  //   if (dataRefresh) {
+  //     fetch(`http://localhost:9000/GetUserData?email=${userData}`)
+  //       .then(res => res.json())
+  //       .then(res => {
+  //         res.records.forEach(e => {
+  //           e.fields.skills = skillsConverter(e.fields.skills);
+  //           e.fields.activityType = activityConverter(e.fields.activityType[0]);
+  //         });
+  //         return res;
+  //       })
+  //       .then(res => {
+  //         setData(res.records);
+  //         setDataRefresh(false);
+  //       });
+  //   }
+  // }, [dataRefresh]);
+
   React.useEffect(() => {
     // fetch("/.netlify/functions/GetUserData")
-    if (dataRefresh) {
-      fetch("http://localhost:9000/GetUserData")
+    console.log("this is email input", emailInput);
+    const userData = JSON.stringify({ email: emailInput });
+    console.log(userData);
+    if (emailInput !== "") {
+      fetch(`http://localhost:9000/GetUserData?email=${userData}`)
         .then(res => res.json())
         .then(res => {
-          res.records.forEach(e => {
-            e.fields.skills = skillsConverter(e.fields.skills);
-            e.fields.activityType = activityConverter(e.fields.activityType[0]);
-          });
+          if (res.records) {
+            res.records.forEach(e => {
+              e.fields.skills = skillsConverter(e.fields.skills);
+              e.fields.activityType = activityConverter(
+                e.fields.activityType[0]
+              );
+            });
+          }
           return res;
         })
         .then(res => {
           setData(res.records);
-          setDataRefresh(false)
+          setDataRefresh(false);
         });
-
     }
   }, [dataRefresh]);
 
@@ -123,25 +85,22 @@ function App(props) {
         <Switch>
           <Route exact path="/">
             <h1>Welcome to UpSkillMe</h1>
+            <LogInForm emailInput={emailInput} setEmailInput={setEmailInput} />
           </Route>
           <Route path="/profile">
             <Profile avatar={avatar} data={data} />
             <Badges data={data} />
             <Activities activities={data} />
             <ActivityButton />
-            <EventForm setDataRefresh={setDataRefresh} />
+            <EventForm
+              setDataRefresh={setDataRefresh}
+              emailInput={emailInput}
+            />
           </Route>
         </Switch>
       </div>
     </Router>
   );
-
-
 }
 
 export default App;
-
-
-
-
-
