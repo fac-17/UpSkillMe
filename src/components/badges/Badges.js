@@ -63,7 +63,7 @@ export default function Badges({ selectedBadges, data }) {
       {badges.map(item => {
         return (
           <li>
-            <h2>{item}</h2>
+            <h5>{item}</h5>
             <img src={`assets/${item}.svg`} alt={item} />
             {!selectedBadges ? <p>Points:{skillPoints[item]}</p> : ''}
           </li>

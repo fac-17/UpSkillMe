@@ -1,14 +1,14 @@
 import React from 'react';
 import Badges from '../../components/badges/Badges';
 
-export default function Activity({ activity }) {
+export default function Activity({ activity, index }) {
     React.useEffect(() => {
     }, activity
 
     )
 
     return (<ul>
-        <h2> New Activity </h2>
+        <h4> Activity #{index + 1} </h4>
         <li>{activity.fields.nameOfActivity}</li>
         <li>{activity.fields.date}</li>
         <li>{activity.fields.durationHours} Hours</li>

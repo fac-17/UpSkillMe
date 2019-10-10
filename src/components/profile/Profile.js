@@ -1,29 +1,31 @@
 import React from "react";
 
 
-export default function Profile({ name, avatar, data }){
+export default function Profile({ name, avatar, data }) {
     const [totalScore, setTotalScore] = React.useState(10);
     const [email, setEmail] = React.useState('tbd');
 
-    React.useEffect(()=>{
+    React.useEffect(() => {
         if (data) {
-    let tempTotalPoints = 0
-    data.forEach(activity=>{
-        tempTotalPoints+=activity.fields['totalPoints (Activity points x duration)']
-    }) 
-    setTotalScore(tempTotalPoints)
-    if (data[0]) {
-        setEmail(data[0].fields.schoolEmail)}
-}
+            let tempTotalPoints = 0
+            data.forEach(activity => {
+                tempTotalPoints += activity.fields['totalPoints (Activity points x duration)']
+            })
+            setTotalScore(tempTotalPoints)
+            if (data[0]) {
+                setEmail(data[0].fields.schoolEmail)
+            }
+        }
 
-    },[data])
+    }, [data])
     if (!data) {
-        return (<p>Loading</p>)}
-    return(
+        return (<p>Loading</p>)
+    }
+    return (
         <div>
-        <h1>{email}</h1>
-        <img src={avatar} alt="this is our avatar pic" width="200px"/>
-        <h2>{totalScore}</h2>
+            <h1>{email}</h1>
+            <img src={avatar} alt="this is our avatar pic" width="200px" />
+            <h2>{totalScore} total points</h2>
         </div>
     )
 }
