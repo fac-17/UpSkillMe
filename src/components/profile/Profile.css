@@ -1,12 +1,11 @@
-
-body {
-    font-family: 'Nunito', sans-serif;
-}
-
+/* body {
+  font-family: "Nunito", sans-serif;
+} */
 
 .profile {
-flex-direction: column;
-text-align: center;
-background-color: #ecebe4;
-border: 
+  font-family: "Nunito", sans-serif;
+  flex-direction: column;
+  text-align: center;
+  background-color: #ecebe4;
+  border: ;
 }

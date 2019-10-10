@@ -1,0 +1,11 @@
+.badges {
+    font-family: "Nunito", sans-serif;
+    color: blueviolet;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-content: flex-end;
+    
+    
+}

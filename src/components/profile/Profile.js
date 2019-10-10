@@ -26,8 +26,8 @@ export default function Profile({ name, avatar, data }) {
         <section className = "profile">
             <h1>{email}</h1>
             <img className = "avatar" src={avatar} alt="this is our avatar pic" width="200px" />
-            <img src = "./public/assets/certificate 2.1.svg" alt="point certificate"/>
             <h2>{totalScore} total points</h2>
+            {/* <img src="../../../public/assets/Alien_blob_avatar.svg"/> */}
         </section>
     )
 }

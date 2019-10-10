@@ -1,5 +1,6 @@
 import React from 'react';
 import Badges from '../../components/badges/Badges';
+import "./Activity.css"
 
 export default function Activity({ activity, index }) {
     React.useEffect(() => {
@@ -7,7 +8,7 @@ export default function Activity({ activity, index }) {
 
     )
 
-    return (<ul>
+    return (<ul className="list">
         <h4> Activity #{index + 1} </h4>
         <li>{activity.fields.nameOfActivity}</li>
         <li>{activity.fields.daysAgo} days ago</li>
