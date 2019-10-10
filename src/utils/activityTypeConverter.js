@@ -1,6 +1,5 @@
 const activityConverter = input => {
-  let activityArray = [];
-  activityArray.push(input);
+  let activityArray = [input];
 
   const getKeyByValue = (array, object, value) => {
     return array.find(key => object[key] === value);
@@ -35,7 +34,6 @@ const activityConverter = input => {
     });
   }
   return result;
-  // return activityArray;
 };
 
 export default activityConverter;

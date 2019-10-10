@@ -5,7 +5,6 @@ import Profile from "./components/profile/Profile";
 import Activities from "./components/activities/Activities";
 import ActivityButton from "./components/add-activity-button/ActivityButton";
 import EventForm from "./components/add-event-form/EventForm";
-import pointsCalculator from "./utils/pointsCalculator";
 import activityConverter from "./utils/activityTypeConverter";
 import skillsConverter from "./utils/skillsConverter";
 
@@ -74,7 +73,6 @@ function App(props) {
   const [name, setName] = React.useState(["Joseph McBloggs"]);
   const [skills, setSkills] = React.useState([]);
   const [activity, setActivity] = React.useState("");
-
   const [date, setDate] = React.useState("");
   const [duration, setDuration] = React.useState("");
   const [link, setLink] = React.useState("");
@@ -98,11 +96,6 @@ function App(props) {
       .then(res => {
         res.records.forEach(e => {
           e.fields.skills = skillsConverter(e.fields.skills);
-        });
-        return res;
-      })
-      .then(res => {
-        res.records.forEach(e => {
           e.fields.activityType = activityConverter(e.fields.activityType[0]);
         });
         return res;
