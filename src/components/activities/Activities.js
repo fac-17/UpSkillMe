@@ -3,7 +3,7 @@ import Activity from "../activity/Activity";
 
 export default function Activities({ activities }) {
   if (!activities) {
-    return <h1> Loading...</h1>;
+    return <h3> Activities not loaded...</h3>;
   }
   return (
     <div>

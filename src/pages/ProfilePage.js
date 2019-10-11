@@ -1,5 +1,4 @@
 import React from "react";
-
 import Activites from "../components/activities/Activities";
 import ActivityButton from "../components/add-activity-button/ActivityButton";
 import EventForm from "../components/add-event-form/EventForm";
@@ -9,19 +8,22 @@ import activityConverter from "../utils/activityTypeConverter";
 import skillsConverter from "../utils/skillsConverter";
 
 export default function ProfilePage({
-  avatar,
   setData,
   data,
-  dataRefresh,
-  setDataRefresh,
   emailInput,
   setEmailInput
 }) {
   console.log("this is email input", emailInput);
+  const [dataRefresh, setDataRefresh] = React.useState(true);
+
+  // Fetches the user data, convert the codes, set the Data, 
+  // update data refresh.
+  // This should happen when the page loads and every time an activity 
+  // is added
 
   React.useEffect(() => {
     // fetch("/.netlify/functions/GetUserData")
-    setEmailInput("emaggy@arkacademy.ac.uk");
+    setEmailInput("jane.bloggs@arkacademy.ac.uk");
     const userData = JSON.stringify({ email: emailInput });
     console.log(userData);
     if (emailInput !== "") {
@@ -43,11 +45,11 @@ export default function ProfilePage({
           setDataRefresh(false);
         });
     }
-  }, [dataRefresh, emailInput]);
+  }, [dataRefresh]);
 
   return (
     <div>
-      <Profile avatar={avatar} data={data} />
+      <Profile data={data} />
       <Badges data={data} />
       <Activites activites={data} />
       <EventForm setDataRefresh={setDataRefresh} emailInput={emailInput} />

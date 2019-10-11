@@ -2,10 +2,8 @@ import React from "react";
 import Badges from "../../components/badges/Badges";
 
 export default function Activity({ activity, index }) {
-  React.useEffect(() => {}, activity);
-
   if (!activity) {
-    return <h1> Loading...</h1>;
+    return <h2> Activity not loaded..</h2>;
   }
 
   return (

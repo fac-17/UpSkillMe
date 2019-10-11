@@ -28,6 +28,7 @@ export default function Badges({ selectedBadges, data }) {
       "Technology": 0
     }
     , []);
+  // This updates the badge score. It runs every time the data changes
   React.useEffect(() => {
     // make API call and use setSkill points
     if (data) {
@@ -57,6 +58,10 @@ export default function Badges({ selectedBadges, data }) {
       setSkillPoints(temporarySkillPoints)
     }
   }, [data]);
+
+  if (!data) {
+    return (<p>Loading...</p>)
+  }
 
   return (
     <ul className="badges">

@@ -1,10 +1,11 @@
 import React from "react";
+const [avatar, setAvatar] = React.useState("assets/avatarAlien.svg");
 
-
-export default function Profile({ name, avatar, data }) {
+export default function Profile({ name, data }) {
     const [totalScore, setTotalScore] = React.useState(10);
     const [email, setEmail] = React.useState('tbd');
 
+    // Runs every time the data changes/page loads, update the total score
     React.useEffect(() => {
         if (data) {
             let tempTotalPoints = 0
@@ -16,8 +17,8 @@ export default function Profile({ name, avatar, data }) {
                 setEmail(data[0].fields.schoolEmail)
             }
         }
-
     }, [data])
+
     if (!data) {
         return (<p>Loading</p>)
     }
