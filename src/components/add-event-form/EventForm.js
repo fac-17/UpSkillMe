@@ -22,7 +22,9 @@ export default function EventForm({ setDataRefresh, emailInput }) {
 
   // }
 
-  const [activityType, setActivityType] = React.useState("");
+  //Initialising activity type with the an array containing 
+  //the id of after school club. Default value is legitimate value.
+  const [activityType, setActivityType] = React.useState(["recbt3yRDLY9GjPc2"]);
   const activityOptions = [
     "After school club",
     "Careers workshop",
@@ -68,7 +70,7 @@ export default function EventForm({ setDataRefresh, emailInput }) {
     Technology: "recVncOYn99qVNwir"
   };
 
-  const [duration, setDuration] = React.useState(0);
+  const [duration, setDuration] = React.useState(1);
   const durationOptions = [1, 2, 3, 4, 5, 6, 7, 14, 21, 28, 35, 70, 105, 140];
   const [supportingLink, setSupportingLink] = React.useState("");
 
@@ -121,6 +123,7 @@ export default function EventForm({ setDataRefresh, emailInput }) {
       <label>
         Name of Activity:
         <input
+          required
           type="text"
           value={activityName}
           onChange={e => setActivityName(e.target.value)}
@@ -130,6 +133,7 @@ export default function EventForm({ setDataRefresh, emailInput }) {
       <label>
         Date:
         <input
+          required
           type="date"
           value={date}
           onChange={e => setDate(e.target.value)}
@@ -139,6 +143,7 @@ export default function EventForm({ setDataRefresh, emailInput }) {
       <label>
         Activity type:
         <select
+          required
           name="activityType"
           value={activityDictionary[activityType]}
           onChange={updateActivityType}
@@ -151,7 +156,9 @@ export default function EventForm({ setDataRefresh, emailInput }) {
 
       <label>
         Duration:
-        <select name="duration" value={duration} onChange={updateDuration}>
+        <select
+          required
+          name="duration" value={duration} onChange={updateDuration}>
           {durationOptions.map(opt => {
             return <option value={opt}>{opt}</option>;
           })}
@@ -161,6 +168,7 @@ export default function EventForm({ setDataRefresh, emailInput }) {
       <label>
         Select Skills
         <select
+          required
           name="badgeValues"
           multiple={true}
           value={badgeValues}
