@@ -10,12 +10,12 @@ import {
 
 export default function LogInform({ emailInput, setEmailInput }) {
   const [submitted, setSubmitted] = React.useState(false);
-
+  const [currEmailInput, setCurrEmailInput] = React.useState("")
   const handleLogInSubmit = e => {
     e.preventDefault();
-    setEmailInput(e.target.value);
+    setEmailInput(currEmailInput);
     setSubmitted(true);
-    console.log("this is email input", emailInput);
+    console.log("this is email input", currEmailInput);
   };
 
   if (submitted) {
@@ -32,8 +32,8 @@ export default function LogInform({ emailInput, setEmailInput }) {
         Enter email:
         <input
           type="text"
-          value={emailInput}
-          onChange={e => setEmailInput(e.target.value)}
+          value={currEmailInput}
+          onChange={e => setCurrEmailInput(e.target.value)}
         />
       </label>
     </form>
