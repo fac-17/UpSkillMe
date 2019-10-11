@@ -23,7 +23,7 @@ export default function Profile({ name, avatar, data, certificate }) {
   }
   return (
     <section className="profile">
-      <h1>{email}</h1>
+      <h1 className ="email-name">{email}</h1>
       <img
         className="avatar"
         src={avatar}

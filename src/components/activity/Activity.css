@@ -1,3 +1,8 @@
 .list {
+    padding: 0;
     list-style: none;
+    border: 2px solid black;
+    border-radius: 25px;
+    margin: 10px;
+    margin-bottom: 20px;
 }

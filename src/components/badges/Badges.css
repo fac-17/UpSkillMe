@@ -1,21 +1,35 @@
 .badges {
-  font-family: "Nunito", sans-serif;
-  color: blueviolet;
+  /* font-family: "Nunito", sans-serif; */
   list-style: none;
   display: flex;
   flex-direction: row;
   text-align: center;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 0;
 }
 
 .list-Badges {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  width: 200px;
+  /* display: grid;
+  grid-template-columns: auto auto auto auto; */
+  width: 150px;
   padding: 20px;
 }
 
 .points {
   text-align: center;
+}
+
+@media only screen and (max-width: 414px) {
+ .list-Badges {
+   width: 90px;
+   padding: 10px;
+ }
+}
+
+@media only screen and (min-width: 940px) {
+  .list-Badges {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 }

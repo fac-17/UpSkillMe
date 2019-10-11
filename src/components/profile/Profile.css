@@ -1,11 +1,16 @@
-/* body {
-  font-family: "Nunito", sans-serif;
-} */
-
 .profile {
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
   flex-direction: column;
   text-align: center;
   background-color: #ecebe4;
-  border: ;
+}
+
+.email-name {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0;
+}
+
+.certificate {
+  padding-bottom: 10px;
 }

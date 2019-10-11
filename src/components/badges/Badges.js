@@ -62,6 +62,7 @@ export default function Badges({ selectedBadges, data }) {
   }, [data]);
 
   return (
+    <div>
     <ul className="badges">
       {badges.map(item => {
         return (
@@ -77,5 +78,6 @@ export default function Badges({ selectedBadges, data }) {
         );
       })}
     </ul>
+    </div>
   );
 }
