@@ -1,126 +1,33 @@
 import React from "react";
 import "./App.css";
-import Badges from "./components/badges/Badges";
-import Profile from "./components/profile/Profile";
-import Activities from "./components/activities/Activities";
-import ActivityButton from "./components/add-activity-button/ActivityButton";
-import EventForm from "./components/add-event-form/EventForm";
-import activityConverter from "./utils/activityTypeConverter";
+import activityConverter from "./utils/activityConverter";
 import skillsConverter from "./utils/skillsConverter";
+import LogInPage from "./pages/LogInPage";
+import ProfilePage from "./pages/ProfilePage";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-const APImockData = {
-  records: [
-    {
-      id: "recAMfgpaVU5nsKfh",
-      fields: {
-        name: "Joe Bloggs",
-        schoolEmail: "joe.bloggs@arkacademy.ac.uk",
-        nameOfActivity: "cool thing",
-        activityType: ["recbt3yRDLY9GjPc2"],
-        date: "2019-10-06",
-        durationHours: 7,
-        skills: ["recilXHxEAlJqZFeu", "recQtkW5IWh0z3tH5"],
-        link: "www.google.com",
-        "totalPoints (Activity points x duration)": 140,
-        "Skills frequency": 2,
-        "Activity Points Lookup": [20],
-        "Points per Skill": 70
-      },
-      createdTime: "2019-10-08T10:55:20.000Z"
-    },
-    {
-      id: "recar3twJVqiKVtBt",
-      fields: {
-        name: "Joe Bloggs",
-        schoolEmail: "joe.bloggs@arkacademy.ac.uk",
-        nameOfActivity: "Sick online coding course",
-        activityType: ["recbt3yRDLY9GjPc2"],
-        date: "2019-10-06",
-        durationHours: 4,
-        skills: ["recilXHxEAlJqZFeu", "recVncOYn99qVNwir", "recQtkW5IWh0z3tH5"],
-        link: "http://www.foodhack.london/",
-        "totalPoints (Activity points x duration)": 80,
-        "Skills frequency": 3,
-        "Activity Points Lookup": [20],
-        "Points per Skill": 26.666666666666668
-      },
-      createdTime: "2019-10-07T09:56:34.000Z"
-    }
-  ]
-};
-
-const exampleActivities = [
-  {
-    name: "Football session",
-    date: "May 1st",
-    duration: "3 hours",
-    badges: ["Leadership", "Teamwork"],
-    activityScore: 3,
-    link: "www.google.com"
-  },
-  {
-    name: "Maths session",
-    date: "April 1st",
-    duration: "6 hours",
-    badges: ["Media", "Problem-solving", "Leadership"],
-    activityScore: 6,
-    link: "www.facebook.com"
-  }
-];
-
-function App(props) {
+function App() {
   const [data, setData] = React.useState([]);
-  const [name, setName] = React.useState(["Joseph McBloggs"]);
-  const [skills, setSkills] = React.useState([]);
-  const [activity, setActivity] = React.useState("");
-  const [date, setDate] = React.useState("");
-  const [duration, setDuration] = React.useState("");
-  const [link, setLink] = React.useState("");
-  const [avatar, setAvatar] = React.useState("assets/avatarAlien.svg");
-  const [dataRefresh, setDataRefresh] = React.useState(true);
-
-  React.useEffect(() => {
-    // fetch("/.netlify/functions/APICall")
-    fetch("http://localhost:9000/APICall")
-      .then(res => res.json())
-      .then(res => {
-        setName(res.records.map(e => e.fields.name));
-        setSkills(res.records.map(e => e.fields.skills));
-        setActivity(res.records.map(e => e.fields.nameOfActivity));
-      });
-  }, []);
-
-  React.useEffect(() => {
-    // fetch("/.netlify/functions/GetUserData")
-    if (dataRefresh) {
-      fetch("http://localhost:9000/GetUserData")
-        .then(res => res.json())
-        .then(res => {
-          res.records.forEach(e => {
-            e.fields.skills = skillsConverter(e.fields.skills);
-            e.fields.activityType = activityConverter(e.fields.activityType[0]);
-          });
-          return res;
-        })
-        .then(res => {
-          setData(res.records);
-          setDataRefresh(false)
-        });
-
-    }
-  }, [dataRefresh]);
+  const [emailInput, setEmailInput] = React.useState("");
 
   return (
-    <div className="App">
-
-
-      <Profile avatar={avatar} data={data} />
-
-      <Badges data={data} />
-      <Activities activities={data} />
-      <ActivityButton />
-      <EventForm setDataRefresh={setDataRefresh} />
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <LogInPage emailInput={emailInput} setEmailInput={setEmailInput} />
+          </Route>
+          <Route path="/profile">
+            <ProfilePage
+              data={data}
+              setData={setData}
+              setEmailInput={setEmailInput}
+              emailInput={emailInput}
+            />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

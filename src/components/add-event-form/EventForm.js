@@ -1,8 +1,8 @@
 import React from "react";
 import skillsConverter from "../../utils/skillsConverter";
-import activityConverter from "../../utils/activityTypeConverter";
+import activityConverter from "../../utils/activityConverter";
 
-export default function EventForm({ setDataRefresh }) {
+export default function EventForm({ setDataRefresh, emailInput }) {
   const [activityName, setActivityName] = React.useState("");
   const [date, setDate] = React.useState("");
   const [badgeValues, setBadgeValues] = React.useState([]);
@@ -23,7 +23,7 @@ export default function EventForm({ setDataRefresh }) {
   // }
 
   const [activityType, setActivityType] = React.useState("");
-  const activityTypeOptions = [
+  const activityOptions = [
     "After school club",
     "Careers workshop",
     "Competition",
@@ -70,17 +70,16 @@ export default function EventForm({ setDataRefresh }) {
 
   const [duration, setDuration] = React.useState(0);
   const durationOptions = [1, 2, 3, 4, 5, 6, 7, 14, 21, 28, 35, 70, 105, 140];
-
   const [supportingLink, setSupportingLink] = React.useState("");
 
   const updateBadges = e => {
     let value = Array.from(e.target.selectedOptions, option => option.value);
     value = value.slice(-3);
-    // let newValue = skillsConverter(value);
     setBadgeValues(value);
   };
+
   const updateActivityType = e => {
-    let convertedActivity = activityConverter(e.target.value);
+    const convertedActivity = activityConverter(e.target.value);
     setActivityType(convertedActivity);
   };
 
@@ -89,7 +88,7 @@ export default function EventForm({ setDataRefresh }) {
   };
 
   const handleSubmit = e => {
-    const stringtest = JSON.stringify({
+    const submittedData = JSON.stringify({
       records: [
         {
           fields: {
@@ -98,19 +97,19 @@ export default function EventForm({ setDataRefresh }) {
             date: date,
             durationHours: duration,
             link: supportingLink,
-            skills: skillsConverter(badgeValues),
-            schoolEmail: "emaggy@arkacademy.ac.uk"
-
+            schoolEmail: emailInput,
+            skills: skillsConverter(badgeValues)
           }
         }
       ]
     });
-    fetch(`http://localhost:9000/CreateUserActivity?activityData=${stringtest}`)
+    fetch(
+      `http://localhost:9000/CreateUserActivity?activityData=${submittedData}`
+    )
       .then(res => res.json())
       .then(res => {
-        console.log('came into refresh')
+        console.log("came into refresh");
         setDataRefresh(true);
-
       });
 
     alert("This form was submitted");
@@ -144,7 +143,7 @@ export default function EventForm({ setDataRefresh }) {
           value={activityDictionary[activityType]}
           onChange={updateActivityType}
         >
-          {activityTypeOptions.map(opt => {
+          {activityOptions.map(opt => {
             return <option value={opt}>{opt}</option>;
           })}
         </select>
@@ -167,13 +166,9 @@ export default function EventForm({ setDataRefresh }) {
           value={badgeValues}
           onChange={updateBadges}
         >
-          {badgeOptions.map(
-            opt => {
-              return <option value={opt}>{opt}</option>;
-            })
-          })
-
-          }
+          {badgeOptions.map(opt => {
+            return <option value={opt}>{opt}</option>;
+          })}
         </select>
       </label>
 
