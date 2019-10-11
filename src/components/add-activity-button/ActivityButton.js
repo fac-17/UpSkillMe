@@ -1,5 +1,5 @@
-import React from 'react';
+import React from "react";
 
 export default function ActivityButton() {
-    return (<button>Add Activity</button>)
+  return <button>Add Activity</button>;
 }

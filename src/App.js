@@ -1,5 +1,7 @@
 import React from "react";
 import "./App.css";
+import activityConverter from "./utils/activityConverter";
+import skillsConverter from "./utils/skillsConverter";
 import LogInPage from "./pages/LogInPage";
 import ProfilePage from "./pages/ProfilePage";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";

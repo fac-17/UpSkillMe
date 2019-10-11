@@ -4,7 +4,7 @@ import ActivityButton from "../components/add-activity-button/ActivityButton";
 import EventForm from "../components/add-event-form/EventForm";
 import Badges from "../components/badges/Badges";
 import Profile from "../components/profile/Profile";
-import activityConverter from "../utils/activityTypeConverter";
+import activityConverter from "../utils/activityConverter";
 import skillsConverter from "../utils/skillsConverter";
 
 export default function ProfilePage({
@@ -25,7 +25,6 @@ export default function ProfilePage({
     // fetch("/.netlify/functions/GetUserData")
     setEmailInput("jane.bloggs@arkacademy.ac.uk");
     const userData = JSON.stringify({ email: emailInput });
-    console.log(userData);
     if (emailInput !== "") {
       fetch(`http://localhost:9000/GetUserData?email=${userData}`)
         .then(res => res.json())
