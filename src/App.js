@@ -77,6 +77,9 @@ function App(props) {
   const [duration, setDuration] = React.useState("");
   const [link, setLink] = React.useState("");
   const [avatar, setAvatar] = React.useState("assets/Alien_blob_avatar.svg");
+  const [certificate, setCertificate] = React.useState(
+    "assets/certificate.svg"
+  );
   const [dataRefresh, setDataRefresh] = React.useState(true);
 
   React.useEffect(() => {
@@ -104,17 +107,14 @@ function App(props) {
         })
         .then(res => {
           setData(res.records);
-          setDataRefresh(false)
+          setDataRefresh(false);
         });
-
     }
   }, [dataRefresh]);
 
   return (
     <div className="App">
-
-
-      <Profile avatar={avatar} data={data} />
+      <Profile avatar={avatar} certificate={certificate} data={data} />
 
       <Badges data={data} />
       <Activities activities={data} />

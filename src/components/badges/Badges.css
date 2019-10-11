@@ -1,11 +1,21 @@
 .badges {
-    font-family: "Nunito", sans-serif;
-    color: blueviolet;
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    align-content: flex-end;
-    
-    
+  font-family: "Nunito", sans-serif;
+  color: blueviolet;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.list-Badges {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  width: 200px;
+  padding: 20px;
+}
+
+.points {
+  text-align: center;
 }
