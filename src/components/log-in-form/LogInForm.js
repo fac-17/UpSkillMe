@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   BrowserRouter as Router,
   Redirect,
@@ -24,6 +25,7 @@ export default function LogInform({ emailInput, setEmailInput }) {
       </Route>
     );
   }
+
   return (
     <form onSubmit={handleLogInSubmit}>
       <label>

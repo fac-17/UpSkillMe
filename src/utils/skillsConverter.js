@@ -1,7 +1,9 @@
-const skillsConverter = idArray => {
+const skillsConverter = idArrayInput => {
   const getKeyByValue = (array, object, value) => {
     return array.find(key => object[key] === value);
   };
+  let resultArray = [];
+
   const skills = {
     Communication: "rec1aXpu34QFpVnDc",
     Creativity: "recilXHxEAlJqZFeu",
@@ -12,19 +14,18 @@ const skillsConverter = idArray => {
     Teamwork: "recTHKDy3NJghbCrJ",
     Technology: "recVncOYn99qVNwir"
   };
-  let keyArray = Object.keys(skills);
-  let result = [];
+  const keyArray = Object.keys(skills);
 
-  if (keyArray.includes(idArray[0])) {
-    result = idArray.map(e => {
+  if (keyArray.includes(idArrayInput[0])) {
+    resultArray = idArrayInput.map(e => {
       return skills[e];
     });
   } else {
-    result = idArray.map(e => {
+    resultArray = idArrayInput.map(e => {
       return getKeyByValue(keyArray, skills, e);
     });
   }
-  return result;
+  return resultArray;
 };
 
 export default skillsConverter;

@@ -1,6 +1,6 @@
 import React from "react";
 import skillsConverter from "../../utils/skillsConverter";
-import activityConverter from "../../utils/activityTypeConverter";
+import activityConverter from "../../utils/activityConverter";
 
 export default function EventForm({ setDataRefresh, emailInput }) {
   const [activityName, setActivityName] = React.useState("");
@@ -18,7 +18,7 @@ export default function EventForm({ setDataRefresh, emailInput }) {
   ];
 
   const [activityType, setActivityType] = React.useState("");
-  const activityTypeOptions = [
+  const activityOptions = [
     "After school club",
     "Careers workshop",
     "Competition ",
@@ -37,16 +37,16 @@ export default function EventForm({ setDataRefresh, emailInput }) {
 
   const [duration, setDuration] = React.useState(0);
   const durationOptions = [1, 2, 3, 4, 5, 6, 7, 14, 21, 28, 35, 70, 105, 140];
-
   const [supportingLink, setSupportingLink] = React.useState("");
 
   const updateBadges = e => {
-    let value = Array.from(e.target.selectedOptions, option => option.value);
-    let newValue = skillsConverter(value);
+    const value = Array.from(e.target.selectedOptions, option => option.value);
+    const newValue = skillsConverter(value);
     setBadgeValues(newValue);
   };
+
   const updateActivityType = e => {
-    let convertedActivity = activityConverter(e.target.value);
+    const convertedActivity = activityConverter(e.target.value);
     setActivityType(convertedActivity);
   };
 
@@ -55,7 +55,7 @@ export default function EventForm({ setDataRefresh, emailInput }) {
   };
 
   const handleSubmit = e => {
-    const stringtest = JSON.stringify({
+    const submittedData = JSON.stringify({
       records: [
         {
           fields: {
@@ -70,7 +70,9 @@ export default function EventForm({ setDataRefresh, emailInput }) {
         }
       ]
     });
-    fetch(`http://localhost:9000/CreateUserActivity?activityData=${stringtest}`)
+    fetch(
+      `http://localhost:9000/CreateUserActivity?activityData=${submittedData}`
+    )
       .then(res => res.json())
       .then(res => {
         console.log("came into refresh");
@@ -108,7 +110,7 @@ export default function EventForm({ setDataRefresh, emailInput }) {
           value={activityType}
           onChange={updateActivityType}
         >
-          {activityTypeOptions.map(opt => {
+          {activityOptions.map(opt => {
             return <option value={opt}>{opt}</option>;
           })}
         </select>

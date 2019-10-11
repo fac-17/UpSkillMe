@@ -1,6 +1,6 @@
-const activityConverter = input => {
-  let activityArray = [input];
-
+const activityConverter = activityInput => {
+  const activityArray = [activityInput];
+  let resultArray = [];
   const getKeyByValue = (array, object, value) => {
     return array.find(key => object[key] === value);
   };
@@ -21,19 +21,18 @@ const activityConverter = input => {
     Other: "reczhkJJNz2JsLvxW"
   };
 
-  let keyArray = Object.keys(activity);
-  let result = [];
+  const keyArray = Object.keys(activity);
 
   if (keyArray.includes(activityArray[0])) {
-    result = activityArray.map(e => {
+    resultArray = activityArray.map(e => {
       return activity[e];
     });
   } else {
-    result = activityArray.map(e => {
+    resultArray = activityArray.map(e => {
       return getKeyByValue(keyArray, activity, e);
     });
   }
-  return result;
+  return resultArray;
 };
 
 export default activityConverter;
