@@ -14,12 +14,13 @@ export default function LogInform({ emailInput, setEmailInput }) {
     e.preventDefault();
     setEmailInput(e.target.value);
     setSubmitted(true);
+    console.log("this is email input", emailInput);
   };
 
   if (submitted) {
     return (
       <Route>
-        <Redirect to={{ pathname: "/profile" }} />
+        <Redirect to={{ pathname: "/profile", emailInput: emailInput }} />
       </Route>
     );
   }
