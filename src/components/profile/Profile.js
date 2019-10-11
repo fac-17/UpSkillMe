@@ -1,4 +1,18 @@
 import React from "react";
+import styled from "styled-components";
+
+    // Styled components
+    const ProfileStyle = styled.section`
+        flex-direction: column;
+        text-align: center;
+        background-color: #ecebe4; 
+    `;
+
+    const EmailStyle = styled.h1`
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin: 0;
+    `;
 
 export default function Profile({ data }) {
     const [avatar, setAvatar] = React.useState("assets/avatarAlien.svg");
@@ -21,13 +35,13 @@ export default function Profile({ data }) {
 
     if (!data) {
         return (<p>Loading</p>)
+
     }
     return (
-        <div>
-            <h1>{email}</h1>
+        <ProfileStyle>
+            <EmailStyle>{email}</EmailStyle>
             <img src={avatar} alt="this is our avatar pic" width="200px" />
             <h2>{totalScore} total points</h2>
-        </div>
+        </ProfileStyle>
     )
 }
-
