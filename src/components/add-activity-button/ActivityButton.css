@@ -1,0 +1,16 @@
+.add-activity-button {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  font-size: 1em;
+  background-color: #109cf1;
+  color: white;
+}
+
+.plus-sign {
+  font-size: 2em;
+  color: white;
+}
