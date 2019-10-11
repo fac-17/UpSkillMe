@@ -1,7 +1,7 @@
 import React from "react";
-const [avatar, setAvatar] = React.useState("assets/avatarAlien.svg");
 
-export default function Profile({ name, data }) {
+export default function Profile({ data }) {
+    const [avatar, setAvatar] = React.useState("assets/avatarAlien.svg");
     const [totalScore, setTotalScore] = React.useState(10);
     const [email, setEmail] = React.useState('tbd');
 
