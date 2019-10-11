@@ -49,7 +49,7 @@ export default function ProfilePage({
           setDataRefresh(false);
         });
     }
-  }, [data]);
+  }, [dataRefresh]);
 
   return (
     <div>
