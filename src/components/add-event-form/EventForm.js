@@ -12,37 +12,70 @@ export default function EventForm({ setDataRefresh, emailInput }) {
     "Innovation",
     "Leadership",
     "Media",
-    "Problem Solving",
+    "Problem solving",
     "Teamwork",
     "Technology"
   ];
+
+  // const emptyBadgeOptions = React.useState(badgeOptions);
+  // if(badgeOptions !== null && badgeOptions.length === 3) {
+
+  // }
 
   const [activityType, setActivityType] = React.useState("");
   const activityOptions = [
     "After school club",
     "Careers workshop",
-    "Competition ",
+    "Competition",
     "Employer event",
     "Mentoring",
-    "Online course ",
-    "School project ",
+    "Online course",
+    "School project",
     "Skills workshop",
     "Sports club",
-    "Summer school ",
-    "University event ",
-    "Volunteering ",
-    "Work experience ",
+    "Summer school",
+    "University event",
+    "Volunteering",
+    "Work experience",
     "Other"
   ];
+
+  const activityDictionary = {
+    "After school club": "recbt3yRDLY9GjPc2",
+    "Careers workshop": "rec7lzaalxuMGOc1z",
+    Competition: "recX0DSvfI0EkTWzP",
+    "Employer event": "recO6WjBempBCwXPW",
+    Mentoring: "recINqvhi14OEQ16V",
+    "Online course": "recan6J6O1yDNNaum",
+    "School project": "recKUogjAsEuiz7LZ",
+    "Skills workshop": "recWvSVTJnacRMxGi",
+    "Summer school": "recKKc2X7Rx40sy7T",
+    "University event": "rec7KmKGVf7Bj2IrE",
+    Volunteering: "recv1xg4hehyyybA4",
+    "Work experience": "recFP2EcUV54UQiDB",
+    "Sports club": "recUe5uzB4CJoT6Xk",
+    Other: "reczhkJJNz2JsLvxW"
+  };
+
+  const skillsDictionary = {
+    Communication: "rec1aXpu34QFpVnDc",
+    Creativity: "recilXHxEAlJqZFeu",
+    Innovation: "recQtkW5IWh0z3tH5",
+    Leadership: "reczDCLXfOC5iHLiQ",
+    Media: "recSIsNHGiRbV8CR7",
+    "Problem solving": "recOt8tI1ZLivhoZV",
+    Teamwork: "recTHKDy3NJghbCrJ",
+    Technology: "recVncOYn99qVNwir"
+  };
 
   const [duration, setDuration] = React.useState(0);
   const durationOptions = [1, 2, 3, 4, 5, 6, 7, 14, 21, 28, 35, 70, 105, 140];
   const [supportingLink, setSupportingLink] = React.useState("");
 
   const updateBadges = e => {
-    const value = Array.from(e.target.selectedOptions, option => option.value);
-    const newValue = skillsConverter(value);
-    setBadgeValues(newValue);
+    let value = Array.from(e.target.selectedOptions, option => option.value);
+    value = value.slice(-3);
+    setBadgeValues(value);
   };
 
   const updateActivityType = e => {
@@ -64,8 +97,8 @@ export default function EventForm({ setDataRefresh, emailInput }) {
             date: date,
             durationHours: duration,
             link: supportingLink,
-            skills: badgeValues,
-            schoolEmail: emailInput
+            schoolEmail: emailInput,
+            skills: skillsConverter(badgeValues)
           }
         }
       ]
@@ -107,7 +140,7 @@ export default function EventForm({ setDataRefresh, emailInput }) {
         Activity type:
         <select
           name="activityType"
-          value={activityType}
+          value={activityDictionary[activityType]}
           onChange={updateActivityType}
         >
           {activityOptions.map(opt => {
