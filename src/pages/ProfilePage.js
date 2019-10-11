@@ -55,7 +55,7 @@ export default function ProfilePage({
     <div>
       <Profile data={data} />
       <Badges data={data} />
-      <Activites activites={data} />
+      <Activites activities={data} />
       <EventForm setDataRefresh={setDataRefresh} emailInput={emailInput} />
       <ActivityButton />
     </div>

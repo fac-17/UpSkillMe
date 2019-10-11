@@ -12,7 +12,7 @@ export default function Activities({ activities }) {
         Displaying {activities.length} of {activities.length}
       </h3>
       {activities.map((activity, index) => {
-        return <Activity activity={activity} index={index} />;
+        return <Activity activity={activity} index={index} activities={activities} />;
       })}
     </div>
   );
