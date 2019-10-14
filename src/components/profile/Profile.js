@@ -12,7 +12,6 @@ const EmailStyle = styled.h1`
   padding-top: 20px;
   padding-bottom: 20px;
   margin: 0;
-
   @media (max-width: 414px) {
     font-size: 1.2em;
   }
@@ -25,7 +24,7 @@ const PointsStyle = styled.h2`
 `;
 
 export default function Profile({ data, emailInput }) {
-  const [avatar, setAvatar] = React.useState("assets/avatarAlien.svg");
+  const [avatar] = React.useState("assets/avatarAlien.svg");
   const [totalScore, setTotalScore] = React.useState(10);
 
   // Runs every time the data changes/page loads, update the total score
@@ -43,6 +42,7 @@ export default function Profile({ data, emailInput }) {
   if (!data) {
     return <p>Loading</p>;
   }
+
   return (
     <ProfileStyle>
       <EmailStyle>{emailInput}</EmailStyle>

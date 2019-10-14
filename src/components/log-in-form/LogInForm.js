@@ -1,23 +1,14 @@
 import React from "react";
 
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
+import { Redirect, Route } from "react-router-dom";
 
 export default function LogInform({ emailInput, setEmailInput }) {
   const [submitted, setSubmitted] = React.useState(false);
-  const [currEmailInput, setCurrEmailInput] = React.useState("")
+  const [currEmailInput, setCurrEmailInput] = React.useState("");
   const handleLogInSubmit = e => {
     e.preventDefault();
     setEmailInput(currEmailInput);
     setSubmitted(true);
-    console.log("this is email input", emailInput);
-
   };
 
   if (submitted && emailInput) {
@@ -34,15 +25,17 @@ export default function LogInform({ emailInput, setEmailInput }) {
       <form onSubmit={handleLogInSubmit}>
         <label>
           Enter email:
-        <input
+          <input
             required
             type="email"
             value={currEmailInput}
             onChange={e => setCurrEmailInput(e.target.value)}
           />
         </label>
-        <label> Login
-            <input type="submit" />
+        <label>
+          {" "}
+          Login
+          <input type="submit" />
         </label>
       </form>
     </section>
