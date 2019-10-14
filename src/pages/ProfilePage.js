@@ -22,14 +22,17 @@ export default function ProfilePage({
   // is added
 
   React.useEffect(() => {
+    console.log('loading the data on the page');
     // fetch("/.netlify/functions/GetUserData")
-    setEmailInput("jane.bloggs@arkacademy.ac.uk");
     const userData = JSON.stringify({ email: emailInput });
     if (emailInput !== "") {
       fetch(`http://localhost:9000/GetUserData?email=${userData}`)
-        .then(res => res.json())
+        .then(res =>
+          res.json())
         .then(res => {
+          console.log('json res', res);
           if (res.records) {
+            console.log('res records', res)
             res.records.forEach(e => {
               e.fields.skills = skillsConverter(e.fields.skills);
               e.fields.activityType = activityConverter(
@@ -37,10 +40,12 @@ export default function ProfilePage({
               );
             });
           }
+          console.log(res)
           return res;
         })
         .then(res => {
           setData(res.records);
+          console.log('reset data', data)
           setDataRefresh(false);
         });
     }
@@ -50,7 +55,7 @@ export default function ProfilePage({
     <div>
       <Profile data={data} />
       <Badges data={data} />
-      <Activites activites={data} />
+      <Activites activities={data} />
       <EventForm setDataRefresh={setDataRefresh} emailInput={emailInput} />
       <ActivityButton />
     </div>

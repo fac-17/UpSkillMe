@@ -1,7 +1,7 @@
 import React from "react";
 import Badges from "../../components/badges/Badges";
 
-export default function Activity({ activity, index }) {
+export default function Activity({ activity, index, activities }) {
   if (!activity) {
     return <h2> Activity not loaded..</h2>;
   }
@@ -13,7 +13,7 @@ export default function Activity({ activity, index }) {
       <li>{activity.fields.daysAgo} days ago</li>
       <li>{activity.fields.durationHours} Hours</li>
       <li>
-        <Badges selectedBadges={activity.fields.skills} />
+        <Badges selectedBadges={activity.fields.skills} data={activities} />
       </li>
       <li>
         {activity.fields["totalPoints (Activity points x duration)"]} points
