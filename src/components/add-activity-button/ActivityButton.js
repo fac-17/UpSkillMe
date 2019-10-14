@@ -2,16 +2,18 @@ import React from "react";
 import styled from "styled-components";
 
 //Styled components
-const ActivityButtonStyle= styled.button`
+const ActivityButtonStyle = styled.button`
   border-radius: 100%;
   width: 100px;
   height: 100px;
   position: fixed;
-  bottom: 0px;
-  right: 0px;
-  font-size: 1em;
+  bottom: 5px;
+  right: 5px;
+  font-size: 1.25em;
   background-color: #109cf1;
   color: white;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
 `;
 
 const PlusStyle = styled.span`
@@ -22,8 +24,11 @@ const PlusStyle = styled.span`
 //
 
 export default function ActivityButton() {
-  return <ActivityButtonStyle>
-    Add Activity <br></br>
-    <PlusStyle>+</PlusStyle>
-    </ActivityButtonStyle>;
+  function handleShowAddActivityForm(e) {}
+  return (
+    <ActivityButtonStyle onClick={handleShowAddActivityForm}>
+      Add Activity <br></br>
+      <PlusStyle>+</PlusStyle>
+    </ActivityButtonStyle>
+  );
 }
