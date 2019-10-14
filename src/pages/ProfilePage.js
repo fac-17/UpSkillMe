@@ -6,6 +6,9 @@ import Badges from "../components/badges/Badges";
 import Profile from "../components/profile/Profile";
 import activityConverter from "../utils/activityConverter";
 import skillsConverter from "../utils/skillsConverter";
+import LogOutButton from "../components/log-out-button/log-out-button"
+import { BrowserRouter as Router, Redirect, Switch, Route, Link } from "react-router-dom";
+
 
 export default function ProfilePage({
   setData,
@@ -15,6 +18,7 @@ export default function ProfilePage({
 }) {
   console.log("this is email input", emailInput);
   const [dataRefresh, setDataRefresh] = React.useState(true);
+  const [loggedOut, setLoggedOut] = React.useState(false)
 
   // Fetches the user data, convert the codes, set the Data, 
   // update data refresh.
@@ -33,27 +37,49 @@ export default function ProfilePage({
           console.log('json res', res);
           if (res.records) {
             console.log('res records', res)
-            res.records.forEach(e => {
+            let notAddedStarterActivity = true;
+            const filteredRecords = [];
+
+            res.records.forEach(activity => {
+              if (activity.fields.nameOfActivity !== 'My first activity' || notAddedStarterActivity) {
+                filteredRecords.push(activity);
+                if (activity.fields.nameOfActivity === 'My first activity') {
+                  notAddedStarterActivity = false;
+                }
+              }
+            })
+
+            filteredRecords.forEach(e => {
               e.fields.skills = skillsConverter(e.fields.skills);
               e.fields.activityType = activityConverter(
                 e.fields.activityType[0]
               );
             });
+            return filteredRecords;
           }
           console.log(res)
-          return res;
         })
-        .then(res => {
-          setData(res.records);
+        .then(filteredRecords => {
+          setData(filteredRecords);
           console.log('reset data', data)
           setDataRefresh(false);
         });
     }
   }, [dataRefresh]);
 
+  if (loggedOut) {
+    console.log('logged out is', loggedOut)
+    return (
+      <Route>
+        <Redirect to={{ pathname: "/" }} />
+      </Route>
+    );
+  }
+
   return (
     <div>
-      <Profile data={data} />
+      <LogOutButton setLoggedOut={setLoggedOut} setEmailInput={setEmailInput} />
+      <Profile data={data} emailInput={emailInput} />
       <Badges data={data} />
       <Activites activities={data} />
       <EventForm setDataRefresh={setDataRefresh} emailInput={emailInput} />

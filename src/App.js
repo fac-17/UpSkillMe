@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import activityConverter from "./utils/activityConverter";
 import skillsConverter from "./utils/skillsConverter";
-import LogInPage from "./pages/LogInPage";
+import LandingPage from "./pages/LandingPage";
 import ProfilePage from "./pages/ProfilePage";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -15,7 +15,7 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <LogInPage emailInput={emailInput} setEmailInput={setEmailInput} />
+            <LandingPage emailInput={emailInput} setEmailInput={setEmailInput} />
           </Route>
           <Route path="/profile">
             <ProfilePage

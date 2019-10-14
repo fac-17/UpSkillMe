@@ -143,6 +143,7 @@ export default function EventForm({ setDataRefresh, emailInput }) {
       .then(res => res.json())
       .then(res => {
         console.log("came into refresh");
+        console.log(submittedData);
         setDataRefresh(true);
       });
 
