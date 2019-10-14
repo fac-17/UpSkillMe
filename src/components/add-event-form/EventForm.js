@@ -54,7 +54,7 @@ export default function EventForm({ setDataRefresh, emailInput }) {
 
   // }
 
-  //Initialising activity type with the an array containing 
+  //Initialising activity type with the an array containing
   //the id of after school club. Default value is legitimate value.
   const [activityType, setActivityType] = React.useState(["recbt3yRDLY9GjPc2"]);
   const activityOptions = [
@@ -89,17 +89,6 @@ export default function EventForm({ setDataRefresh, emailInput }) {
     "Work experience": "recFP2EcUV54UQiDB",
     "Sports club": "recUe5uzB4CJoT6Xk",
     Other: "reczhkJJNz2JsLvxW"
-  };
-
-  const skillsDictionary = {
-    Communication: "rec1aXpu34QFpVnDc",
-    Creativity: "recilXHxEAlJqZFeu",
-    Innovation: "recQtkW5IWh0z3tH5",
-    Leadership: "reczDCLXfOC5iHLiQ",
-    Media: "recSIsNHGiRbV8CR7",
-    "Problem solving": "recOt8tI1ZLivhoZV",
-    Teamwork: "recTHKDy3NJghbCrJ",
-    Technology: "recVncOYn99qVNwir"
   };
 
   const [duration, setDuration] = React.useState(1);
@@ -142,8 +131,6 @@ export default function EventForm({ setDataRefresh, emailInput }) {
     )
       .then(res => res.json())
       .then(res => {
-        console.log("came into refresh");
-        console.log(submittedData);
         setDataRefresh(true);
       });
 
@@ -182,7 +169,11 @@ export default function EventForm({ setDataRefresh, emailInput }) {
           onChange={updateActivityType}
         >
           {activityOptions.map(opt => {
-            return <option value={opt}>{opt}</option>;
+            return (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            );
           })}
         </Select>
       </Label>
@@ -191,9 +182,16 @@ export default function EventForm({ setDataRefresh, emailInput }) {
         Duration:
         <Select
           required
-          name="duration" value={duration} onChange={updateDuration}>
+          name="duration"
+          value={duration}
+          onChange={updateDuration}
+        >
           {durationOptions.map(opt => {
-            return <option value={opt}>{opt}</option>;
+            return (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            );
           })}
         </Select>
       </Label>
@@ -208,7 +206,11 @@ export default function EventForm({ setDataRefresh, emailInput }) {
           onChange={updateBadges}
         >
           {badgeOptions.map(opt => {
-            return <option value={opt}>{opt}</option>;
+            return (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            );
           })}
         </Select>
       </Label>
