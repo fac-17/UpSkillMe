@@ -1,5 +1,19 @@
 import React from "react";
 import Badges from "../../components/badges/Badges";
+import styled from "styled-components";
+
+// Styled components
+const ListStyle = styled.ul`
+  padding: 0;
+  list-style: none;
+  border: 2px solid black;
+  border-radius: 25px;
+  margin: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding-bottom: 20px;
+`;
+
 
 export default function Activity({ activity, index, activities }) {
   if (!activity) {
@@ -7,7 +21,7 @@ export default function Activity({ activity, index, activities }) {
   }
 
   return (
-    <ul>
+    <ListStyle>
       <h4> Activity #{index + 1} </h4>
       <li>{activity.fields.nameOfActivity}</li>
       <li>{activity.fields.daysAgo} days ago</li>
@@ -19,6 +33,6 @@ export default function Activity({ activity, index, activities }) {
         {activity.fields["totalPoints (Activity points x duration)"]} points
       </li>
       {activity.fields.link ? <li>{activity.fields.link}</li> : ""}
-    </ul>
+    </ListStyle>
   );
 }
