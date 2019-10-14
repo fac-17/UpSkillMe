@@ -66,7 +66,7 @@ export default function SignUpForm({ emailInput, setEmailInput }) {
             <h3> Sign Up</h3>
             <form onSubmit={handleSignUpSubmit} >
                 <label>  Enter email:
-            <input
+            <input required
                         type="email"
                         value={currSubmittedEmail}
                         onChange={e => setCurrSubmittedEmail(e.target.value)}

@@ -35,6 +35,7 @@ export default function LogInform({ emailInput, setEmailInput }) {
         <label>
           Enter email:
         <input
+            required
             type="email"
             value={currEmailInput}
             onChange={e => setCurrEmailInput(e.target.value)}
