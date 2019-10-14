@@ -15,10 +15,13 @@ import styled from "styled-components";
  const ListBadges = styled.li`
  width: 150px;
  padding: 20px;
+ 
  @media (max-width: 414px){
    width: 90px;
    padding: 10px;
+   font-size: 0.65em;
  }
+ 
  @media (min-width: 940px){
    padding-left: 100px;
    padding-right: 100px;

@@ -9,10 +9,21 @@ import styled from "styled-components";
     `;
 
     const EmailStyle = styled.h1`
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
         margin: 0;
+        
+        @media (max-width: 414px){
+            font-size: 1.2em;
+          }
     `;
+    const PointsStyle = styled.h2`
+        padding-bottom: 20px;
+        @media (max-width: 414px){
+        font-size: 1.2em;
+      }
+
+    `
 
 export default function Profile({ data }) {
     const [avatar, setAvatar] = React.useState("assets/avatarAlien.svg");
@@ -41,7 +52,7 @@ export default function Profile({ data }) {
         <ProfileStyle>
             <EmailStyle>{email}</EmailStyle>
             <img src={avatar} alt="this is our avatar pic" width="200px" />
-            <h2>{totalScore} total points</h2>
+            <PointsStyle>{totalScore} total points</PointsStyle>
         </ProfileStyle>
     )
 }
