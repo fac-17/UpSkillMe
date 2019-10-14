@@ -22,7 +22,7 @@ export default function EventForm({ setDataRefresh, emailInput }) {
 
   // }
 
-  //Initialising activity type with the an array containing 
+  //Initialising activity type with the an array containing
   //the id of after school club. Default value is legitimate value.
   const [activityType, setActivityType] = React.useState(["recbt3yRDLY9GjPc2"]);
   const activityOptions = [
@@ -110,8 +110,6 @@ export default function EventForm({ setDataRefresh, emailInput }) {
     )
       .then(res => res.json())
       .then(res => {
-        console.log("came into refresh");
-        console.log(submittedData);
         setDataRefresh(true);
       });
 
@@ -150,7 +148,11 @@ export default function EventForm({ setDataRefresh, emailInput }) {
           onChange={updateActivityType}
         >
           {activityOptions.map(opt => {
-            return <option value={opt}>{opt}</option>;
+            return (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            );
           })}
         </select>
       </label>
@@ -159,9 +161,16 @@ export default function EventForm({ setDataRefresh, emailInput }) {
         Duration:
         <select
           required
-          name="duration" value={duration} onChange={updateDuration}>
+          name="duration"
+          value={duration}
+          onChange={updateDuration}
+        >
           {durationOptions.map(opt => {
-            return <option value={opt}>{opt}</option>;
+            return (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            );
           })}
         </select>
       </label>
@@ -176,7 +185,11 @@ export default function EventForm({ setDataRefresh, emailInput }) {
           onChange={updateBadges}
         >
           {badgeOptions.map(opt => {
-            return <option value={opt}>{opt}</option>;
+            return (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            );
           })}
         </select>
       </label>

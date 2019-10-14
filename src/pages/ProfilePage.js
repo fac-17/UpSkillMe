@@ -16,7 +16,6 @@ export default function ProfilePage({
   emailInput,
   setEmailInput
 }) {
-  console.log("this is email input", emailInput);
   const [dataRefresh, setDataRefresh] = React.useState(true);
   const [loggedOut, setLoggedOut] = React.useState(false)
 
@@ -26,7 +25,6 @@ export default function ProfilePage({
   // is added
 
   React.useEffect(() => {
-    console.log('loading the data on the page');
     // fetch("/.netlify/functions/GetUserData")
     const userData = JSON.stringify({ email: emailInput });
     if (emailInput !== "") {
@@ -34,9 +32,7 @@ export default function ProfilePage({
         .then(res =>
           res.json())
         .then(res => {
-          console.log('json res', res);
           if (res.records) {
-            console.log('res records', res)
             let notAddedStarterActivity = true;
             const filteredRecords = [];
 
@@ -57,18 +53,15 @@ export default function ProfilePage({
             });
             return filteredRecords;
           }
-          console.log(res)
         })
         .then(filteredRecords => {
           setData(filteredRecords);
-          console.log('reset data', data)
           setDataRefresh(false);
         });
     }
   }, [dataRefresh]);
 
   if (loggedOut) {
-    console.log('logged out is', loggedOut)
     return (
       <Route>
         <Redirect to={{ pathname: "/" }} />

@@ -5,7 +5,6 @@ export default function Activities({ activities }) {
   if (!activities) {
     return <h3> Activities not loaded...</h3>;
   }
-  console.log("these are the activiteis", activities);
   return (
     <div>
       <h2>Activity log</h2>

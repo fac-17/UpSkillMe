@@ -26,10 +26,11 @@ export default function Badges({ selectedBadges, data }) {
       Leadership: 0,
       Media: 0,
       "Problem-solving": 0,
-      "Teamwork": 0,
-      "Technology": 0
-    }
-    , []);
+      Teamwork: 0,
+      Technology: 0
+    },
+    []
+  );
   // This updates the badge score. It runs every time the data changes
   React.useEffect(() => {
     // make API call and use setSkill points
@@ -63,14 +64,14 @@ export default function Badges({ selectedBadges, data }) {
   }, [data]);
 
   if (!data) {
-    return (<p>Loading...</p>)
+    return <p>Loading...</p>;
   }
 
   return (
     <ul className="badges">
       {badges.map(item => {
         return (
-          <li>
+          <li key={item}>
             <h5>{item}</h5>
             <img src={`assets/${item}.svg`} alt={item} />
             {!selectedBadges ? <p>Points:{skillPoints[item]}</p> : ""}
