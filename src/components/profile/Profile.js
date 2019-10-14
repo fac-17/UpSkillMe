@@ -1,9 +1,8 @@
 import React from "react";
 
-export default function Profile({ data }) {
+export default function Profile({ data, emailInput }) {
     const [avatar, setAvatar] = React.useState("assets/avatarAlien.svg");
     const [totalScore, setTotalScore] = React.useState(10);
-    const [email, setEmail] = React.useState('tbd');
 
     // Runs every time the data changes/page loads, update the total score
     React.useEffect(() => {
@@ -13,10 +12,8 @@ export default function Profile({ data }) {
                 tempTotalPoints += activity.fields['totalPoints (Activity points x duration)']
             })
             setTotalScore(tempTotalPoints)
-            if (data[0]) {
-                setEmail(data[0].fields.schoolEmail)
-            }
         }
+
     }, [data])
 
     if (!data) {
@@ -24,7 +21,7 @@ export default function Profile({ data }) {
     }
     return (
         <div>
-            <h1>{email}</h1>
+            <h1>{emailInput}</h1>
             <img src={avatar} alt="this is our avatar pic" width="200px" />
             <h2>{totalScore} total points</h2>
         </div>
