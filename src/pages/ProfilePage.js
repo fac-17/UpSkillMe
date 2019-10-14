@@ -6,6 +6,9 @@ import Badges from "../components/badges/Badges";
 import Profile from "../components/profile/Profile";
 import activityConverter from "../utils/activityConverter";
 import skillsConverter from "../utils/skillsConverter";
+import LogOutButton from "../components/log-out-button/log-out-button"
+import { BrowserRouter as Router, Redirect, Switch, Route, Link } from "react-router-dom";
+
 
 export default function ProfilePage({
   setData,
@@ -15,6 +18,7 @@ export default function ProfilePage({
 }) {
   console.log("this is email input", emailInput);
   const [dataRefresh, setDataRefresh] = React.useState(true);
+  const [loggedOut, setLoggedOut] = React.useState(false)
 
   // Fetches the user data, convert the codes, set the Data, 
   // update data refresh.
@@ -51,8 +55,18 @@ export default function ProfilePage({
     }
   }, [dataRefresh]);
 
+  if (loggedOut) {
+    console.log('logged out is', loggedOut)
+    return (
+      <Route>
+        <Redirect to={{ pathname: "/" }} />
+      </Route>
+    );
+  }
+
   return (
     <div>
+      <LogOutButton setLoggedOut={setLoggedOut} />
       <Profile data={data} />
       <Badges data={data} />
       <Activites activities={data} />
