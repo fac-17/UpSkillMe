@@ -72,8 +72,13 @@ export default function ProfilePage({
 
   return (
     <div>
-      <LogOutButton setLoggedOut={setLoggedOut} setEmailInput={setEmailInput} />
-      <Profile data={data} emailInput={emailInput} />
+      {/* <LogOutButton setLoggedOut={setLoggedOut} setEmailInput={setEmailInput} /> */}
+      <Profile
+        data={data}
+        emailInput={emailInput}
+        setLoggedOut={setLoggedOut}
+        setEmailInput={setEmailInput}
+      />
       <Badges data={data} />
       <Activites activities={data} />
       <EventForm setDataRefresh={setDataRefresh} emailInput={emailInput} />
