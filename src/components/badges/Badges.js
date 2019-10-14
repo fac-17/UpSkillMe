@@ -1,4 +1,36 @@
 import React from "react";
+import styled from "styled-components";
+
+//Styled components
+ const BadgesStyle = styled.ul`
+ list-style: none;
+ display: flex;
+ flex-direction: row;
+ text-align: center;
+ flex-wrap: wrap;
+ justify-content: center;
+ padding: 0;
+ `;
+
+ const ListBadges = styled.li`
+ width: 150px;
+ padding: 20px;
+ 
+ @media (max-width: 414px){
+   width: 80px;
+   padding: 10px;
+   font-size: 0.60em;
+ }
+ 
+ @media (min-width: 940px){
+   padding-left: 100px;
+   padding-right: 100px;
+ }
+ `;
+
+ const PointsStyle = styled.h4`
+ text-align: center;
+ `;
 
 const allBadges = [
   "Communication",
@@ -67,16 +99,16 @@ export default function Badges({ selectedBadges, data }) {
   }
 
   return (
-    <ul className="badges">
+    <BadgesStyle>
       {badges.map(item => {
         return (
-          <li>
-            <h5>{item}</h5>
+          <ListBadges>
+            <h3>{item}</h3>
             <img src={`assets/${item}.svg`} alt={item} />
-            {!selectedBadges ? <p>Points:{skillPoints[item]}</p> : ""}
-          </li>
+            {!selectedBadges ? <PointsStyle>Points:{skillPoints[item]}</PointsStyle> : ""}
+          </ListBadges>
         );
       })}
-    </ul>
+    </BadgesStyle>
   );
 }
