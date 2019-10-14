@@ -59,17 +59,6 @@ export default function EventForm({ setDataRefresh, emailInput }) {
     Other: "reczhkJJNz2JsLvxW"
   };
 
-  const skillsDictionary = {
-    Communication: "rec1aXpu34QFpVnDc",
-    Creativity: "recilXHxEAlJqZFeu",
-    Innovation: "recQtkW5IWh0z3tH5",
-    Leadership: "reczDCLXfOC5iHLiQ",
-    Media: "recSIsNHGiRbV8CR7",
-    "Problem solving": "recOt8tI1ZLivhoZV",
-    Teamwork: "recTHKDy3NJghbCrJ",
-    Technology: "recVncOYn99qVNwir"
-  };
-
   const [duration, setDuration] = React.useState(1);
   const durationOptions = [1, 2, 3, 4, 5, 6, 7, 14, 21, 28, 35, 70, 105, 140];
   const [supportingLink, setSupportingLink] = React.useState("");

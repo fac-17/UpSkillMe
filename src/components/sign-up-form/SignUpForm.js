@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 
 export default function SignUpForm({ emailInput, setEmailInput }) {
   const [currSubmittedEmail, setCurrSubmittedEmail] = React.useState("");
@@ -45,7 +39,8 @@ export default function SignUpForm({ emailInput, setEmailInput }) {
           setNewUser(false);
         });
     }
-  }, [emailInput]);
+    // return () => window.removeEventListener("submit", handleSignUpSubmit);
+  }, [emailInput, newUser]);
 
   if (emailInput) {
     return (
