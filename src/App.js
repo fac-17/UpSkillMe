@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function App() {
   const [data, setData] = React.useState([]);
   const [emailInput, setEmailInput] = React.useState("");
-
+  console.log({ emailInput }, { data });
   return (
     <Router>
       <div className="App">
