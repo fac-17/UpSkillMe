@@ -20,7 +20,7 @@ export default function LogInform({ emailInput, setEmailInput }) {
 
   };
 
-  if (submitted) {
+  if (submitted && emailInput) {
     return (
       <Route>
         <Redirect to={{ pathname: "/profile", emailInput: emailInput }} />
