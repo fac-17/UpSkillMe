@@ -25,6 +25,7 @@ const PlusStyle = styled.span`
 
 export default function ActivityButton() {
   function handleShowAddActivityForm(e) {}
+
   return (
     <ActivityButtonStyle onClick={handleShowAddActivityForm}>
       Add Activity <br></br>
