@@ -17,9 +17,9 @@ import styled from "styled-components";
  padding: 20px;
  
  @media (max-width: 414px){
-   width: 90px;
+   width: 80px;
    padding: 10px;
-   font-size: 0.65em;
+   font-size: 0.60em;
  }
  
  @media (min-width: 940px){

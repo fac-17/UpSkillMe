@@ -1,6 +1,38 @@
 import React from "react";
 import skillsConverter from "../../utils/skillsConverter";
 import activityConverter from "../../utils/activityConverter";
+import styled from "styled-components";
+
+//Styled components
+const FormStyle = styled.form`
+  max-width: 90%;
+  margin: 10px;
+  `;
+
+  const Label = styled.label`
+    display: block;
+  `;
+
+  const Input = styled.input`
+    display: block;
+    width: 90%;
+  `;
+  
+  const Select = styled.select`
+    display: block;
+    width: 95%;
+  `;
+
+  const Submit = styled.input`
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    height: 50px;
+    width: 140px;
+    text-align: center;
+  `;
+
+//
 
 export default function EventForm({ setDataRefresh, emailInput }) {
   const [activityName, setActivityName] = React.useState("");
@@ -119,30 +151,30 @@ export default function EventForm({ setDataRefresh, emailInput }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <FormStyle onSubmit={handleSubmit}>
+      <Label>
         Name of Activity:
-        <input
+        <Input
           required
           type="text"
           value={activityName}
           onChange={e => setActivityName(e.target.value)}
         />
-      </label>
+      </Label>
 
-      <label>
+      <Label>
         Date:
-        <input
+        <Input
           required
           type="date"
           value={date}
           onChange={e => setDate(e.target.value)}
         />
-      </label>
+      </Label>
 
-      <label>
+      <Label>
         Activity type:
-        <select
+        <Select
           required
           name="activityType"
           value={activityDictionary[activityType]}
@@ -151,23 +183,23 @@ export default function EventForm({ setDataRefresh, emailInput }) {
           {activityOptions.map(opt => {
             return <option value={opt}>{opt}</option>;
           })}
-        </select>
-      </label>
+        </Select>
+      </Label>
 
-      <label>
+      <Label>
         Duration:
-        <select
+        <Select
           required
           name="duration" value={duration} onChange={updateDuration}>
           {durationOptions.map(opt => {
             return <option value={opt}>{opt}</option>;
           })}
-        </select>
-      </label>
+        </Select>
+      </Label>
 
-      <label>
+      <Label>
         Select Skills
-        <select
+        <Select
           required
           name="badgeValues"
           multiple={true}
@@ -177,18 +209,18 @@ export default function EventForm({ setDataRefresh, emailInput }) {
           {badgeOptions.map(opt => {
             return <option value={opt}>{opt}</option>;
           })}
-        </select>
-      </label>
+        </Select>
+      </Label>
 
-      <label>
+      <Label>
         Link to supporting info:
-        <input
+        <Input
           type="url"
           value={supportingLink}
           onChange={e => setSupportingLink(e.target.value)}
         />
-      </label>
-      <input type="submit" value="Submit" />
-    </form>
+      </Label>
+      <Submit type="submit" value="Submit" />
+    </FormStyle>
   );
 }
