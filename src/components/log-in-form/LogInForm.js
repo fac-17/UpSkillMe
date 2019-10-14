@@ -2,6 +2,8 @@ import React from "react";
 
 import { Redirect, Route } from "react-router-dom";
 
+
+
 export default function LogInform({ emailInput, setEmailInput }) {
   const [submitted, setSubmitted] = React.useState(false);
   const [currEmailInput, setCurrEmailInput] = React.useState("");
@@ -20,7 +22,7 @@ export default function LogInform({ emailInput, setEmailInput }) {
   }
 
   return (
-    <section>
+    <section className="login-form">
       <h3> Log In</h3>
       <form onSubmit={handleLogInSubmit}>
         <label>
