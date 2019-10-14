@@ -8,6 +8,7 @@ import {
   Link
 } from "react-router-dom";
 
+
 export default function LogInform({ emailInput, setEmailInput }) {
   const [submitted, setSubmitted] = React.useState(false);
   const [currEmailInput, setCurrEmailInput] = React.useState("")
@@ -15,7 +16,8 @@ export default function LogInform({ emailInput, setEmailInput }) {
     e.preventDefault();
     setEmailInput(currEmailInput);
     setSubmitted(true);
-    console.log("this is email input", currEmailInput);
+    console.log("this is email input", emailInput);
+
   };
 
   if (submitted) {
@@ -27,15 +29,21 @@ export default function LogInform({ emailInput, setEmailInput }) {
   }
 
   return (
-    <form onSubmit={handleLogInSubmit}>
-      <label>
-        Enter email:
+    <section>
+      <h3> Log In</h3>
+      <form onSubmit={handleLogInSubmit}>
+        <label>
+          Enter email:
         <input
-          type="text"
-          value={currEmailInput}
-          onChange={e => setCurrEmailInput(e.target.value)}
-        />
-      </label>
-    </form>
+            type="email"
+            value={currEmailInput}
+            onChange={e => setCurrEmailInput(e.target.value)}
+          />
+        </label>
+        <label> Login
+            <input type="submit" />
+        </label>
+      </form>
+    </section>
   );
 }

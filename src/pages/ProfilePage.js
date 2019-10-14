@@ -37,18 +37,30 @@ export default function ProfilePage({
           console.log('json res', res);
           if (res.records) {
             console.log('res records', res)
-            res.records.forEach(e => {
+            let notAddedStarterActivity = true;
+            const filteredRecords = [];
+
+            res.records.forEach(activity => {
+              if (activity.fields.nameOfActivity !== 'My first activity' || notAddedStarterActivity) {
+                filteredRecords.push(activity);
+                if (activity.fields.nameOfActivity === 'My first activity') {
+                  notAddedStarterActivity = false;
+                }
+              }
+            })
+
+            filteredRecords.forEach(e => {
               e.fields.skills = skillsConverter(e.fields.skills);
               e.fields.activityType = activityConverter(
                 e.fields.activityType[0]
               );
             });
+            return filteredRecords;
           }
           console.log(res)
-          return res;
         })
-        .then(res => {
-          setData(res.records);
+        .then(filteredRecords => {
+          setData(filteredRecords);
           console.log('reset data', data)
           setDataRefresh(false);
         });
@@ -66,7 +78,7 @@ export default function ProfilePage({
 
   return (
     <div>
-      <LogOutButton setLoggedOut={setLoggedOut} />
+      <LogOutButton setLoggedOut={setLoggedOut} setEmailInput={setEmailInput} />
       <Profile data={data} />
       <Badges data={data} />
       <Activites activities={data} />
