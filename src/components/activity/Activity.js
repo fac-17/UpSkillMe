@@ -12,8 +12,28 @@ const ListStyle = styled.ul`
   margin-bottom: 20px;
   text-align: center;
   padding-bottom: 20px;
+  font-size: 1.5rem;
 `;
 
+const ActivityLinkButton = styled.button`
+  border-radius: 20px;
+  padding: 0.5%;
+  border-radius: 5px;
+  font-size: 1em;
+  background-color: #109cf1;
+  color: white;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  max-height: 90%;
+  max-width: 25%;
+  /* height: 100%;
+  width: 100%; */
+`;
+
+const StyledImg = styled.img`
+  max-height: 7.5%;
+  max-width: 7.5%;
+`;
 
 export default function Activity({ activity, index, activities }) {
   if (!activity) {
@@ -32,7 +52,19 @@ export default function Activity({ activity, index, activities }) {
       <li>
         {activity.fields["totalPoints (Activity points x duration)"]} points
       </li>
-      {activity.fields.link ? <li>{activity.fields.link}</li> : ""}
+
+      {activity.fields.link ? (
+        <li>
+          <a href={activity.fields.link}>
+            <ActivityLinkButton>
+              View confirmation
+              {<StyledImg src="assets/Link.png" alt="link-symbol"></StyledImg>}
+            </ActivityLinkButton>
+          </a>
+        </li>
+      ) : (
+        ""
+      )}
     </ListStyle>
   );
 }

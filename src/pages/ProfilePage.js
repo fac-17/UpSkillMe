@@ -18,6 +18,13 @@ export default function ProfilePage({
 }) {
   const [dataRefresh, setDataRefresh] = React.useState(true);
   const [loggedOut, setLoggedOut] = React.useState(false);
+  const [isFormDisplayed, setFormDisplayed] = React.useState("none");
+  const [activityButtonDisplay, setActivityButtonDisplay] = React.useState(
+    "block"
+  );
+  const [closeButtonDisplay, setCloseButtonDisplay] = React.useState(
+    "inline-block"
+  );
 
   // Fetches the user data, convert the codes, set the Data,
   // update data refresh.
@@ -75,11 +82,33 @@ export default function ProfilePage({
     <div>
       <LogOutButton setLoggedOut={setLoggedOut} setEmailInput={setEmailInput} />
       <OpportunitiesButton />
-      <Profile data={data} emailInput={emailInput} />
+      <Profile
+        data={data}
+        emailInput={emailInput}
+        setLoggedOut={setLoggedOut}
+        setEmailInput={setEmailInput}
+      />
+
       <Badges data={data} />
       <Activites activities={data} />
-      <EventForm setDataRefresh={setDataRefresh} emailInput={emailInput} />
-      <ActivityButton />
+      <EventForm
+        setDataRefresh={setDataRefresh}
+        emailInput={emailInput}
+        isFormDisplayed={isFormDisplayed}
+        setFormDisplayed={setFormDisplayed}
+        activityButtonDisplay={activityButtonDisplay}
+        setActivityButtonDisplay={setActivityButtonDisplay}
+        closeButtonDisplay={closeButtonDisplay}
+        setCloseButtonDisplay={setCloseButtonDisplay}
+      />
+      <ActivityButton
+        isFormDisplayed={isFormDisplayed}
+        setFormDisplayed={setFormDisplayed}
+        activityButtonDisplay={activityButtonDisplay}
+        setActivityButtonDisplay={setActivityButtonDisplay}
+        closeButtonDisplay={closeButtonDisplay}
+        setCloseButtonDisplay={setCloseButtonDisplay}
+      />
     </div>
   );
 }

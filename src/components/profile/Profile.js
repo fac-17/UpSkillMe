@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import LogOutButton from "../log-out-button/log-out-button";
 
 // Styled components
 const ProfileStyle = styled.section`
@@ -23,7 +24,12 @@ const PointsStyle = styled.h2`
   }
 `;
 
-export default function Profile({ data, emailInput }) {
+export default function Profile({
+  data,
+  emailInput,
+  setLoggedOut,
+  setEmailInput
+}) {
   const [avatar] = React.useState("assets/avatarAlien.svg");
   const [totalScore, setTotalScore] = React.useState(10);
 
