@@ -2,9 +2,13 @@ import React from "react";
 import skillsConverter from "../../utils/skillsConverter";
 import activityConverter from "../../utils/activityConverter";
 import styled from "styled-components";
+import ActivityButton from "../add-activity-button/ActivityButton";
 
 //Styled components
 const FormStyle = styled.form`
+  /* display: ${props =>
+    props.isFormDisplayed === true ? "block" : "none"}; */
+  display: ${props => props.formDisplay};
   max-width: 90%;
   margin: 10px;
   position: relative;
@@ -72,10 +76,16 @@ const Submit = styled.input`
 
 //
 
-export default function EventForm({ setDataRefresh, emailInput }) {
+export default function EventForm({
+  setDataRefresh,
+  emailInput,
+  isFormDisplayed
+}) {
   const [activityName, setActivityName] = React.useState("");
   const [date, setDate] = React.useState("");
   const [badgeValues, setBadgeValues] = React.useState([]);
+  const [formDisplay, setFormDisplay] = React.useState(isFormDisplayed);
+
   const badgeOptions = [
     "Communication",
     "Creativity",
@@ -176,8 +186,13 @@ export default function EventForm({ setDataRefresh, emailInput }) {
     e.preventDefault();
   };
 
+  React.useEffect(() => {
+    setFormDisplay(isFormDisplayed);
+    console.log(formDisplay);
+  }, [isFormDisplayed]);
+
   return (
-    <FormStyle onSubmit={handleSubmit}>
+    <FormStyle formDisplay={formDisplay} onSubmit={handleSubmit}>
       <h2> Add new activity</h2>
       <Label>
         Name of Activity:

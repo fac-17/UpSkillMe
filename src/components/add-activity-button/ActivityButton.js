@@ -23,8 +23,10 @@ const PlusStyle = styled.span`
 
 //
 
-export default function ActivityButton() {
-  function handleShowAddActivityForm(e) {}
+export default function ActivityButton({ isFormDisplayed, setFormDisplayed }) {
+  function handleShowAddActivityForm(e) {
+    setFormDisplayed(isFormDisplayed === "block" ? "none" : "block");
+  }
 
   return (
     <ActivityButtonStyle onClick={handleShowAddActivityForm}>
