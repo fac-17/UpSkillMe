@@ -51,8 +51,6 @@ export default function Profile({
 
   return (
     <ProfileStyle>
-      <LogOutButton setLoggedOut={setLoggedOut} setEmailInput={setEmailInput} />
-
       <EmailStyle>{emailInput}</EmailStyle>
       <img src={avatar} alt="this is our avatar pic" width="200px" />
       <PointsStyle>{totalScore} total points</PointsStyle>
