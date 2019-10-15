@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import theme from '../theme';
+
 
 const Div = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: ${props => props.theme.primaryColor};
+  color: ${props => props.theme.mainFontColor};
 `;
 
 const Image = styled.img`
@@ -20,6 +22,10 @@ align-items: center;
 const Circle = styled.svg`
   margin: 0 0.5rem;
 `;
+
+const ImageDescription = styled.h2`
+  font-size: ${props => props.theme.h3FontSize}
+`
 
 const SignUpButton = styled.button`
   border-radius: 0.5rem;
@@ -51,6 +57,7 @@ const FormSection = styled.section`
 `;
 export {
   Div,
+  ImageDescription,
   Image,
   CircleSelection,
   Circle,
