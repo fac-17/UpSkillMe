@@ -7,9 +7,6 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
-  margin: 20px;
-  // background-color: #ecebe4;
 `;
 
 const H1 = styled.h1`
@@ -17,8 +14,21 @@ const H1 = styled.h1`
   margin-bottom: 40px;
 `;
 
-// export default function Profile({ data, emailInput }) {
-//   const [avatar, setAvatar] = React.useState("assets/avatarAlien.svg");
+const CircleSelection = styled.div`
+/* display: ${pageState => pageState === 'start' ? 'block' : 'hidden'}; */
+display: flex;
+flex-direction: row;
+align-items: center;
+`
+const Circle = styled.svg`
+  margin: 0 0.5rem;
+`
+
+const InfoSection = styled.div`
+display: ${props => props.pageState === '' ? 'flex' : 'none'};
+flex-direction: column;
+align-items: center;
+`
 
 
 export default function LogInPage({ emailInput, setEmailInput }) {
@@ -30,36 +40,54 @@ export default function LogInPage({ emailInput, setEmailInput }) {
     'opportunities': 'Discover new opportunities',
     'potential': 'Achieve your potential '
   }
+  let intervalId;
+
+  React.useEffect(() => {
+    intervalId = setInterval(() => {
+      if (infoSlider === 'achievements') {
+        setInfoSlider('opportunities');
+      }
+      else if (infoSlider === 'opportunities') {
+        setInfoSlider('potential');
+      }
+      else if (infoSlider === 'potential') {
+        setInfoSlider('achievements');
+      }
+    }
+      , 3000)
+    return () => { clearInterval(intervalId) }
+  }, [infoSlider])
 
   return (
     <Div>
       <H1><img src={logo} alt="logo" width="100px" /></H1>
-      <img src={`assets/${infoSlider}.svg`} alt="info image" width="150px" />
-      <p>{textDescription[infoSlider]}</p>
-      <div className="selection-circles">
-        <svg onClick={() => { setInfoSlider('achievements') }} width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="15" cy="15" r="15" fill={infoSlider === 'achievements' ? 'blue' : 'black'} />
-        </svg>
+      <InfoSection pageState={pageState} >
+        <img src={`assets/${infoSlider}.svg`} alt="info image" width="150px" />
+        <p>{textDescription[infoSlider]}</p>
+        <CircleSelection>
 
-        <svg onClick={() => { setInfoSlider('opportunities') }} width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="15" cy="15" r="15" fill={infoSlider === 'opportunities' ? 'blue' : 'black'} />
-        </svg>
+          <Circle onClick={() => { setInfoSlider('achievements') }} width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="15" cy="15" r="15" fill={infoSlider === 'achievements' ? 'black' : '#C4C4C4'} />
+          </Circle>
+          <Circle onClick={() => { setInfoSlider('opportunities') }} width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="15" cy="15" r="15" fill={infoSlider === 'opportunities' ? 'black' : '#C4C4C4'} />
+          </Circle>
+          <Circle onClick={() => { setInfoSlider('potential') }} width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="15" cy="15" r="15" fill={infoSlider === 'potential' ? 'black' : '#C4C4C4'} />
+          </Circle>
+        </CircleSelection>
+        <button className="show-login" onClick={() => { setPageState('login') }}>Login</button>
+        <button className="show-signup" onClick={() => { setPageState('signup') }}>Signup</button>
+      </InfoSection>
 
-        <svg onClick={() => { setInfoSlider('potential') }} width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="15" cy="15" r="15" fill={infoSlider === 'potential' ? 'blue' : 'black'} />
-        </svg>
-
-      </div>
-
-      <button className="show-login" onClick={() => { setPageState('login') }}>Login</button>
-      <button className="show-signup" onClick={() => { setPageState('signup') }}>Signup</button>
-      {/* <button className="circle-two" onClick={() => { setInfoSlider('opportunities') }}>Two</button>
-      <button className="circle-three" onClick={() => { setInfoSlider('potential') }}>Three</button>  */}
       {pageState === 'login' ?
-        <LogInForm emailInput={emailInput} setEmailInput={setEmailInput} /> : pageState === 'signup' ?
-          <SignUpForm emailInput={emailInput} setEmailInput={setEmailInput} /> : ''}
-
-
+        <section>
+          <LogInForm emailInput={emailInput} setEmailInput={setEmailInput} />
+          <button onClick={() => { setPageState('') }}>Back</button>
+        </section> : pageState === 'signup' ?
+          <section><SignUpForm emailInput={emailInput} setEmailInput={setEmailInput} />
+            <button onClick={() => { setPageState('') }}>Back</button>
+          </section> : ''}
     </Div>
   );
 }
