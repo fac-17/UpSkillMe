@@ -7,6 +7,7 @@ import Profile from "../components/profile/Profile";
 import activityConverter from "../utils/activityConverter";
 import skillsConverter from "../utils/skillsConverter";
 import LogOutButton from "../components/log-out-button/log-out-button";
+import OpportunitiesButton from "../components/opportunities-button/OpportunitiesButton";
 import { Redirect, Route } from "react-router-dom";
 
 export default function ProfilePage({
@@ -17,6 +18,13 @@ export default function ProfilePage({
 }) {
   const [dataRefresh, setDataRefresh] = React.useState(true);
   const [loggedOut, setLoggedOut] = React.useState(false);
+  const [isFormDisplayed, setFormDisplayed] = React.useState("none");
+  const [activityButtonDisplay, setActivityButtonDisplay] = React.useState(
+    "block"
+  );
+  const [closeButtonDisplay, setCloseButtonDisplay] = React.useState(
+    "inline-block"
+  );
 
   // Fetches the user data, convert the codes, set the Data,
   // update data refresh.
@@ -73,11 +81,34 @@ export default function ProfilePage({
   return (
     <div>
       <LogOutButton setLoggedOut={setLoggedOut} setEmailInput={setEmailInput} />
-      <Profile data={data} emailInput={emailInput} />
+      <OpportunitiesButton />
+      <Profile
+        data={data}
+        emailInput={emailInput}
+        setLoggedOut={setLoggedOut}
+        setEmailInput={setEmailInput}
+      />
+
       <Badges data={data} />
       <Activites activities={data} />
-      <EventForm setDataRefresh={setDataRefresh} emailInput={emailInput} />
-      <ActivityButton />
+      <EventForm
+        setDataRefresh={setDataRefresh}
+        emailInput={emailInput}
+        isFormDisplayed={isFormDisplayed}
+        setFormDisplayed={setFormDisplayed}
+        activityButtonDisplay={activityButtonDisplay}
+        setActivityButtonDisplay={setActivityButtonDisplay}
+        closeButtonDisplay={closeButtonDisplay}
+        setCloseButtonDisplay={setCloseButtonDisplay}
+      />
+      <ActivityButton
+        isFormDisplayed={isFormDisplayed}
+        setFormDisplayed={setFormDisplayed}
+        activityButtonDisplay={activityButtonDisplay}
+        setActivityButtonDisplay={setActivityButtonDisplay}
+        closeButtonDisplay={closeButtonDisplay}
+        setCloseButtonDisplay={setCloseButtonDisplay}
+      />
     </div>
   );
 }

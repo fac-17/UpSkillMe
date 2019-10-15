@@ -1,5 +1,10 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
+import { H2, Input, EmailInput, SimpleForm } from './SignUpFormStyle'
+import { ThemeProvider } from "styled-components";
+import { Label } from '../common/common'
+import theme from '../../theme'
+
 
 export default function SignUpForm({ emailInput, setEmailInput }) {
   const [currSubmittedEmail, setCurrSubmittedEmail] = React.useState("");
@@ -51,25 +56,24 @@ export default function SignUpForm({ emailInput, setEmailInput }) {
   }
 
   return (
-    <section>
-      <h3> Sign Up</h3>
-      <form onSubmit={handleSignUpSubmit}>
-        <label>
-          {" "}
-          Enter email:
-          <input
-            required
-            type="email"
-            value={currSubmittedEmail}
-            onChange={e => setCurrSubmittedEmail(e.target.value)}
-          />
-        </label>
-        <label>
-          {" "}
-          Sign Up
-          <input type="submit" />
-        </label>
-      </form>
-    </section>
+    <ThemeProvider theme={theme}>
+      <section >
+        <H2> Sign Up</H2>
+        <SimpleForm onSubmit={handleSignUpSubmit}>
+          <Label>
+            {" "}
+            Enter email:
+          <EmailInput
+              required
+              type="email"
+              value={currSubmittedEmail}
+              onChange={e => setCurrSubmittedEmail(e.target.value)}
+            />
+          </Label>
+
+          <Input type="submit" />
+        </SimpleForm>
+      </section>
+    </ThemeProvider>
   );
 }
