@@ -24,6 +24,15 @@ const ActivityLinkButton = styled.button`
   color: white;
   cursor: pointer;
   font-family: "Roboto", sans-serif;
+  max-height: 90%;
+  max-width: 25%;
+  /* height: 100%;
+  width: 100%; */
+`;
+
+const StyledImg = styled.img`
+  max-height: 7.5%;
+  max-width: 7.5%;
 `;
 
 export default function Activity({ activity, index, activities }) {
@@ -49,12 +58,7 @@ export default function Activity({ activity, index, activities }) {
           <a href={activity.fields.link}>
             <ActivityLinkButton>
               View confirmation
-              {
-                <img
-                  src="../../../public/assets/link.png"
-                  alt="link-symbol"
-                ></img>
-              }
+              {<StyledImg src="assets/Link.png" alt="link-symbol"></StyledImg>}
             </ActivityLinkButton>
           </a>
         </li>
