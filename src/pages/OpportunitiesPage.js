@@ -1,10 +1,18 @@
 import React from "react";
-import OpportunitiesList from "../components/opportunitiesList";
+import OpportunitiesList from "../components/opportunitiesList/OpportunitiesList";
 import { Redirect, Route } from "react-router-dom";
 import LogOutButton from "../components/log-out-button/log-out-button";
 
-export default function OpportunitiesPage({ opportunities }) {
+export default function OpportunitiesPage({ opportunities, setOpportunities }) {
   const [loggedOut, setLoggedOut] = React.useState(false);
+
+React.useEffect(()=> {
+  fetch(`http://localhost:9000/GetOpportunitiesData`)
+    .then(res => res.json())
+    .then(res => {
+    })
+}, []);
+
 
   if (loggedOut) {
     return (

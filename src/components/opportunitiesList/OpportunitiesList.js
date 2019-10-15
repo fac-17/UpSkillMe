@@ -1,4 +1,5 @@
 import React from "react";
+import Opportunity from "../opportunity/Opportunity"
 // import Opportunity from "";
 
 export default function OpportunitiesList({ opportunities }) {
@@ -16,8 +17,8 @@ export default function OpportunitiesList({ opportunities }) {
           <Opportunity
             key={opportunity.id}
             opportunity={opportunity}
-            //   index={index}
-            //   opportunities={opportunities}
+            index={index}
+              opportunities={opportunities}
           />
         );
       })}
