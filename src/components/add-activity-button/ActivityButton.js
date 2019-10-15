@@ -28,13 +28,16 @@ export default function ActivityButton({
   isFormDisplayed,
   setFormDisplayed,
   activityButtonDisplay,
-  setActivityButtonDisplay
+  setActivityButtonDisplay,
+  closeButtonDisplay,
+  setCloseButtonDisplay
 }) {
   function handleShowAddActivityForm(e) {
     setFormDisplayed(isFormDisplayed === "block" ? "none" : "block");
     setActivityButtonDisplay(
       activityButtonDisplay === "block" ? "none" : "block"
     );
+    setCloseButtonDisplay(closeButtonDisplay === "block" ? "none" : "block");
   }
 
   return (

@@ -21,6 +21,9 @@ export default function ProfilePage({
   const [activityButtonDisplay, setActivityButtonDisplay] = React.useState(
     "block"
   );
+  const [closeButtonDisplay, setCloseButtonDisplay] = React.useState(
+    "inline-block"
+  );
 
   // Fetches the user data, convert the codes, set the Data,
   // update data refresh.
@@ -90,12 +93,18 @@ export default function ProfilePage({
         emailInput={emailInput}
         isFormDisplayed={isFormDisplayed}
         setFormDisplayed={setFormDisplayed}
+        activityButtonDisplay={activityButtonDisplay}
+        setActivityButtonDisplay={setActivityButtonDisplay}
+        closeButtonDisplay={closeButtonDisplay}
+        setCloseButtonDisplay={setCloseButtonDisplay}
       />
       <ActivityButton
         isFormDisplayed={isFormDisplayed}
         setFormDisplayed={setFormDisplayed}
         activityButtonDisplay={activityButtonDisplay}
         setActivityButtonDisplay={setActivityButtonDisplay}
+        closeButtonDisplay={closeButtonDisplay}
+        setCloseButtonDisplay={setCloseButtonDisplay}
       />
     </div>
   );

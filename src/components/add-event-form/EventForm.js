@@ -73,21 +73,20 @@ const Submit = styled.input`
   }
 `;
 
-//
-
 export default function EventForm({
   setDataRefresh,
   emailInput,
   isFormDisplayed,
-  setFormDisplayed
+  setFormDisplayed,
+  activityButtonDisplay,
+  setActivityButtonDisplay,
+  closeButtonDisplay,
+  setCloseButtonDisplay
 }) {
   const [activityName, setActivityName] = React.useState("");
   const [date, setDate] = React.useState("");
   const [badgeValues, setBadgeValues] = React.useState([]);
   const [formDisplay, setFormDisplay] = React.useState(isFormDisplayed);
-  const [closeButtonDisplay, setCloseButtonDisplay] = React.useState(
-    "inline-block"
-  );
 
   const badgeOptions = [
     "Communication",
@@ -200,6 +199,8 @@ export default function EventForm({
         setCloseButtonDisplay={setCloseButtonDisplay}
         setFormDisplayed={setFormDisplayed}
         isFormDisplayed={isFormDisplayed}
+        activityButtonDisplay={activityButtonDisplay}
+        setActivityButtonDisplay={setActivityButtonDisplay}
       />
       <h2> Add new activity</h2>
       <Label>

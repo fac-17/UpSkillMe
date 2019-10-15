@@ -46,13 +46,18 @@ export default function CloseButton({
   closeButtonDisplay,
   setCloseButtonDisplay,
   setFormDisplayed,
-  isFormDisplayed
+  isFormDisplayed,
+  activityButtonDisplay,
+  setActivityButtonDisplay
 }) {
   function handleCloseButton(e) {
     setCloseButtonDisplay(
       closeButtonDisplay === "none" ? "inline-block" : "none"
     );
     setFormDisplayed(isFormDisplayed === "block" ? "none" : "block");
+    setActivityButtonDisplay(
+      activityButtonDisplay === "block" ? "none" : "block"
+    );
   }
 
   return (
