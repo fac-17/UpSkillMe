@@ -2,6 +2,7 @@ import React from "react";
 import OpportunitiesList from "../components/opportunitiesList/OpportunitiesList";
 import { Redirect, Route } from "react-router-dom";
 import LogOutButton from "../components/log-out-button/log-out-button";
+import activityConverter from "../utils/activityConverter";
 
 export default function OpportunitiesPage({ opportunities, setOpportunities }) {
   const [loggedOut, setLoggedOut] = React.useState(false);
@@ -10,7 +11,12 @@ export default function OpportunitiesPage({ opportunities, setOpportunities }) {
     fetch(`http://localhost:9000/GetOpportunitiesData`)
       .then(res => res.json())
       .then(res => {
-        setOpportunities(res.records);
+        if (res.records) {
+          res.records.forEach(e => {
+            e.fields.activityType = activityConverter(e.fields.activityType[0]);
+          });
+          setOpportunities(res.records);
+        }
       });
   }, []);
 

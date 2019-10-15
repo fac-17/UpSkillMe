@@ -14,6 +14,7 @@ export default function Opportunity({ opportunity, index }) {
       <li>{opportunity.fields.organisation} </li>
       <li>{opportunity.fields.date}</li>
       <li>{opportunity.fields.address}</li>
+      <li>{opportunity.fields.activityType}</li>
       <li>{opportunity.fields.link}</li>
     </ul>
   );
