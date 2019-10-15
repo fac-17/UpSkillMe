@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-// import { unlink } from "fs";
 
 export default function Opportunity({ opportunity, index }) {
   if (!opportunity) {
     return <h2>Opportunity not loaded...</h2>;
   }
+  console.log(opportunity);
 
   return (
     <ul>

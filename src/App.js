@@ -9,6 +9,7 @@ function App() {
   const [data, setData] = React.useState([]);
   const [emailInput, setEmailInput] = React.useState("");
   const [opportunities, setOpportunities] = React.useState([]);
+
   return (
     <Router>
       <div className="App">
@@ -30,6 +31,7 @@ function App() {
           <Route path="/opportunities">
             <OpportunitiesPage
               opportunities={opportunities}
+              setOpportunities={setOpportunities}
             />
           </Route>
         </Switch>

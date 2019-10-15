@@ -6,13 +6,13 @@ import LogOutButton from "../components/log-out-button/log-out-button";
 export default function OpportunitiesPage({ opportunities, setOpportunities }) {
   const [loggedOut, setLoggedOut] = React.useState(false);
 
-React.useEffect(()=> {
-  fetch(`http://localhost:9000/GetOpportunitiesData`)
-    .then(res => res.json())
-    .then(res => {
-    })
-}, []);
-
+  React.useEffect(() => {
+    fetch(`http://localhost:9000/GetOpportunitiesData`)
+      .then(res => res.json())
+      .then(res => {
+        setOpportunities(res.records);
+      });
+  }, []);
 
   if (loggedOut) {
     return (
@@ -25,7 +25,7 @@ React.useEffect(()=> {
   return (
     <div>
       <LogOutButton setLoggedOut={setLoggedOut} />
-      <OpportunitiesList>{opportunities}</OpportunitiesList>
+      <OpportunitiesList opportunities={opportunities} />
     </div>
   );
 }
