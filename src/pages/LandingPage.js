@@ -3,7 +3,8 @@ import LogInForm from "../components/log-in-form/LogInForm";
 import SignUpForm from "../components/sign-up-form/SignUpForm"
 import { ThemeProvider } from "styled-components";
 import theme from '../theme';
-import { Div, Image, CircleSelection, Button, Circle, SignUpButton, ButtonContainer, InfoSection, FormSection } from "./LandingPageStyle";
+import { Div, Image, CircleSelection, Circle, SignUpButton, ButtonContainer, InfoSection, FormSection } from "./LandingPageStyle";
+import { Button } from '../components/common/common'
 import { LANDING_PAGE_TEXT_DESCRIPTIONS as TEXTDESCRIPTION } from '../constants';
 import setSliderInterval from '../utils/setSliderInterval';
 

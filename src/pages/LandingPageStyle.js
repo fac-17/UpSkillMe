@@ -20,14 +20,7 @@ align-items: center;
 const Circle = styled.svg`
   margin: 0 0.5rem;
 `;
-const Button = styled.button`
-  border-radius: 0.5rem;
-  width: 6rem;
-  height: 2rem;
-  font-size: 1rem;
-  text-align: center;
-  margin: 3rem 0.5rem;
-`;
+
 const SignUpButton = styled.button`
   border-radius: 0.5rem;
   width: 6rem;
@@ -60,7 +53,6 @@ export {
   Div,
   Image,
   CircleSelection,
-  Button,
   Circle,
   SignUpButton,
   ButtonContainer,
