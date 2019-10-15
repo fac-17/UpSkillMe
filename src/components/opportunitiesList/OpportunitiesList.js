@@ -6,7 +6,6 @@ export default function OpportunitiesList({ opportunities }) {
     return <h3>Opportunities not loaded...</h3>;
   }
 
-  console.log("this is an", opportunities);
   return (
     <div>
       <h2>Opportunities List</h2>
@@ -19,7 +18,6 @@ export default function OpportunitiesList({ opportunities }) {
             key={opportunity.id}
             opportunity={opportunity}
             index={index}
-            // opportunities={opportunities}
           />
         );
       })}
