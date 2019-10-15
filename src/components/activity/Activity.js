@@ -12,8 +12,19 @@ const ListStyle = styled.ul`
   margin-bottom: 20px;
   text-align: center;
   padding-bottom: 20px;
+  font-size: 1.5rem;
 `;
 
+const ActivityLinkButton = styled.button`
+  border-radius: 20px;
+  padding: 0.5%;
+  border-radius: 5px;
+  font-size: 1em;
+  background-color: #109cf1;
+  color: white;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+`;
 
 export default function Activity({ activity, index, activities }) {
   if (!activity) {
@@ -32,7 +43,24 @@ export default function Activity({ activity, index, activities }) {
       <li>
         {activity.fields["totalPoints (Activity points x duration)"]} points
       </li>
-      {activity.fields.link ? <li>{activity.fields.link}</li> : ""}
+
+      {activity.fields.link ? (
+        <li>
+          <a href={activity.fields.link}>
+            <ActivityLinkButton>
+              View confirmation
+              {
+                <img
+                  src="../../../public/assets/link.png"
+                  alt="link-symbol"
+                ></img>
+              }
+            </ActivityLinkButton>
+          </a>
+        </li>
+      ) : (
+        ""
+      )}
     </ListStyle>
   );
 }
