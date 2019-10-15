@@ -23,6 +23,18 @@ align-items: center;
 const Circle = styled.svg`
   margin: 0 0.5rem;
 `
+const Button = styled.button`
+  border-radius: 0.5rem;
+width: 6rem;
+height: 2rem;
+font-size: 1rem;
+text-align: center;
+margin: 3rem  0.5rem;
+`
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`
 
 const InfoSection = styled.div`
 display: ${props => props.pageState === '' ? 'flex' : 'none'};
@@ -76,8 +88,10 @@ export default function LogInPage({ emailInput, setEmailInput }) {
             <circle cx="15" cy="15" r="15" fill={infoSlider === 'potential' ? 'black' : '#C4C4C4'} />
           </Circle>
         </CircleSelection>
-        <button className="show-login" onClick={() => { setPageState('login') }}>Login</button>
-        <button className="show-signup" onClick={() => { setPageState('signup') }}>Signup</button>
+        <ButtonContainer>
+          <Button className="show-login" onClick={() => { setPageState('login') }}>Login</Button>
+          <Button className="show-signup" onClick={() => { setPageState('signup') }}>Signup</Button>
+        </ButtonContainer>
       </InfoSection>
 
       {pageState === 'login' ?
