@@ -3,11 +3,10 @@ import skillsConverter from "../../utils/skillsConverter";
 import activityConverter from "../../utils/activityConverter";
 import styled from "styled-components";
 import ActivityButton from "../add-activity-button/ActivityButton";
+import CloseButton from "../close-button/CloseButton";
 
 //Styled components
 const FormStyle = styled.form`
-  /* display: ${props =>
-    props.isFormDisplayed === true ? "block" : "none"}; */
   display: ${props => props.formDisplay};
   max-width: 90%;
   margin: 10px;
@@ -79,12 +78,16 @@ const Submit = styled.input`
 export default function EventForm({
   setDataRefresh,
   emailInput,
-  isFormDisplayed
+  isFormDisplayed,
+  setFormDisplayed
 }) {
   const [activityName, setActivityName] = React.useState("");
   const [date, setDate] = React.useState("");
   const [badgeValues, setBadgeValues] = React.useState([]);
   const [formDisplay, setFormDisplay] = React.useState(isFormDisplayed);
+  const [closeButtonDisplay, setCloseButtonDisplay] = React.useState(
+    "inline-block"
+  );
 
   const badgeOptions = [
     "Communication",
@@ -188,11 +191,16 @@ export default function EventForm({
 
   React.useEffect(() => {
     setFormDisplay(isFormDisplayed);
-    console.log(formDisplay);
   }, [isFormDisplayed]);
 
   return (
     <FormStyle formDisplay={formDisplay} onSubmit={handleSubmit}>
+      <CloseButton
+        closeButtonDisplay={closeButtonDisplay}
+        setCloseButtonDisplay={setCloseButtonDisplay}
+        setFormDisplayed={setFormDisplayed}
+        isFormDisplayed={isFormDisplayed}
+      />
       <h2> Add new activity</h2>
       <Label>
         Name of Activity:

@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 //Styled components
 const ActivityButtonStyle = styled.button`
+  display: ${props => props.activityButtonDisplay};
   border-radius: 100%;
   width: 100px;
   height: 100px;
@@ -23,13 +24,24 @@ const PlusStyle = styled.span`
 
 //
 
-export default function ActivityButton({ isFormDisplayed, setFormDisplayed }) {
+export default function ActivityButton({
+  isFormDisplayed,
+  setFormDisplayed,
+  activityButtonDisplay,
+  setActivityButtonDisplay
+}) {
   function handleShowAddActivityForm(e) {
     setFormDisplayed(isFormDisplayed === "block" ? "none" : "block");
+    setActivityButtonDisplay(
+      activityButtonDisplay === "block" ? "none" : "block"
+    );
   }
 
   return (
-    <ActivityButtonStyle onClick={handleShowAddActivityForm}>
+    <ActivityButtonStyle
+      activityButtonDisplay={activityButtonDisplay}
+      onClick={handleShowAddActivityForm}
+    >
       Add Activity <br></br>
       <PlusStyle>+</PlusStyle>
     </ActivityButtonStyle>

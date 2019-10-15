@@ -18,6 +18,9 @@ export default function ProfilePage({
   const [dataRefresh, setDataRefresh] = React.useState(true);
   const [loggedOut, setLoggedOut] = React.useState(false);
   const [isFormDisplayed, setFormDisplayed] = React.useState("none");
+  const [activityButtonDisplay, setActivityButtonDisplay] = React.useState(
+    "block"
+  );
 
   // Fetches the user data, convert the codes, set the Data,
   // update data refresh.
@@ -86,10 +89,13 @@ export default function ProfilePage({
         setDataRefresh={setDataRefresh}
         emailInput={emailInput}
         isFormDisplayed={isFormDisplayed}
+        setFormDisplayed={setFormDisplayed}
       />
       <ActivityButton
         isFormDisplayed={isFormDisplayed}
         setFormDisplayed={setFormDisplayed}
+        activityButtonDisplay={activityButtonDisplay}
+        setActivityButtonDisplay={setActivityButtonDisplay}
       />
     </div>
   );
