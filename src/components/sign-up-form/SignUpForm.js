@@ -1,5 +1,25 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
+import styled from "styled-components";
+
+const H2 = styled.h2` 
+text-align: center;
+`;
+
+const Input = styled.input`
+  border-radius: 0.5rem;
+width: 5rem;
+height: 2rem;
+font-size: 1rem;
+text-align: center;
+margin: 3rem  0.5rem;
+`
+
+const EmailInput = styled.input`
+  border: 1px black solid;
+`
+
+
 
 export default function SignUpForm({ emailInput, setEmailInput }) {
   const [currSubmittedEmail, setCurrSubmittedEmail] = React.useState("");
@@ -51,24 +71,21 @@ export default function SignUpForm({ emailInput, setEmailInput }) {
   }
 
   return (
-    <section>
-      <h3> Sign Up</h3>
+    <section >
+      <H2> Sign Up</H2>
       <form onSubmit={handleSignUpSubmit}>
         <label>
           {" "}
           Enter email:
-          <input
+          <EmailInput
             required
             type="email"
             value={currSubmittedEmail}
             onChange={e => setCurrSubmittedEmail(e.target.value)}
           />
         </label>
-        <label>
-          {" "}
-          Sign Up
-          <input type="submit" />
-        </label>
+
+        <Input type="submit" />
       </form>
     </section>
   );
