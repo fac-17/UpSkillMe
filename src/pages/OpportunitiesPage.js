@@ -4,7 +4,11 @@ import { Redirect, Route } from "react-router-dom";
 import LogOutButton from "../components/log-out-button/log-out-button";
 import activityConverter from "../utils/activityConverter";
 
-export default function OpportunitiesPage({ opportunities, setOpportunities }) {
+export default function OpportunitiesPage({
+  opportunities,
+  setOpportunities,
+  setEmailInput
+}) {
   const [loggedOut, setLoggedOut] = React.useState(false);
 
   React.useEffect(() => {
@@ -30,7 +34,7 @@ export default function OpportunitiesPage({ opportunities, setOpportunities }) {
 
   return (
     <div>
-      <LogOutButton setLoggedOut={setLoggedOut} />
+      <LogOutButton setLoggedOut={setLoggedOut} setEmailInput={setEmailInput} />
       <OpportunitiesList opportunities={opportunities} />
     </div>
   );

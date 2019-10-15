@@ -32,6 +32,7 @@ function App() {
             <OpportunitiesPage
               opportunities={opportunities}
               setOpportunities={setOpportunities}
+              setEmailInput={setEmailInput}
             />
           </Route>
         </Switch>
