@@ -31,6 +31,17 @@ font-size: 1rem;
 text-align: center;
 margin: 3rem  0.5rem;
 `
+const SignUpButton = styled.button`
+border-radius: 0.5rem;
+width: 6rem;
+height: 2rem;
+font-size: 1rem;
+text-align: center;
+margin: 3rem  0.5rem;
+margin-left:auto;
+margin-right:auto;
+`
+
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -42,6 +53,12 @@ flex-direction: column;
 align-items: center;
 `
 
+const FormSection = styled.section`
+display:flex;
+width:100%;
+flex-direction: column;
+align-items: center;
+`
 
 export default function LogInPage({ emailInput, setEmailInput }) {
   const [logo, setLogo] = React.useState("assets/UpSkillMe_logo.png");
@@ -92,16 +109,16 @@ export default function LogInPage({ emailInput, setEmailInput }) {
           <Button className="show-login" onClick={() => { setPageState('login') }}>Login</Button>
           <Button className="show-signup" onClick={() => { setPageState('signup') }}>Signup</Button>
         </ButtonContainer>
-      </InfoSection>
+      </InfoSection >
 
       {pageState === 'login' ?
-        <section>
+        <FormSection>
           <LogInForm emailInput={emailInput} setEmailInput={setEmailInput} />
-          <button onClick={() => { setPageState('') }}>Back</button>
-        </section> : pageState === 'signup' ?
-          <section><SignUpForm emailInput={emailInput} setEmailInput={setEmailInput} />
-            <button onClick={() => { setPageState('') }}>Back</button>
-          </section> : ''}
-    </Div>
+          <SignUpButton onClick={() => { setPageState('') }}>Back</SignUpButton>
+        </FormSection> : pageState === 'signup' ?
+          <FormSection><SignUpForm emailInput={emailInput} setEmailInput={setEmailInput} />
+            <SignUpButton onClick={() => { setPageState('') }}>Back</SignUpButton>
+          </FormSection> : ''}
+    </Div >
   );
 }

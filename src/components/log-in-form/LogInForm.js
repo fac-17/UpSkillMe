@@ -2,6 +2,24 @@ import React from "react";
 
 import { Redirect, Route } from "react-router-dom";
 
+import styled from "styled-components";
+
+const H2 = styled.h2` 
+text-align: center;
+`;
+
+const Input = styled.input`
+  border-radius: 0.5rem;
+width: 5rem;
+height: 2rem;
+font-size: 1rem;
+text-align: center;
+margin: 3rem  0.5rem;
+`
+
+const EmailInput = styled.input`
+  border: 1px black solid;
+`
 
 
 export default function LogInform({ emailInput, setEmailInput }) {
@@ -23,11 +41,11 @@ export default function LogInform({ emailInput, setEmailInput }) {
 
   return (
     <section className="login-form">
-      <h3> Log In</h3>
+      <H2> Log In</H2>
       <form onSubmit={handleLogInSubmit}>
         <label>
           Enter email:
-          <input
+          <EmailInput
             required
             type="email"
             value={currEmailInput}
@@ -35,9 +53,7 @@ export default function LogInform({ emailInput, setEmailInput }) {
           />
         </label>
         <label>
-          {" "}
-          Login
-          <input type="submit" />
+          <Input type="submit" />
         </label>
       </form>
     </section>
