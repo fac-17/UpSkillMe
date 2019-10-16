@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 //Styled components
- const BadgesStyle = styled.ul`
+const BadgesStyle = styled.ul`
  list-style: none;
  display: flex;
  flex-direction: row;
@@ -12,14 +12,21 @@ import styled from "styled-components";
  padding: 0;
  `;
 
- const ListBadges = styled.li`
- width: 150px;
- padding: 20px;
+const ListBadges = styled.li`
+ /* width: 250px; */
+ padding: 0 1rem;
+ width: 7rem;
  
- @media (max-width: 414px){
-   width: 80px;
+ display: flex;
+ flex-direction: column;
+ align-content: center;
+  justify-content: flex-end;
+ 
+ @media (max-width: 480px){
+   /* width: 80px; */
    padding: 10px;
-   font-size: 0.60em;
+   width: 8rem;
+   /* font-size: 0.60em; */
  }
  
  @media (min-width: 940px){
@@ -28,8 +35,9 @@ import styled from "styled-components";
  }
  `;
 
- const PointsStyle = styled.h4`
+const PointsStyle = styled.h3`
  text-align: center;
+ min-height: 3rem;
  `;
 
 const allBadges = [
@@ -105,8 +113,8 @@ export default function Badges({ selectedBadges, data }) {
         return (
           <ListBadges>
             <h3 key={item}>{item}</h3>
-            <img src={`assets/${item}.svg`} alt={item} />
-            {!selectedBadges ? <PointsStyle>Points:{skillPoints[item]}</PointsStyle> : ""}
+            <img src={`assets/${item}.svg`} height="110px" alt={item} />
+            {!selectedBadges ? <PointsStyle>Points: {skillPoints[item]}</PointsStyle> : ""}
           </ListBadges>
         );
       })}
