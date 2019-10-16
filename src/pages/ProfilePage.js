@@ -32,10 +32,10 @@ export default function ProfilePage({
   // is added
 
   React.useEffect(() => {
-    // fetch("/.netlify/functions/GetUserData")
+    // fetch("/.netlify/src/functions/GetUserData")
     const userData = JSON.stringify({ email: emailInput });
     if (emailInput !== "") {
-      fetch(`/functions/GetUserData?email=${userData}`)
+      fetch(`/.netlify/src/functions/GetUserData?email=${userData}`)
         .then(res => res.json())
         .then(res => {
           if (res.records) {
