@@ -11,7 +11,7 @@ width: 5rem;
 height: 2rem;
 font-size: ${props => props.theme.h3FontSize} ;
 text-align: center;
-margin: 3rem  0.5rem;
+margin: 1rem  0.5rem;
 background-color: ${props => props.theme.secondaryGreyColor};
 `
 

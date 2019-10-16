@@ -40,6 +40,10 @@ export default function ProfilePage({
     const userData = JSON.stringify({
       email: window.localStorage.getItem("emailInput")
     });
+
+    const userData = JSON.stringify({
+      email: window.localStorage.getItem("emailInput")
+    });
     if (emailInput !== "") {
       fetch(`/.netlify/functions/GetUserData?email=${userData}`)
         .then(res => res.json())
