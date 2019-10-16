@@ -10,6 +10,7 @@ import{
  Li, 
  H3,
  H4,
+ Button
 }from "./Opportunity.style";
 
 export default function Opportunity({ opportunity, index }) {
@@ -25,8 +26,8 @@ export default function Opportunity({ opportunity, index }) {
           <H4>{opportunity.fields.organisation} </H4>
           <Li>{opportunity.fields.date}</Li>
           <Li>{opportunity.fields.address}</Li>
-          <Li>{opportunity.fields.activityType}</Li>
-          <a href={opportunity.fields.link}><button>More info</button></a>
+          {/* <Li>{opportunity.fields.activityType}</Li> */}
+          <a href={opportunity.fields.link}><Button>More info</Button></a>
         </Ul>
       </Div>
     </ThemeProvider>

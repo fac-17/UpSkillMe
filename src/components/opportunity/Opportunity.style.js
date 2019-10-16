@@ -28,13 +28,36 @@ const Li = styled.li`
 `;
 
 const H3 = styled.h3`
-  color: red;
   margin: 0.5rem;
 `;
 
 const H4 = styled.h4`
-  color: red;
-  margin: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
 `;
 
-export { Div, Ul, Li, H3, H4 };
+const Button = styled.button`
+  margin-top: 1rem;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  text-decoration: none;
+  background: #109cf1;
+  color: white;
+  padding: 1%;
+  border-radius: 5px;
+
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+  box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+
+  :hover {
+    background: #434343;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.4s ease 0s;
+  }
+`;
+
+export { Div, Ul, Li, H3, H4, Button };
