@@ -6,5 +6,6 @@ export default {
   secondaryGreyColor: "#cfdbd5",
   h1FontSize: "2.5rem",
   h2FontSize: "1.6rem",
-  h3FontSize: "1.25rem"
+  h3FontSize: "1.25rem",
+  // marginForSite:  
 };

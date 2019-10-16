@@ -1,5 +1,12 @@
 import React from "react";
 import Opportunity from "../opportunity/Opportunity";
+import { ThemeProvider } from "styled-components";
+import theme from "../../theme";
+
+import{
+  H2, 
+  H3
+} from "./OpportunitiesList.style";
 
 export default function OpportunitiesList({ opportunities }) {
   if (!opportunities) {
@@ -8,10 +15,10 @@ export default function OpportunitiesList({ opportunities }) {
 
   return (
     <div>
-      <h2>Opportunities List</h2>
-      <h3>
+      <H2>Opportunities List</H2>
+      <H3>
         Displaying {opportunities.length} of {opportunities.length}
-      </h3>
+      </H3>
       {opportunities.map((opportunity, index) => {
         return (
           <Opportunity
