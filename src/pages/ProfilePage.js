@@ -33,7 +33,6 @@ export default function ProfilePage({
   // is added
 
   React.useEffect(() => {
-<<<<<<< HEAD
     if (!window.localStorage.getItem("emailInput")) {
       window.localStorage.setItem("emailInput", emailInput);
     }
@@ -42,13 +41,6 @@ export default function ProfilePage({
     const userData = JSON.stringify({
       email: window.localStorage.getItem("emailInput")
     });
-||||||| merged common ancestors
-    // fetch("/.netlify/functions/GetUserData")
-    const userData = JSON.stringify({ email: emailInput });
-=======
-    // fetch("/.netlify/src/functions/GetUserData")
-    const userData = JSON.stringify({ email: emailInput });
->>>>>>> master
     if (emailInput !== "") {
       fetch(`/.netlify/functions/GetUserData?email=${userData}`)
         .then(res => res.json())
