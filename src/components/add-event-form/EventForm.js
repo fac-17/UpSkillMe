@@ -161,7 +161,6 @@ export default function EventForm({
   };
 
   const handleSubmit = e => {
-    console.log('came into handle submit ')
     const submittedData = JSON.stringify({
       records: [
         {
