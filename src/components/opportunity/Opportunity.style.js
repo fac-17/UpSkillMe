@@ -34,7 +34,8 @@ const H3 = styled.h3`
 const H4 = styled.h4`
   margin-top: 0.5rem;
   margin-bottom: 1rem;
-`;
+  font-weight: lighter;
+  `;
 
 const Button = styled.button`
   margin-top: 1rem;
