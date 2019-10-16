@@ -62,8 +62,8 @@ export default function SignUpForm({ emailInput, setEmailInput }) {
         <SimpleForm onSubmit={handleSignUpSubmit}>
           <Label>
             {" "}
-            Enter email:
-          <EmailInput
+            Enter email: <br></br>
+            <EmailInput
               required
               type="email"
               value={currSubmittedEmail}
