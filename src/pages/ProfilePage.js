@@ -37,12 +37,11 @@ export default function ProfilePage({
       window.localStorage.setItem("emailInput", emailInput);
     }
 
-    // fetch("/.netlify/functions/GetUserData")
     const userData = JSON.stringify({
       email: window.localStorage.getItem("emailInput")
     });
     if (emailInput !== "") {
-      fetch(`http://localhost:9000/GetUserData?email=${userData}`)
+      fetch(`/.netlify/functions/GetUserData?email=${userData}`)
         .then(res => res.json())
         .then(res => {
           if (res.records) {
