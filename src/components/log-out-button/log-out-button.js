@@ -30,6 +30,7 @@ box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
 
 export default function LogOutButton({ setLoggedOut, setEmailInput }) {
   function logout(e) {
+    window.localStorage.clear();
     setEmailInput("");
     setLoggedOut(true);
   }

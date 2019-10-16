@@ -3,6 +3,7 @@ import "./App.css";
 import LandingPage from "./pages/LandingPage";
 import ProfilePage from "./pages/ProfilePage";
 import OpportunitiesPage from "./pages/OpportunitiesPage";
+import FourZeroFour from "./pages/FourZeroFour";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
               setEmailInput={setEmailInput}
             />
           </Route>
+          <Route path="*" component={FourZeroFour} />
         </Switch>
       </div>
     </Router>
