@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 //Styled components
- const BadgesStyle = styled.ul`
+const BadgesStyle = styled.ul`
  list-style: none;
  display: flex;
  flex-direction: row;
@@ -12,14 +12,14 @@ import styled from "styled-components";
  padding: 0;
  `;
 
- const ListBadges = styled.li`
+const ListBadges = styled.li`
  width: 150px;
  padding: 20px;
  
  @media (max-width: 414px){
    width: 80px;
    padding: 10px;
-   font-size: 0.60em;
+   /* font-size: 0.60em; */
  }
  
  @media (min-width: 940px){
@@ -28,7 +28,7 @@ import styled from "styled-components";
  }
  `;
 
- const PointsStyle = styled.h4`
+const PointsStyle = styled.h4`
  text-align: center;
  `;
 
