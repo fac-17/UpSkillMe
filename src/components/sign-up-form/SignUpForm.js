@@ -35,9 +35,7 @@ export default function SignUpForm({ emailInput, setEmailInput }) {
           }
         ]
       });
-      fetch(
-        `/.netlify/functions/CreateUserActivity?activityData=${submittedData}`
-      )
+      fetch(`/functions/CreateUserActivity?activityData=${submittedData}`)
         .then(res => res.json())
         .then(res => {
           setNewUser(false);

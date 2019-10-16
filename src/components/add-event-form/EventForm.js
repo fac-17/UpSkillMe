@@ -176,9 +176,7 @@ export default function EventForm({
         }
       ]
     });
-    fetch(
-      `/.netlify/functions/CreateUserActivity?activityData=${submittedData}`
-    )
+    fetch(`/functions/CreateUserActivity?activityData=${submittedData}`)
       .then(res => res.json())
       .then(res => {
         setDataRefresh(true);

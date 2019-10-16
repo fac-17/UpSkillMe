@@ -35,7 +35,7 @@ export default function ProfilePage({
     // fetch("/.netlify/functions/GetUserData")
     const userData = JSON.stringify({ email: emailInput });
     if (emailInput !== "") {
-      fetch(`/.netlify/functions/GetUserData?email=${userData}`)
+      fetch(`/functions/GetUserData?email=${userData}`)
         .then(res => res.json())
         .then(res => {
           if (res.records) {
