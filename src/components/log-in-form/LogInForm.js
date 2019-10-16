@@ -29,8 +29,8 @@ export default function LogInform({ emailInput, setEmailInput }) {
         <H2> Log In</H2>
         <SimpleForm onSubmit={handleLogInSubmit}>
           <Label>
-            Enter email:
-          <EmailInput
+            Enter email: <br></br>
+            <EmailInput
               required
               type="email"
               value={currEmailInput}

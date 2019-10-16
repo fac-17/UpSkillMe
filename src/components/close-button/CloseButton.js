@@ -51,6 +51,7 @@ export default function CloseButton({
   setActivityButtonDisplay
 }) {
   function handleCloseButton(e) {
+    e.preventDefault();
     setCloseButtonDisplay(
       closeButtonDisplay === "none" ? "inline-block" : "none"
     );

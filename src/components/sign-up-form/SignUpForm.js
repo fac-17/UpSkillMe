@@ -60,8 +60,7 @@ export default function SignUpForm({ emailInput, setEmailInput }) {
         <H2> Sign Up</H2>
         <SimpleForm onSubmit={handleSignUpSubmit}>
           <Label>
-            {" "}
-            Enter email:
+            Enter email: <br></br>
             <EmailInput
               required
               type="email"
