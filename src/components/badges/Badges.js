@@ -3,14 +3,14 @@ import styled from "styled-components";
 
 //Styled components
 const BadgesStyle = styled.ul`
- list-style: none;
- display: flex;
- flex-direction: row;
- text-align: center;
- flex-wrap: wrap;
- justify-content: center;
- padding: 0;
- `;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+`;
 
 const ListBadges = styled.li`
  /* width: 250px; */

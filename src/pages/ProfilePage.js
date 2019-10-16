@@ -16,6 +16,7 @@ export default function ProfilePage({
   emailInput,
   setEmailInput
 }) {
+  setEmailInput(window.localStorage.getItem("emailInput", emailInput));
   const [dataRefresh, setDataRefresh] = React.useState(true);
   const [loggedOut, setLoggedOut] = React.useState(false);
   const [isFormDisplayed, setFormDisplayed] = React.useState("none");
@@ -32,8 +33,22 @@ export default function ProfilePage({
   // is added
 
   React.useEffect(() => {
+<<<<<<< HEAD
+    if (!window.localStorage.getItem("emailInput")) {
+      window.localStorage.setItem("emailInput", emailInput);
+    }
+
+    // fetch("/.netlify/functions/GetUserData")
+    const userData = JSON.stringify({
+      email: window.localStorage.getItem("emailInput")
+    });
+||||||| merged common ancestors
+    // fetch("/.netlify/functions/GetUserData")
+    const userData = JSON.stringify({ email: emailInput });
+=======
     // fetch("/.netlify/src/functions/GetUserData")
     const userData = JSON.stringify({ email: emailInput });
+>>>>>>> master
     if (emailInput !== "") {
       fetch(`/.netlify/functions/GetUserData?email=${userData}`)
         .then(res => res.json())
@@ -68,7 +83,7 @@ export default function ProfilePage({
           setDataRefresh(false);
         });
     }
-  }, [dataRefresh]);
+  }, [dataRefresh, emailInput]);
 
   if (loggedOut) {
     return (
