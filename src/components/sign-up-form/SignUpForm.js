@@ -1,10 +1,9 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
-import { H2, Input, EmailInput, SimpleForm } from './SignUpFormStyle'
+import { H2, Input, EmailInput, SimpleForm } from "./SignUpFormStyle";
 import { ThemeProvider } from "styled-components";
-import { Label } from '../common/common'
-import theme from '../../theme'
-
+import { Label } from "../common/common";
+import theme from "../../theme";
 
 export default function SignUpForm({ emailInput, setEmailInput }) {
   const [currSubmittedEmail, setCurrSubmittedEmail] = React.useState("");
@@ -37,7 +36,7 @@ export default function SignUpForm({ emailInput, setEmailInput }) {
         ]
       });
       fetch(
-        `http://localhost:9000/CreateUserActivity?activityData=${submittedData}`
+        `/.netlify/functions/CreateUserActivity?activityData=${submittedData}`
       )
         .then(res => res.json())
         .then(res => {
@@ -57,13 +56,12 @@ export default function SignUpForm({ emailInput, setEmailInput }) {
 
   return (
     <ThemeProvider theme={theme}>
-      <section >
+      <section>
         <H2> Sign Up</H2>
         <SimpleForm onSubmit={handleSignUpSubmit}>
           <Label>
-            {" "}
-            Enter email:
-          <EmailInput
+            Enter email: <br></br>
+            <EmailInput
               required
               type="email"
               value={currSubmittedEmail}

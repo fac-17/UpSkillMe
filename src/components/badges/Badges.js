@@ -13,24 +13,32 @@ const BadgesStyle = styled.ul`
 `;
 
 const ListBadges = styled.li`
-  width: 150px;
-  padding: 20px;
+ /* width: 250px; */
+ padding: 0 1rem;
+ width: 7rem;
+ 
+ display: flex;
+ flex-direction: column;
+ align-content: center;
+  justify-content: flex-end;
+ 
+ @media (max-width: 480px){
+   /* width: 80px; */
+   padding: 10px;
+   width: 8rem;
+   /* font-size: 0.60em; */
+ }
+ 
+ @media (min-width: 940px){
+   padding-left: 100px;
+   padding-right: 100px;
+ }
+ `;
 
-  @media (max-width: 414px) {
-    width: 80px;
-    padding: 10px;
-    font-size: 0.6em;
-  }
-
-  @media (min-width: 940px) {
-    padding-left: 100px;
-    padding-right: 100px;
-  }
-`;
-
-const PointsStyle = styled.h4`
-  text-align: center;
-`;
+const PointsStyle = styled.h3`
+ text-align: center;
+ min-height: 3rem;
+ `;
 
 const allBadges = [
   "Communication",
@@ -103,14 +111,10 @@ export default function Badges({ selectedBadges, data }) {
     <BadgesStyle>
       {badges.map(item => {
         return (
-          <ListBadges key={item}>
-            <h3>{item}</h3>
-            <img src={`assets/${item}.svg`} alt={item} />
-            {!selectedBadges ? (
-              <PointsStyle>Points:{skillPoints[item]}</PointsStyle>
-            ) : (
-              ""
-            )}
+          <ListBadges>
+            <h3 key={item}>{item}</h3>
+            <img src={`assets/${item}.svg`} height="110px" alt={item} />
+            {!selectedBadges ? <PointsStyle>Points: {skillPoints[item]}</PointsStyle> : ""}
           </ListBadges>
         );
       })}
