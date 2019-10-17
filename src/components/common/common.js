@@ -7,7 +7,8 @@ export const Button = styled.button`
   font-size: 1.5rem;
   text-align: center;
   margin: 3rem 0.5rem;
-  background-color: ${props => props.theme.secondaryGreyColor};
+  background-color: #109cf1;
+  color: white;
 `;
 
 export const Label = styled.label`

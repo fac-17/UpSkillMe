@@ -13,7 +13,8 @@ const Input = styled.input`
   font-size: 1.5rem;
   text-align: center;
   margin: 1rem 0.5rem;
-  background-color: ${props => props.theme.secondaryGreyColor};
+  background-color: #109cf1;
+  color: white;
 `;
 
 const SimpleForm = styled.form`
