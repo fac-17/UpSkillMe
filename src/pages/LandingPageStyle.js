@@ -40,7 +40,6 @@ const SignUpButton = styled.button`
   margin: 3rem 0.5rem;
   margin-left: auto;
   margin-right: auto;
-  background-color: red;
 `;
 
 const ButtonContainer = styled.div`
