@@ -11,7 +11,7 @@ const ActivityButtonStyle = styled.button`
   position: fixed;
   bottom: 10px;
   right: 10px;
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-weight: 800;
   background-color: white;
   text-align: center;
