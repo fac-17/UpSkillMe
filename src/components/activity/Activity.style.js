@@ -4,18 +4,30 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  border: 1px solid black;
+  border: 5px solid #109cf1;
   border-radius: 11px;
   width: 90%;
   max-width: 600px;
   margin: 1.5rem auto;
   padding-bottom: 1rem;
+  background-color: #ebf5ee;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
 `;
 
 const ListStyle = styled.ul`
   padding: 0;
   list-style: none;
   font-size: 1rem;
+`;
+
+const Hr = styled.hr`
+  height: 0.3rem;
+  width: 25%;
+  background: #109cf1;
+  /* border: none; */
+  border-width: 1px 0 0 0;
+  border-radius: 30px;
 `;
 
 const ActivityLinkButton = styled.button`
@@ -52,4 +64,4 @@ const H3 = styled.h3`
   margin: 0.5rem;
 `;
 
-export { Div, ListStyle, ActivityLinkButton, StyledImg, H3 };
+export { Div, ListStyle, ActivityLinkButton, StyledImg, H3, Hr };
