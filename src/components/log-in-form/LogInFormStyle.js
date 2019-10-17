@@ -7,13 +7,14 @@ const H2 = styled.h2`
 `;
 
 const Input = styled.input`
-  border-radius: 0.5rem;
-  width: 5rem;
-  height: 2rem;
-  font-size: ${props => props.theme.h3FontSize};
-  text-align: center;
-  margin: 1rem 0.5rem;
-  background-color: ${props => props.theme.secondaryGreyColor};
+border-radius: 0.5rem;
+width: 7rem;
+height: 3rem;
+// font-size: ${props => props.theme.h3FontSize};
+font-size: 1.5rem;
+text-align: center;
+margin: 1rem 0.5rem;
+background-color: ${props => props.theme.secondaryGreyColor};
 `;
 
 const EmailInput = styled.input`
