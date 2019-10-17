@@ -8,20 +8,23 @@ import {
   FourZeroFourBody,
   H1,
   H2,
-  ReturnButton
+  ReturnButton,
+  SpaceshipImage
 } from "./FourZeroFourStyle";
 
-const [spaceship, setSpaceship] = React.useState(
-  "./../../public/assets/FourZeroFour.svg"
-);
-
 export default function FourZeroFour() {
+  const [spaceship, setSpaceship] = React.useState("assets/FourZeroFour.svg");
+
   return (
     <ThemeProvider theme={theme}>
       <FourZeroFourBody>
         <FourZeroFourSection>
-          <H1>Ooops</H1>
-          <img src={spaceship} alt="spaceship"></img>
+          <H1>Ooops!!!</H1>
+          <SpaceshipImage
+            src={spaceship}
+            alt="spaceship"
+            width="200px"
+          ></SpaceshipImage>
           <H2>404! Sorry, that page doesn't exist!</H2>
           <a href="/">
             <ReturnButton>Return to Home</ReturnButton>

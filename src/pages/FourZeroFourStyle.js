@@ -13,9 +13,9 @@ const FourZeroFourSection = styled.section`
 `;
 
 const H1 = styled.h1`
-font-size = ${props => props.theme.h1FontSize};
-color: ${props => props.theme.mainWhiteColor}
-
+  font-size: 3em;
+  padding-top: 25px;
+  color: ${props => props.theme.mainWhiteColor};
 `;
 
 const H2 = styled.h2`
@@ -34,4 +34,13 @@ const ReturnButton = styled.button`
   background: ${props => props.theme.mainWhiteColor};
   color: ${props => props.theme.primaryColor};
 `;
-export { FourZeroFourBody, FourZeroFourSection, H1, H2, ReturnButton };
+
+const SpaceshipImage = styled.img``;
+export {
+  FourZeroFourBody,
+  FourZeroFourSection,
+  H1,
+  H2,
+  ReturnButton,
+  SpaceshipImage
+};
