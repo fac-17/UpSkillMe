@@ -22,7 +22,7 @@ const EmailInput = styled.input`
   font-size: 1.2rem;
   border-radius: 1rem;
   padding: 1rem;
-  width: 100%
+  width: 80%
 `;
 const SimpleForm = styled.form`
   display: flex;

@@ -28,6 +28,6 @@ border: 1px black solid;
 font-size: 1.2rem;
 border-radius: 1rem;
 padding: 1rem;
-width: 100%
+width: 80%
 `;
 export { H2, Input, EmailInput, SimpleForm };
