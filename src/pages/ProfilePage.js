@@ -9,7 +9,7 @@ import skillsConverter from "../utils/skillsConverter";
 import LogOutButton from "../components/log-out-button/log-out-button";
 import OpportunitiesButton from "../components/opportunities-button/OpportunitiesButton";
 import { Redirect, Route } from "react-router-dom";
-
+import { Navbar } from './ProfilePageStyle';
 export default function ProfilePage({
   setData,
   data,
@@ -41,8 +41,8 @@ export default function ProfilePage({
       email: window.sessionStorage.getItem("emailInput")
     });
     if (emailInput !== "") {
-      fetch(`/.netlify/functions/GetUserData?email=${userData}`)
-//       fetch(`http://localhost:9000/GetUserData?email=${userData}`)
+      // fetch(`/.netlify/functions/GetUserData?email=${userData}`)
+      fetch(`http://localhost:9000/GetUserData?email=${userData}`)
         .then(res => res.json())
         .then(res => {
           if (res.records) {
@@ -87,8 +87,10 @@ export default function ProfilePage({
 
   return (
     <div>
-      <LogOutButton setLoggedOut={setLoggedOut} setEmailInput={setEmailInput} />
-      <OpportunitiesButton />
+      <Navbar>
+        <LogOutButton setLoggedOut={setLoggedOut} setEmailInput={setEmailInput} />
+        <OpportunitiesButton />
+      </Navbar>
       <Profile
         data={data}
         emailInput={emailInput}
