@@ -12,31 +12,30 @@ export default function Activity({ activity, index, activities }) {
 
   return (
     <Div>
-    <ListStyle>
-      <H3> Activity #{index + 1} </H3>
-      <li>{activity.fields.nameOfActivity}</li>
-      <li>{activity.fields.daysAgo} days ago</li>
-      <li>{activity.fields.durationHours} Hours</li>
-      <li>
-        <Badges selectedBadges={activity.fields.skills} data={activities} />
-      </li>
-      <li>
-        {activity.fields["totalPoints (Activity points x duration)"]} points
+      <ListStyle>
+        <H3> Activity #{index + 1} </H3>
+        <li>{activity.fields.nameOfActivity}</li>
+        <li>{activity.fields.daysAgo} days ago</li>
+        <li>{activity.fields.durationHours} Hours</li>
+        <li>
+          <Badges selectedBadges={activity.fields.skills} data={activities} />
+        </li>
+        <li>
+          {activity.fields["totalPoints (Activity points x duration)"]} points
       </li>
 
-      {activity.fields.link ? (
-        <li>
-          <a href={activity.fields.link}>
-            <ActivityLinkButton>
-              View confirmation 
-              {<StyledImg src="assets/Link.png" alt="link-symbol"></StyledImg>}
+        {activity.fields.link ? (
+          <li>
+            <a href={activity.fields.link}>
+              <ActivityLinkButton>
+                View confirmation
             </ActivityLinkButton>
-          </a>
-        </li>
-      ) : (
-        ""
-      )}
-    </ListStyle>
+            </a>
+          </li>
+        ) : (
+            ""
+          )}
+      </ListStyle>
     </Div>
   );
 }
