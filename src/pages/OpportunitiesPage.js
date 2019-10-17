@@ -3,7 +3,8 @@ import OpportunitiesList from "../components/opportunitiesList/OpportunitiesList
 import { Redirect, Route } from "react-router-dom";
 import LogOutButton from "../components/log-out-button/log-out-button";
 import activityConverter from "../utils/activityConverter";
-
+import { Navbar } from '../components/common/common';
+import BackButton from '../components/back-button/BackButton';
 export default function OpportunitiesPage({
   opportunities,
   setOpportunities,
@@ -34,7 +35,10 @@ export default function OpportunitiesPage({
 
   return (
     <div>
-      <LogOutButton setLoggedOut={setLoggedOut} setEmailInput={setEmailInput} />
+      <Navbar>
+        <LogOutButton setLoggedOut={setLoggedOut} setEmailInput={setEmailInput} />
+        <BackButton></BackButton>
+      </Navbar>
       <OpportunitiesList opportunities={opportunities} />
     </div>
   );

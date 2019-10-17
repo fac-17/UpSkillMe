@@ -9,7 +9,7 @@ import skillsConverter from "../utils/skillsConverter";
 import LogOutButton from "../components/log-out-button/log-out-button";
 import OpportunitiesButton from "../components/opportunities-button/OpportunitiesButton";
 import { Redirect, Route } from "react-router-dom";
-import { Navbar } from './ProfilePageStyle';
+import { Navbar } from '../components/common/common';
 export default function ProfilePage({
   setData,
   data,
