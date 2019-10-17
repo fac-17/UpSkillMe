@@ -60,8 +60,9 @@ export default function SignUpForm({ emailInput, setEmailInput }) {
         <H2> Sign Up</H2>
         <SimpleForm onSubmit={handleSignUpSubmit}>
           <Label>
-            Enter email: <br></br>
+            {/* Enter email: <br></br> */}
             <EmailInput
+              placeholder="Enter email:"
               required
               type="email"
               value={currSubmittedEmail}
