@@ -17,7 +17,7 @@ const ActivityButtonStyle = styled.button`
   text-align: center;
   color: #109cf1;
   cursor: pointer;
-  font-family: "Roboto", sans-serif;
+
   border: solid 4px #109cf1
   transition: all 0.4s ease 0s;
   -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);

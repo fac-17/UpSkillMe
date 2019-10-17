@@ -49,7 +49,7 @@ const H4 = styled.h4`
 
 const Button = styled.button`
   margin-top: 1rem;
-  font-family: "Roboto", sans-serif;
+
   color: #fff;
   text-decoration: none;
   background: #109cf1;

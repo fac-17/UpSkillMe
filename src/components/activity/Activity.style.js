@@ -32,7 +32,7 @@ const Hr = styled.hr`
 
 const ActivityLinkButton = styled.button`
   margin-top: 1rem;
-  font-family: "Roboto", sans-serif;
+
   color: #fff;
   text-decoration: none;
   background: #109cf1;
