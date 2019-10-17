@@ -50,13 +50,12 @@ const InfoSection = styled.div`
 
 const FormSection = styled.section`
   display: flex;
-  width: 100%;
+  width: 90%;
   flex-direction: column;
   align-items: center;
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  max-width: 50%;
   margin: 0 auto 10%;
   padding: 5%;
   padding-top: 1%;

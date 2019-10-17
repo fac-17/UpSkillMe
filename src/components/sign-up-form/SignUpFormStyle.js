@@ -8,9 +8,10 @@ const H2 = styled.h2`
 
 const Input = styled.input`
   border-radius: 0.5rem;
-  width: 5rem;
-  height: 2rem;
-  font-size: ${props => props.theme.h3FontSize};
+  width: 7rem;
+  height: 3rem;
+  // font-size: ${props => props.theme.h3FontSize};
+  font-size: 1.5rem;
   text-align: center;
   margin: 1rem 0.5rem;
   background-color: ${props => props.theme.secondaryGreyColor};
@@ -23,6 +24,10 @@ const SimpleForm = styled.form`
 `;
 
 const EmailInput = styled.input`
-  border: 1px ${props => props.theme.mainBlackColor} solid;
+border: 1px black solid;
+font-size: 1.2rem;
+border-radius: 1rem;
+padding: 1rem;
+width: 80%
 `;
 export { H2, Input, EmailInput, SimpleForm };
