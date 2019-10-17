@@ -23,9 +23,10 @@ const SimpleForm = styled.form`
 `;
 
 const EmailInput = styled.input`
-  border: 1px black solid;
-  font-size: 1.4rem;
-  border-radius: 10px;
-  padding: 10px;
+border: 1px black solid;
+font-size: 1.2rem;
+border-radius: 1rem;
+padding: 1rem;
+width: 100%
 `;
 export { H2, Input, EmailInput, SimpleForm };

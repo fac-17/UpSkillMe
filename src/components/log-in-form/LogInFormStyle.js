@@ -18,9 +18,10 @@ const Input = styled.input`
 
 const EmailInput = styled.input`
   border: 1px black solid;
-  font-size: 1.4rem;
-  border-radius: 10px;
-  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 100%
 `;
 const SimpleForm = styled.form`
   display: flex;
