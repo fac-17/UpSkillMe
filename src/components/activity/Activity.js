@@ -1,39 +1,9 @@
 import React from "react";
 import Badges from "../../components/badges/Badges";
-import styled from "styled-components";
 
-// Styled components
-const ListStyle = styled.ul`
-  padding: 0;
-  list-style: none;
-  border: 2px solid black;
-  border-radius: 25px;
-  margin: 10px;
-  margin-bottom: 20px;
-  text-align: center;
-  padding-bottom: 20px;
-  font-size: 1.5rem;
-`;
-
-const ActivityLinkButton = styled.button`
-  border-radius: 20px;
-  padding: 0.5%;
-  border-radius: 5px;
-  font-size: 1em;
-  background-color: #109cf1;
-  color: white;
-  cursor: pointer;
-  font-family: "Roboto", sans-serif;
-  max-height: 90%;
-  max-width: 25%;
-  /* height: 100%;
-  width: 100%; */
-`;
-
-const StyledImg = styled.img`
-  max-height: 7.5%;
-  max-width: 7.5%;
-`;
+import {
+  Div, ListStyle, ActivityLinkButton, StyledImg, H3
+} from './Activity.style'
 
 export default function Activity({ activity, index, activities }) {
   if (!activity) {
@@ -41,8 +11,9 @@ export default function Activity({ activity, index, activities }) {
   }
 
   return (
+    <Div>
     <ListStyle>
-      <h4> Activity #{index + 1} </h4>
+      <H3> Activity #{index + 1} </H3>
       <li>{activity.fields.nameOfActivity}</li>
       <li>{activity.fields.daysAgo} days ago</li>
       <li>{activity.fields.durationHours} Hours</li>
@@ -57,7 +28,7 @@ export default function Activity({ activity, index, activities }) {
         <li>
           <a href={activity.fields.link}>
             <ActivityLinkButton>
-              View confirmation
+              View confirmation 
               {<StyledImg src="assets/Link.png" alt="link-symbol"></StyledImg>}
             </ActivityLinkButton>
           </a>
@@ -66,5 +37,6 @@ export default function Activity({ activity, index, activities }) {
         ""
       )}
     </ListStyle>
+    </Div>
   );
 }
