@@ -24,7 +24,7 @@ align-items: center;
 `;
 const Circle = styled.svg`
   margin: 0 0.5rem;
-  width: 15px;
+  width: 1rem;
 `;
 
 const ImageDescription = styled.h2`
