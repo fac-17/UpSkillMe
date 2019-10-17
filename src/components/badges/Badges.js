@@ -8,14 +8,14 @@ const BadgesStyle = styled.ul`
   flex-direction: row;
   text-align: center;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   padding: 0;
 `;
 
 const ListBadges = styled.li`
  /* width: 250px; */
  padding: 0 1rem;
- width: 7rem;
+ width: 8rem;
  
  display: flex;
  flex-direction: column;

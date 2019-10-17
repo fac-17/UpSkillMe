@@ -16,7 +16,7 @@ export default function ProfilePage({
   emailInput,
   setEmailInput
 }) {
-  setEmailInput(window.localStorage.getItem("emailInput", emailInput));
+  setEmailInput(window.sessionStorage.getItem("emailInput", emailInput));
   const [dataRefresh, setDataRefresh] = React.useState(true);
   const [loggedOut, setLoggedOut] = React.useState(false);
   const [isFormDisplayed, setFormDisplayed] = React.useState("none");
@@ -33,12 +33,12 @@ export default function ProfilePage({
   // is added
 
   React.useEffect(() => {
-    if (!window.localStorage.getItem("emailInput")) {
-      window.localStorage.setItem("emailInput", emailInput);
+    if (!window.sessionStorage.getItem("emailInput")) {
+      window.sessionStorage.setItem("emailInput", emailInput);
     }
 
     const userData = JSON.stringify({
-      email: window.localStorage.getItem("emailInput")
+      email: window.sessionStorage.getItem("emailInput")
     });
     if (emailInput !== "") {
       fetch(`/.netlify/functions/GetUserData?email=${userData}`)
