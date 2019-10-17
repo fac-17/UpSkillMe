@@ -26,7 +26,7 @@ const CloseButtonStyle = styled.button`
     display: block;
     height: 10px;
     width: 50px;
-    background-color: black;
+    background-color: ${props => props.mainBlackColor};;
     transition: all 0.2s ease-out;
   }
 

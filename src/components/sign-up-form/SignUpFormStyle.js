@@ -23,6 +23,6 @@ const SimpleForm = styled.form`
 `;
 
 const EmailInput = styled.input`
-  border: 1px black solid;
+  border: 1px ${props => props.theme.mainBlackColor} solid;
 `;
 export { H2, Input, EmailInput, SimpleForm };
