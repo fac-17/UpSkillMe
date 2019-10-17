@@ -15,7 +15,8 @@ display: block;
 transition: all 0.4s ease 0s;
 cursor: pointer;
 box-shadow: 5px 40px -10px rgba(0,0,0,0.57); */
-
+background-color: inherit;
+border: none;
 color: white;
 /* :hover {
   
