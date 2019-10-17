@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import theme from "../theme";
+
+const LandingBody = styled.body`
+  background: #109cf157;
+  height: 100vh;
+`;
 
 const Div = styled.div`
   display: flex;
@@ -20,6 +24,7 @@ align-items: center;
 `;
 const Circle = styled.svg`
   margin: 0 0.5rem;
+  width: 15px;
 `;
 
 const ImageDescription = styled.h2`
@@ -62,7 +67,7 @@ const FormSection = styled.section`
   padding-top: 1%;
   padding-bottom: 1%
   text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  
   background-color: #109cf1;
 }
 
@@ -76,5 +81,6 @@ export {
   SignUpButton,
   ButtonContainer,
   InfoSection,
-  FormSection
+  FormSection,
+  LandingBody
 };
