@@ -1,10 +1,9 @@
 import React from "react";
-import theme from '../../theme'
+import theme from "../../theme";
 import { ThemeProvider } from "styled-components";
 import { Redirect, Route } from "react-router-dom";
-import { Input, H2, EmailInput, SimpleForm } from './LogInFormStyle';
-import { Label } from '../common/common'
-
+import { Input, H2, EmailInput, SimpleForm } from "./LogInFormStyle";
+import { Label } from "../common/common";
 
 export default function LogInform({ emailInput, setEmailInput }) {
   const [submitted, setSubmitted] = React.useState(false);
@@ -29,8 +28,9 @@ export default function LogInform({ emailInput, setEmailInput }) {
         <H2> Log In</H2>
         <SimpleForm onSubmit={handleLogInSubmit}>
           <Label>
-            Enter email: <br></br>
+            {/* Enter email: <br></br> */}
             <EmailInput
+              placeholder="Enter email:"
               required
               type="email"
               value={currEmailInput}

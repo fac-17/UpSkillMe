@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import theme from '../theme';
-
+import theme from "../theme";
 
 const Div = styled.div`
   display: flex;
@@ -24,8 +23,8 @@ const Circle = styled.svg`
 `;
 
 const ImageDescription = styled.h2`
-  font-size: ${props => props.theme.h3FontSize}
-`
+  font-size: ${props => props.theme.h3FontSize};
+`;
 
 const SignUpButton = styled.button`
   border-radius: 0.5rem;
@@ -54,6 +53,19 @@ const FormSection = styled.section`
   width: 100%;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 50%;
+  margin: 0 auto 10%;
+  padding: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  background-color: #109cf1;
+}
+
 `;
 export {
   Div,
