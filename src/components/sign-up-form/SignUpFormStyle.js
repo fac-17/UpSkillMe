@@ -24,5 +24,8 @@ const SimpleForm = styled.form`
 
 const EmailInput = styled.input`
   border: 1px black solid;
+  font-size: 1.4rem;
+  border-radius: 10px;
+  padding: 10px;
 `;
 export { H2, Input, EmailInput, SimpleForm };
