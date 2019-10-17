@@ -9,7 +9,7 @@ import skillsConverter from "../utils/skillsConverter";
 import LogOutButton from "../components/log-out-button/log-out-button";
 import OpportunitiesButton from "../components/opportunities-button/OpportunitiesButton";
 import { Redirect, Route } from "react-router-dom";
-import { Navbar } from '../components/common/common';
+import { Navbar } from "../components/common/common";
 export default function ProfilePage({
   setData,
   data,
@@ -88,7 +88,10 @@ export default function ProfilePage({
   return (
     <div>
       <Navbar>
-        <LogOutButton setLoggedOut={setLoggedOut} setEmailInput={setEmailInput} />
+        <LogOutButton
+          setLoggedOut={setLoggedOut}
+          setEmailInput={setEmailInput}
+        />
         <OpportunitiesButton />
       </Navbar>
       <Profile

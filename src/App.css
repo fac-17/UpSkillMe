@@ -2,6 +2,8 @@ body {
   font-family: "Roboto", sans-serif;
   font-family: "Nunito", sans-serif;
   margin: 0;
+  background-color: rgba(245, 245, 245, 0);
+  color: #1b1725;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

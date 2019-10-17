@@ -14,6 +14,7 @@ export default function OpportunitiesPage({
 
   React.useEffect(() => {
     fetch(`/.netlify/functions/GetOpportunitiesData`)
+      // fetch(`http://localhost:9000/GetOpportunitiesData`)
       .then(res => res.json())
       .then(res => {
         if (res.records) {
