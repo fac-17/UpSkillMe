@@ -1,12 +1,8 @@
----
-title: "UpSkillMe - README"
----
-
 # UpSkillMe
 
-UpSkillMe was founded to provide young people with the opportuntiy to record, celebrate and gain maximum benefit from their achievements.
+UpSkillMe was founded to provide young people with the opportunity to record, celebrate and gain maximum benefit from their achievements.
 
-This MVP is a functional prototype which includes the core features of the product. It will be usd as a proof of concept that will inform future versions of the product as the business scales up.
+This MVP is a functional prototype which includes the core features of the product. It will be used as a proof of concept that will inform future versions of the product as the business scales up.
 
 ---
 
@@ -38,7 +34,7 @@ To run locally:
 
 ![](https://i.imgur.com/AqYrIRh.jpg)
 
-The overal aim of the project is to enable young people to learn in-demand skills and have a digital record of related achievements.
+The overall aim of the project is to enable young people to learn in-demand skills and have a digital record of related achievements.
 
 Completed as part of the Founders & Coders: Tech for Better project which connects junior developers with small business', start ups and charities.
 
@@ -49,30 +45,11 @@ Completed as part of the Founders & Coders: Tech for Better project which connec
 
 The initial user research showed that users needed a way to record and develop in-demand soft and hard skills whilst they are still in education.
 
-The app allows users to record the details or activities, recieve points that quantify their experiences and view potential opportunties.
+The app allows users to record the details or activities, receive points that quantify their experiences and view potential opportunities.
 
 ## Main user journey
 
-> “To be able to access a unique account on the UpSkillMe platform, add in experiences/events/achievmnets and get points that contribute to skill badges.”
-
-<!--
-### Landing page
-
-![](https://i.imgur.com/5XV1djF.png)
-
-- Carousel with images + auto scroll
-- Log in and sign up buttons always displayd
-- Sign in + sign up buttons display form. With slide up to display forms including back and submit button.
-
-### Profile page
-
-- Add event button, fixed positon bottom right. Plus symbol + some other symbol (like list)
-- Nav bar
-- Profile img + name + total points at top
-- Padding between sections
-- Badges section
-  - 2 rows of 4 badges
-  - Points below with award symbol -->
+> “To be able to access a unique account on the UpSkillMe platform, add in experiences/events/achievements and get points that contribute to skill badges.”
 
 ## Tech stack
 
@@ -114,10 +91,10 @@ We conducted user research with four year 12 students from a school in South Lon
 - "Skills" - explain these are achievements??
 - 'Activity+' button looked like 'add document' or link to start a new page. Not obvious it's for adding another activity.
 - Could use that same 'Activity+' icon to where the view confirmation box is currently. ~~
-- Could change the add acitivy button to a bigger floating button that just says 'add activity'
+- Could change the add activity button to a bigger floating button that just says 'add activity'
 - 'View confirmation' was not clear what it referred to.
 
-##### Acitivity sign-up form
+##### Activity sign-up form
 
 - Linking from the activity section should be optional, and that should be clear
 - Could lose the link thing entirely??
@@ -126,12 +103,12 @@ We conducted user research with four year 12 students from a school in South Lon
 
 ### Airtable
 
-We chose to use AirTable instead of alternative soluations such as a PostgreSQL database as there was minimual set up time, API docs are clear and easy to use and following handover the product owners will be able to access and update information easily and securely.
+We chose to use AirTable instead of alternative solutions such as a PostgreSQL database as there was minimal set up time, API docs are clear and easy to use and following handover the product owners will be able to access and update information easily and securely.
 
 #### Airtable access
 
-- Due to the sensitive nature of the data caputed by the app, access to the Airtable is restricted to members of the development team and the product owner/s.
-- In future builds the ability to post live opportunties may become available. In this case please contact a member of the UpSkillMe team to have the opportuntiy added to the Airtable.
+- Due to the sensitive nature of the data captured by the app, access to the Airtable is restricted to members of the development team and the product owner/s.
+- In future builds the ability to post live opportunities may become available. In this case please contact a member of the UpSkillMe team to have the opportunity added to the Airtable.
 
 ### Development week 1
 
@@ -160,7 +137,7 @@ Goals of the week: Deploy on Netlify, implement styling, possibly add additional
 - Employer login area
 - Administrator login area
 - Login with magic link
-- Link opportunties to skills
+- Link opportunities to skills
 - Highlight certain opportunities
 - Limit number of activities per page
 
@@ -213,33 +190,3 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
