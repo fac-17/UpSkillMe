@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { animateScroll as scroll } from 'react-scroll'
 
 
 //Styled components
@@ -40,7 +40,7 @@ export default function ActivityButton({
       activityButtonDisplay === "block" ? "none" : "block"
     );
     setCloseButtonDisplay(closeButtonDisplay === "block" ? "none" : "block");
-    // scroll.scrollToBottom()
+    scroll.scrollToBottom()
   }
 
   return (
