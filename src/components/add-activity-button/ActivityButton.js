@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
 
 //Styled components
 const ActivityButtonStyle = styled.button`
@@ -38,6 +40,7 @@ export default function ActivityButton({
       activityButtonDisplay === "block" ? "none" : "block"
     );
     setCloseButtonDisplay(closeButtonDisplay === "block" ? "none" : "block");
+    // scroll.scrollToBottom()
   }
 
   return (
