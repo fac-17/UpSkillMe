@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 const H2 = styled.h2`
-    // padding-top: 2rem
+    padding-top: 1rem;
     text-align: center;
+    
 `;
 
 const H3 = styled.h3`
@@ -11,4 +12,4 @@ const H3 = styled.h3`
     font-weight: lighter;
 `;
 
-export {H2, H3};
+export { H2, H3 };

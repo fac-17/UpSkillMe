@@ -17,7 +17,7 @@ const Input = styled.input`
 `;
 
 const EmailInput = styled.input`
-  border: 1px black solid;
+  border: 1px ${props => props.theme.mainBlackColor} solid;
   font-size: 1rem;
 `;
 const SimpleForm = styled.form`
