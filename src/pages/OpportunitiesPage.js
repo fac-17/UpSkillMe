@@ -12,10 +12,7 @@ export default function OpportunitiesPage({
   const [loggedOut, setLoggedOut] = React.useState(false);
 
   React.useEffect(() => {
-    fetch(
-      `/.netlify/functions/GetOpportunitiesData`
-      // `http://localhost:9000/GetOpportunitiesData`
-    )
+    fetch(`/.netlify/functions/GetOpportunitiesData`)
       .then(res => res.json())
       .then(res => {
         if (res.records) {
