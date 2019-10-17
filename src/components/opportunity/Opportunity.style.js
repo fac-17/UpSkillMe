@@ -16,7 +16,7 @@ const Div = styled.div`
 
 const Ul = styled.ul`
   list-style: none;
-  align-items; center;
+  align-items: center;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -29,12 +29,22 @@ const Li = styled.li`
 
 const H3 = styled.h3`
   margin: 0.5rem;
+  color: #109cf1;
+`;
+
+const Hr = styled.hr`
+  height: 0.25rem;
+  width: 25%;
+  background: #086788;
+  border: none;
+  transition: 0.3s ease-in-out;
 `;
 
 const H4 = styled.h4`
   margin-top: 0.5rem;
   margin-bottom: 1rem;
   font-weight: lighter;
+  /* color: #086788; */
   `;
 
 const Button = styled.button`
@@ -61,4 +71,4 @@ const Button = styled.button`
   }
 `;
 
-export { Div, Ul, Li, H3, H4, Button };
+export { Div, Ul, Li, H3, H4, Button, Hr };

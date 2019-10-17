@@ -38,7 +38,10 @@ const ListBadges = styled.li`
 const PointsStyle = styled.h3`
  text-align: center;
  min-height: 3rem;
+ color: #109cf1;
  `;
+
+
 
 const allBadges = [
   "Communication",

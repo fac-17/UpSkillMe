@@ -6,23 +6,27 @@ import LogOutButton from "../log-out-button/log-out-button";
 const ProfileStyle = styled.section`
   flex-direction: column;
   text-align: center;
-  background-color: #ecebe4;
+  background-color: #109cf117;
+  padding: 1rem;
 `;
 
-const EmailStyle = styled.h1`
-  padding-top: 20px;
-  padding-bottom: 20px;
+
+const EmailStyle = styled.h3`
+
+  padding: 0;
   margin: 0;
-  @media (max-width: 414px) {
-    font-size: 1.2em;
-  }
 `;
 const PointsStyle = styled.h2`
-  padding-bottom: 20px;
-  @media (max-width: 414px) {
-    font-size: 1.2em;
-  }
+  color: #109cf1;
 `;
+
+const ColoredLine = styled.hr`
+  height: 0.25rem;
+  width: 25%;
+  background: #ff5964;
+  border: none;
+  transition: 0.3s ease-in-out;
+ `
 
 export default function Profile({
   data,
@@ -51,8 +55,9 @@ export default function Profile({
 
   return (
     <ProfileStyle>
-      <EmailStyle>{emailInput}</EmailStyle>
       <img src={avatar} alt="this is our avatar pic" width="200px" />
+      <EmailStyle>{emailInput}</EmailStyle>
+      <ColoredLine></ColoredLine>
       <PointsStyle>{totalScore} total points</PointsStyle>
     </ProfileStyle>
   );
