@@ -4,7 +4,7 @@ const ButtonStyle = styled.button`
 /* margin-left: 1%
 margin-top: 1%;
 position: relative;
-font-family: "Roboto", sans-serif;
+
 color: #fff;
 text-decoration: none;
 background: #342e37;

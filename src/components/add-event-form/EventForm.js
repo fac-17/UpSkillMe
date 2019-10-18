@@ -26,7 +26,7 @@ const Label = styled.label`
 const Input = styled.input`
   display: block;
   width: 90%;
-  font-family: "Roboto", sans-serif;
+
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -47,14 +47,13 @@ const Select = styled.select`
 const Submit = styled.input`
   font-family: "Nunito", sans-serif;
   font-size: 1.5rem;
-  background-color: black;
+  background-color: rgb(16,156,241);
   color: white;
   border-radius: 5px;
   height: 50px;
   width: 140px;
   text-align: center;
   text-decoration: none;
-  background: #342e37;
   padding: 1%;
   border-radius: 5px;
   display: block;

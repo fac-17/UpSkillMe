@@ -10,7 +10,8 @@ const CloseButtonStyle = styled.button`
   top: 2%;
   box-sizing: border-box;
   line-height: 3%;
-
+  color: #086788;
+  font-size: 2em;
   background-color: white;
   border-color: white;
 
@@ -65,6 +66,6 @@ export default function CloseButton({
     <CloseButtonStyle
       closeButtonDisplay={closeButtonDisplay}
       onClick={handleCloseButton}
-    ></CloseButtonStyle>
+    >X</CloseButtonStyle>
   );
 }
