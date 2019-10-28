@@ -22,22 +22,24 @@ export default function SignUpForm({ emailInput, setEmailInput }) {
         records: [
           {
             fields: {
-              nameOfActivity: "My first activity",
-              activityType: ["recbt3yRDLY9GjPc2"],
-              // fix this - not sure why it's a month behind!
+              nameOfActivity: "is this thing on",
+              activityType: ["recNbuvP8WP7bHjod"],
+              // // fix this - not sure why it's a month behind!
               date: `${(today.getMonth() + 1) %
                 12}-${today.getDate()}-${today.getFullYear()}`,
               durationHours: 0,
               link: "",
               schoolEmail: emailInput,
-              skills: ["rec1aXpu34QFpVnDc"]
+              skills: ["recDSomsyfHDUjRPn"]
             }
           }
         ]
       });
       fetch(
         `/.netlify/functions/CreateUserActivity?activityData=${submittedData}`
+        // `http://localhost:9000/CreateUserActivity?activityData=${submittedData}`
       )
+        .then(console.log(submittedData))
         .then(res => res.json())
         .then(res => {
           setNewUser(false);
