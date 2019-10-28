@@ -5,20 +5,20 @@ const activityConverter = activityInput => {
     return array.find(key => object[key] === value);
   };
   const activity = {
-    "After school club": "recbt3yRDLY9GjPc2",
-    "Careers workshop": "rec7lzaalxuMGOc1z",
-    Competition: "recX0DSvfI0EkTWzP",
-    "Employer event": "recO6WjBempBCwXPW",
-    Mentoring: "recINqvhi14OEQ16V",
-    "Online course": "recan6J6O1yDNNaum",
-    "School project": "recKUogjAsEuiz7LZ",
-    "Skills workshop": "recWvSVTJnacRMxGi",
-    "Summer school": "recKKc2X7Rx40sy7T",
-    "University event": "rec7KmKGVf7Bj2IrE",
-    Volunteering: "recv1xg4hehyyybA4",
-    "Work experience": "recFP2EcUV54UQiDB",
-    "Sports club": "recUe5uzB4CJoT6Xk",
-    Other: "reczhkJJNz2JsLvxW"
+    "After school club": "recNbuvP8WP7bHjod",
+    "Careers workshop": "recJ3078QIlKbcGdK",
+    Competition: "reczI4PtKTRCPhqL0",
+    "Employer event": "recqOngzJxgz7Ur17",
+    Mentoring: "reckvRsfNcVM9evi6",
+    "Online course": "recM5xG4jcpBibEGx",
+    "School project": "recmCPdh5DvsNXBXa",
+    "Skills workshop": "recydjSRey1ama1St",
+    "Summer school": "recmsDZVC2o2vQ2j4",
+    "University event": "recJsNHEqqYzOqcDP",
+    Volunteering: "rec7JYd2Mp8w3WFMf",
+    "Work experience": "rechxtBap6W2peMPM",
+    "Sports club": "recwWwrx6ftHThA9v",
+    Other: "recbZLGHiKTHX9ZJ7"
   };
 
   const keyArray = Object.keys(activity);
