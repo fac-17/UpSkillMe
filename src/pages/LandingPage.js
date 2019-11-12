@@ -18,11 +18,14 @@ import {
 import { Button } from "../components/common/common";
 import { LANDING_PAGE_TEXT_DESCRIPTIONS as TEXTDESCRIPTION } from "../constants";
 import setSliderInterval from "../utils/setSliderInterval";
+import {useTracker} from "../utils/customHooks";
 
 export default function LogInPage({ emailInput, setEmailInput }) {
   const [logo, setLogo] = React.useState("assets/UpSkillMe_logo.png");
   const [infoSlider, setInfoSlider] = React.useState("achievements");
   const [pageState, setPageState] = React.useState("");
+
+  useTracker('/');
 
   let intervalId;
   React.useEffect(() => {
@@ -59,7 +62,7 @@ export default function LogInPage({ emailInput, setEmailInput }) {
                   cx="15"
                   cy="15"
                   r="15"
-                 
+
                   fill={
                     infoSlider === "achievements"
                       ? theme.primaryColor
@@ -81,7 +84,7 @@ export default function LogInPage({ emailInput, setEmailInput }) {
                   cx="15"
                   cy="15"
                   r="15"
-               
+
                   fill={
                     infoSlider === "opportunities"
                       ? theme.primaryColor
@@ -96,7 +99,7 @@ export default function LogInPage({ emailInput, setEmailInput }) {
                 width="30"
                 height="30"
                 viewBox="0 0 30 30"
-               
+
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -104,7 +107,7 @@ export default function LogInPage({ emailInput, setEmailInput }) {
                   cx="15"
                   cy="15"
                   r="15"
-                
+
                   fill={
                     infoSlider === "potential"
                       ? theme.primaryColor

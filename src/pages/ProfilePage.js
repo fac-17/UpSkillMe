@@ -10,6 +10,7 @@ import LogOutButton from "../components/log-out-button/log-out-button";
 import OpportunitiesButton from "../components/opportunities-button/OpportunitiesButton";
 import { Redirect, Route } from "react-router-dom";
 import { Navbar } from "../components/common/common";
+import {useTracker} from "../utils/customHooks";
 export default function ProfilePage({
   setData,
   data,
@@ -26,6 +27,8 @@ export default function ProfilePage({
   const [closeButtonDisplay, setCloseButtonDisplay] = React.useState(
     "inline-block"
   );
+
+  useTracker('/profile');
 
   // Fetches the user data, convert the codes, set the Data,
   // update data refresh.

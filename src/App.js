@@ -1,15 +1,28 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./App.css";
 import LandingPage from "./pages/LandingPage";
 import ProfilePage from "./pages/ProfilePage";
 import OpportunitiesPage from "./pages/OpportunitiesPage";
 import FourZeroFour from "./pages/FourZeroFour";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import ReactGA from 'react-ga';
+
 
 function App() {
+
+  useEffect(() => {
+    ReactGA.initialize('UA-152045602-1', {debug: process.env.NODE_ENV === 'development'});
+    setTrackerInitialised(true);
+  }, []);
+
   const [data, setData] = React.useState([]);
   const [emailInput, setEmailInput] = React.useState("");
   const [opportunities, setOpportunities] = React.useState([]);
+  const [trackerInitialised, setTrackerInitialised] = useState(false);
+
+  if (!trackerInitialised) {
+    return <></>
+  }
 
   return (
     <Router>
@@ -36,7 +49,7 @@ function App() {
               setEmailInput={setEmailInput}
             />
           </Route>
-          <Route path="*" component={FourZeroFour} />
+          <Route path="*" component={FourZeroFour}/>
         </Switch>
       </div>
     </Router>

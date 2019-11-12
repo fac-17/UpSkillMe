@@ -5,12 +5,15 @@ import LogOutButton from "../components/log-out-button/log-out-button";
 import activityConverter from "../utils/activityConverter";
 import { Navbar } from '../components/common/common';
 import BackButton from '../components/back-button/BackButton';
+import {useTracker} from "../utils/customHooks";
 export default function OpportunitiesPage({
   opportunities,
   setOpportunities,
   setEmailInput
 }) {
   const [loggedOut, setLoggedOut] = React.useState(false);
+
+  useTracker('/opportunities')
 
   React.useEffect(() => {
     fetch(`/.netlify/functions/GetOpportunitiesData`)
