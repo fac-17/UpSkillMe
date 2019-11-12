@@ -160,28 +160,31 @@ export default function EventForm({
   };
 
   const handleSubmit = e => {
-    const submittedData = JSON.stringify({
-      records: [
-        {
-          fields: {
-            nameOfActivity: activityName,
-            activityType: activityType,
-            date: date,
-            durationHours: duration,
-            link: supportingLink,
-            schoolEmail: emailInput,
-            skills: skillsConverter(badgeValues)
+    // Drop submission if duration is longer than eight hours.
+    if (duration <= 8) {
+      const submittedData = JSON.stringify({
+        records: [
+          {
+            fields: {
+              nameOfActivity: activityName,
+              activityType: activityType,
+              date: date,
+              durationHours: duration,
+              link: supportingLink,
+              schoolEmail: emailInput,
+              skills: skillsConverter(badgeValues)
+            }
           }
-        }
-      ]
-    });
-    fetch(
-      `/.netlify/functions/CreateUserActivity?activityData=${submittedData}`
-    )
-      .then(res => res.json())
-      .then(res => {
-        setDataRefresh(true);
+        ]
       });
+      fetch(
+        `/.netlify/functions/CreateUserActivity?activityData=${submittedData}`
+      )
+        .then(res => res.json())
+        .then(res => {
+          setDataRefresh(true);
+        });
+    }
 
     alert("This form was submitted");
     e.preventDefault();
