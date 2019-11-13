@@ -208,8 +208,8 @@ export default function EventForm({
     setSupportingInfo("");
     setBadgeValues([]);
 
-    alert("This form was submitted");
 
+    alert("Well done, you've added your skill block!");
     e.preventDefault();
   };
 
