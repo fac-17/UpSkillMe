@@ -10,7 +10,7 @@ const skillsConverter = idArrayInput => {
     Innovation: "recQtkW5IWh0z3tH5",
     Leadership: "reczDCLXfOC5iHLiQ",
     Media: "recSIsNHGiRbV8CR7",
-    "Problem-solving": "recOt8tI1ZLivhoZV",
+    "Problem solving": "recOt8tI1ZLivhoZV",
     Teamwork: "recTHKDy3NJghbCrJ",
     Technology: "recVncOYn99qVNwir"
   };

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const LandingBody = styled.body`
-  background: #B3DEF9;
+  background: white;
   height: 100vh;
 `;
 
@@ -64,12 +64,12 @@ const FormSection = styled.section`
   margin: 0 auto 10%;
   padding: 5%;
   padding-top: 1%;
-  padding-bottom: 1%
+  padding-bottom: 1%;
   text-align: center;
   
   background-color: #B3DEF9;
 
-}
+
 
 `;
 export {

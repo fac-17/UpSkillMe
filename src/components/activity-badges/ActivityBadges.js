@@ -30,8 +30,8 @@ const ListBadges = styled.li`
  }
  
  @media (min-width: 940px){
-   padding-left: 100px;
-   padding-right: 100px;
+   padding-left: 10px;
+   padding-right: 10px;
  }
  `;
 
@@ -54,7 +54,7 @@ const allBadges = [
   "Technology"
 ];
 
-export default function Badges({ selectedBadges, data }) {
+export default function ActivityBadges({ selectedBadges, data }) {
   let badges = allBadges;
 
   if (selectedBadges) {
