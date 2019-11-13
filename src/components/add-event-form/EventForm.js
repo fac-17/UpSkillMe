@@ -37,6 +37,20 @@ const Input = styled.input`
   font-size: 1.2rem;
 `;
 
+const TextArea = styled.textarea`
+  display: block;
+  width: 90%;
+
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 2.5%;
+  padding: 1.5%;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+`;
+
 // font-family: "Nunito", sans-serif;
 
 const Select = styled.select`
@@ -142,7 +156,7 @@ export default function EventForm({
 
   const [duration, setDuration] = React.useState(1);
   const durationOptions = [1, 2, 3, 4, 5, 6, 7, 14, 21, 28, 35, 70, 105, 140];
-  const [supportingLink, setSupportingLink] = React.useState("");
+  const [supportingInfo, setSupportingInfo] = React.useState("");
 
   const updateBadges = e => {
     let value = Array.from(e.target.selectedOptions, option => option.value);
@@ -170,7 +184,7 @@ export default function EventForm({
               activityType: activityType,
               date: date,
               durationHours: duration,
-              link: supportingLink,
+              supportingInfo: supportingInfo,
               schoolEmail: emailInput,
               skills: skillsConverter(badgeValues)
             }
@@ -281,11 +295,12 @@ export default function EventForm({
       </Label>
 
       <Label>
-        Link to supporting info:
-        <Input
-          type="url"
-          value={supportingLink}
-          onChange={e => setSupportingLink(e.target.value)}
+        Supporting Info
+        <TextArea
+          maxlength="480"
+          rows="5"
+          value={supportingInfo}
+          onChange={e => setSupportingInfo(e.target.value)}
         />
       </Label>
       <Submit type="submit" value="Submit" />

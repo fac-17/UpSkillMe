@@ -11,7 +11,7 @@ import ReactGA from 'react-ga';
 function App() {
 
   useEffect(() => {
-    ReactGA.initialize('UA-152045602-1', {debug: process.env.NODE_ENV === 'development'});
+    ReactGA.initialize('UA-150602061-1', {debug: process.env.NODE_ENV === 'development'});
     setTrackerInitialised(true);
   }, []);
 
