@@ -200,7 +200,16 @@ export default function EventForm({
         });
     }
 
+    // Reset fields.
+    setActivityName("");
+    setActivityType(["recbt3yRDLY9GjPc2"]);
+    setDate("");
+    setDuration(1);
+    setSupportingInfo("");
+    setBadgeValues([]);
+
     alert("This form was submitted");
+
     e.preventDefault();
   };
 
