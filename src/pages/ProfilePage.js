@@ -1,4 +1,5 @@
 import React from "react";
+import _ from "lodash";
 import Activites from "../components/activities/Activities";
 import ActivityButton from "../components/add-activity-button/ActivityButton";
 import EventForm from "../components/add-event-form/EventForm";
@@ -70,6 +71,13 @@ export default function ProfilePage({
                 e.fields.activityType[0]
               );
             });
+
+            filteredRecords.sort((a, b) => {
+              const dateA = new Date(a.fields.date);
+              const dateB = new Date(b.fields.date);
+              return dateB - dateA;
+            })
+
             return filteredRecords;
           }
         })
