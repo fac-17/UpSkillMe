@@ -49,7 +49,7 @@ const allBadges = [
   "Innovation",
   "Leadership",
   "Media",
-  "Problem-solving",
+  "Problem solving",
   "Teamwork",
   "Technology"
 ];
@@ -68,7 +68,7 @@ export default function Badges({ selectedBadges, data }) {
       Innovation: 0,
       Leadership: 0,
       Media: 0,
-      "Problem-solving": 0,
+      "Problem solving": 0,
       Teamwork: 0,
       Technology: 0
     },
@@ -85,7 +85,7 @@ export default function Badges({ selectedBadges, data }) {
         Innovation: 0,
         Leadership: 0,
         Media: 0,
-        "Problem-solving": 0,
+        "Problem solving": 0,
         Teamwork: 0,
         Technology: 0
       };
