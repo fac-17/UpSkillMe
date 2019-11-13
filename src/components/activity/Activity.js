@@ -1,5 +1,5 @@
 import React from "react";
-import Badges from "../../components/badges/Badges";
+import ActivityBadges from "../../components/activity-badges/ActivityBadges";
 
 import {
   Div,
@@ -25,7 +25,7 @@ export default function Activity({ activity, index, activities }) {
         <li>Total hours: {activity.fields.durationHours} </li>
         <Hr />
         <li>
-          <Badges selectedBadges={activity.fields.skills} data={activities} />
+          <ActivityBadges selectedBadges={activity.fields.skills} data={activities} />
         </li>
         <li>
           {activity.fields["totalPoints (Activity points x duration)"]} points
