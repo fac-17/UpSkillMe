@@ -1,5 +1,4 @@
 import React from "react";
-import _ from "lodash";
 import Activites from "../components/activities/Activities";
 import ActivityButton from "../components/add-activity-button/ActivityButton";
 import EventForm from "../components/add-event-form/EventForm";
