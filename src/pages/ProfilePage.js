@@ -70,6 +70,13 @@ export default function ProfilePage({
                 e.fields.activityType[0]
               );
             });
+
+            filteredRecords.sort((a, b) => {
+              const dateA = new Date(a.fields.date);
+              const dateB = new Date(b.fields.date);
+              return dateB - dateA;
+            })
+
             return filteredRecords;
           }
         })
