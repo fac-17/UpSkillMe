@@ -175,7 +175,7 @@ export default function EventForm({
 
   const handleSubmit = e => {
     // Drop submission if duration is longer than eight hours.
-    if (duration <= 8) {
+    if (duration <= 50) {
       const submittedData = JSON.stringify({
         records: [
           {
