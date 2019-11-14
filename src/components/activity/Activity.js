@@ -31,11 +31,9 @@ export default function Activity({ activity, index, activities }) {
           {activity.fields["totalPoints (Activity points x duration)"]} points
         </li>
 
-        {activity.fields.link ? (
-          <li>
-            <a href={activity.fields.link}>
-              <ActivityLinkButton>View confirmation</ActivityLinkButton>
-            </a>
+        {activity.fields.supportingInfo ? (
+          <li style={{marginTop: 15}}>
+            {activity.fields.supportingInfo}
           </li>
         ) : (
           ""
