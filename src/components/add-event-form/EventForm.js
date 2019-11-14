@@ -304,7 +304,7 @@ export default function EventForm({
       </Label>
 
       <Label>
-        Supporting Info
+        What did you learn?
         <TextArea
           maxlength="480"
           rows="5"
