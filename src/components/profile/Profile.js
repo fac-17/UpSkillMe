@@ -32,7 +32,9 @@ export default function Profile({
   data,
   emailInput,
   setLoggedOut,
-  setEmailInput
+  setEmailInput,
+  colour,
+  setColour
 }) {
   const [avatar] = React.useState("assets/avatarAlien.svg");
   const [totalScore, setTotalScore] = React.useState(10);

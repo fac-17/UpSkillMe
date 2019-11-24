@@ -15,9 +15,12 @@ export default function ProfilePage({
   setData,
   data,
   emailInput,
-  setEmailInput
+  setEmailInput,
+  colour,
+  setColour
 }) {
   setEmailInput(window.sessionStorage.getItem("emailInput", emailInput));
+  setColour(window.sessionStorage.getItem("colour", colour));
   const [dataRefresh, setDataRefresh] = React.useState(true);
   const [loggedOut, setLoggedOut] = React.useState(false);
   const [isFormDisplayed, setFormDisplayed] = React.useState("none");
@@ -38,6 +41,9 @@ export default function ProfilePage({
   React.useEffect(() => {
     if (!window.sessionStorage.getItem("emailInput")) {
       window.sessionStorage.setItem("emailInput", emailInput);
+    }
+    if (!window.sessionStorage.getItem("colour")) {
+      window.sessionStorage.setItem("colour", colour);
     }
 
     const userData = JSON.stringify({
@@ -101,6 +107,7 @@ export default function ProfilePage({
         <LogOutButton
           setLoggedOut={setLoggedOut}
           setEmailInput={setEmailInput}
+          setColour={setColour}
         />
         <OpportunitiesButton />
       </Navbar>
@@ -109,6 +116,8 @@ export default function ProfilePage({
         emailInput={emailInput}
         setLoggedOut={setLoggedOut}
         setEmailInput={setEmailInput}
+        colour={colour}
+        setColour={setColour}
       />
 
       <Badges data={data} />
@@ -116,6 +125,7 @@ export default function ProfilePage({
       <EventForm
         setDataRefresh={setDataRefresh}
         emailInput={emailInput}
+        colour={colour}
         isFormDisplayed={isFormDisplayed}
         setFormDisplayed={setFormDisplayed}
         activityButtonDisplay={activityButtonDisplay}

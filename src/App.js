@@ -17,6 +17,7 @@ function App() {
 
   const [data, setData] = React.useState([]);
   const [emailInput, setEmailInput] = React.useState("");
+  const [colour, setColour] = React.useState("");
   const [opportunities, setOpportunities] = React.useState([]);
   const [trackerInitialised, setTrackerInitialised] = useState(false);
 
@@ -32,6 +33,8 @@ function App() {
             <LandingPage
               emailInput={emailInput}
               setEmailInput={setEmailInput}
+              colour={colour}
+              setColour={setColour}
             />
           </Route>
           <Route path="/profile">
@@ -40,6 +43,8 @@ function App() {
               setData={setData}
               setEmailInput={setEmailInput}
               emailInput={emailInput}
+              colour={colour}
+              setColour={setColour}
             />
           </Route>
           <Route path="/opportunities">
@@ -47,6 +52,8 @@ function App() {
               opportunities={opportunities}
               setOpportunities={setOpportunities}
               setEmailInput={setEmailInput}
+              colour={colour}
+              setColour={setColour}
             />
           </Route>
           <Route path="*" component={FourZeroFour}/>

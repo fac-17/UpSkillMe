@@ -20,7 +20,7 @@ import { LANDING_PAGE_TEXT_DESCRIPTIONS as TEXTDESCRIPTION } from "../constants"
 import setSliderInterval from "../utils/setSliderInterval";
 import {useTracker} from "../utils/customHooks";
 
-export default function LogInPage({ emailInput, setEmailInput }) {
+export default function LogInPage({ emailInput, setEmailInput, colour, setColour }) {
   const [logo, setLogo] = React.useState("assets/UpSkillMe_logo.png");
   const [infoSlider, setInfoSlider] = React.useState("achievements");
   const [pageState, setPageState] = React.useState("");
@@ -141,6 +141,8 @@ export default function LogInPage({ emailInput, setEmailInput }) {
               <LogInForm
                 emailInput={emailInput}
                 setEmailInput={setEmailInput}
+                colour={colour}
+                setColour={setColour}
               />
               <Button
                 onClick={() => {
@@ -155,6 +157,8 @@ export default function LogInPage({ emailInput, setEmailInput }) {
               <SignUpForm
                 emailInput={emailInput}
                 setEmailInput={setEmailInput}
+                colour={colour}
+                setColour={setColour}
               />
               <Button
                 onClick={() => {
