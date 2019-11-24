@@ -89,6 +89,7 @@ const Submit = styled.input`
 export default function EventForm({
   setDataRefresh,
   emailInput,
+  colour,
   isFormDisplayed,
   setFormDisplayed,
   activityButtonDisplay,
@@ -186,6 +187,7 @@ export default function EventForm({
               durationHours: duration,
               supportingInfo: supportingInfo,
               schoolEmail: emailInput,
+              colour: colour,
               skills: skillsConverter(badgeValues)
             }
           }

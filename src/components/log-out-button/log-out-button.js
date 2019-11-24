@@ -29,10 +29,11 @@ color: white;
 } */
 `;
 
-export default function LogOutButton({ setLoggedOut, setEmailInput }) {
+export default function LogOutButton({ setLoggedOut, setEmailInput, setColour }) {
   function logout(e) {
     window.sessionStorage.clear();
     setEmailInput("");
+    setColour("");
     setLoggedOut(true);
   }
 

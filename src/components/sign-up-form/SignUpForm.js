@@ -10,7 +10,7 @@ const hexColourNameMap = {
   '#37d67a': 'Green', '#2ccce4': 'Blue', '#555555': 'Black', '#dce775': 'Yellow', '#ff8a65': 'Orange', '#ba68c8': 'Pink'
 }
 
-export default function SignUpForm({emailInput, setEmailInput}) {
+export default function SignUpForm({emailInput, setEmailInput, colour, setColour}) {
   const [currSubmittedEmail, setCurrSubmittedEmail] = React.useState("");
   const [currentColour, setCurrentColour] = React.useState('#37d67a');
   const [newUser, setNewUser] = React.useState(false);

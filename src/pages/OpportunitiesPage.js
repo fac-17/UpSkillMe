@@ -9,7 +9,8 @@ import {useTracker} from "../utils/customHooks";
 export default function OpportunitiesPage({
   opportunities,
   setOpportunities,
-  setEmailInput
+  setEmailInput,
+  setColour
 }) {
   const [loggedOut, setLoggedOut] = React.useState(false);
 
@@ -40,7 +41,7 @@ export default function OpportunitiesPage({
   return (
     <div>
       <Navbar>
-        <LogOutButton setLoggedOut={setLoggedOut} setEmailInput={setEmailInput} />
+        <LogOutButton setLoggedOut={setLoggedOut} setEmailInput={setEmailInput} setColour={setColour} />
         <BackButton></BackButton>
       </Navbar>
       <OpportunitiesList opportunities={opportunities} />
