@@ -142,7 +142,7 @@ export default function LogInPage({ emailInput, setEmailInput, colour, setColour
                 emailInput={emailInput}
                 setEmailInput={setEmailInput}
                 colour={colour}
-                setColout={setColour}
+                setColour={setColour}
               />
               <Button
                 onClick={() => {

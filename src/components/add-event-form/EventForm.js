@@ -86,6 +86,10 @@ const Submit = styled.input`
   }
 `;
 
+const hexColourNameMap = {
+  '#37d67a': 'Green', '#2ccce4': 'Blue', '#555555': 'Black', '#dce775': 'Yellow', '#ff8a65': 'Orange', '#ba68c8': 'Pink'
+}
+
 export default function EventForm({
   setDataRefresh,
   emailInput,
@@ -187,7 +191,7 @@ export default function EventForm({
               durationHours: duration,
               supportingInfo: supportingInfo,
               schoolEmail: emailInput,
-              colour: colour,
+              colour: hexColourNameMap[colour],
               skills: skillsConverter(badgeValues)
             }
           }

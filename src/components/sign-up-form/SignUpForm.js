@@ -13,16 +13,25 @@ const hexColourNameMap = {
 export default function SignUpForm({emailInput, setEmailInput, colour, setColour}) {
   const [currSubmittedEmail, setCurrSubmittedEmail] = React.useState("");
   const [currentColour, setCurrentColour] = React.useState('#37d67a');
-  const [newUser, setNewUser] = React.useState(false);
+  const [newUser, setNewUser] = React.useState(true);
 
   const handleSignUpSubmit = async e => {
     e.preventDefault();
-    setNewUser(true);
-    setEmailInput(currSubmittedEmail);
+    const emailStringified = JSON.stringify({email: currSubmittedEmail});
+    const response = await fetch(`/.netlify/functions/GetUserData?email=${emailStringified}`);
+    const json = await response.json();
+    console.log(json.records.length)
+    console.log(emailInput)
+    console.log(colour)
+    if (json.records.length === 0) {
+      setEmailInput(currSubmittedEmail);
+      setColour(currentColour);
+    }
   };
 
   React.useEffect(() => {
-    if (emailInput && newUser) {
+    if (emailInput && colour && newUser) {
+      console.log('the colour is')
       const today = new Date();
       const submittedData = JSON.stringify({
         records: [
@@ -36,6 +45,7 @@ export default function SignUpForm({emailInput, setEmailInput, colour, setColour
               durationHours: 0,
               link: "",
               schoolEmail: emailInput,
+              colour: hexColourNameMap[colour],
               skills: ["rec1aXpu34QFpVnDc"]
             }
           }
@@ -50,9 +60,9 @@ export default function SignUpForm({emailInput, setEmailInput, colour, setColour
         });
     }
     // return () => window.removeEventListener("submit", handleSignUpSubmit);
-  }, [emailInput, newUser]);
+  }, [emailInput, colour, newUser]);
 
-  if (emailInput) {
+  if (emailInput && colour && !newUser) {
     return (
       <Route>
         <Redirect to={{pathname: "/profile"}}/>
