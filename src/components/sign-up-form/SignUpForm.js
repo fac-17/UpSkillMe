@@ -1,12 +1,18 @@
 import React from "react";
-import { Redirect, Route } from "react-router-dom";
-import { H2, Input, EmailInput, SimpleForm } from "./SignUpFormStyle";
-import { ThemeProvider } from "styled-components";
-import { Label } from "../common/common";
+import {Redirect, Route} from "react-router-dom";
+import {H2, Input, EmailInput, SimpleForm} from "./SignUpFormStyle";
+import {ThemeProvider} from "styled-components";
+import {Label} from "../common/common";
 import theme from "../../theme";
+import {CirclePicker} from "react-color";
 
-export default function SignUpForm({ emailInput, setEmailInput }) {
+const hexColourNameMap = {
+  '#37d67a': 'Green', '#2ccce4': 'Blue', '#555555': 'Black', '#dce775': 'Yellow', '#ff8a65': 'Orange', '#ba68c8': 'Pink'
+}
+
+export default function SignUpForm({emailInput, setEmailInput}) {
   const [currSubmittedEmail, setCurrSubmittedEmail] = React.useState("");
+  const [currentColour, setCurrentColour] = React.useState('#37d67a');
   const [newUser, setNewUser] = React.useState(false);
 
   const handleSignUpSubmit = e => {
@@ -26,7 +32,7 @@ export default function SignUpForm({ emailInput, setEmailInput }) {
               activityType: ["recbt3yRDLY9GjPc2"],
               // fix this - not sure why it's a month behind!
               date: `${(today.getMonth() + 1) %
-                12}-${today.getDate()}-${today.getFullYear()}`,
+              12}-${today.getDate()}-${today.getFullYear()}`,
               durationHours: 0,
               link: "",
               schoolEmail: emailInput,
@@ -49,7 +55,7 @@ export default function SignUpForm({ emailInput, setEmailInput }) {
   if (emailInput) {
     return (
       <Route>
-        <Redirect to={{ pathname: "/profile" }} />
+        <Redirect to={{pathname: "/profile"}}/>
       </Route>
     );
   }
@@ -69,8 +75,15 @@ export default function SignUpForm({ emailInput, setEmailInput }) {
               onChange={e => setCurrSubmittedEmail(e.target.value)}
             />
           </Label>
+          <p>Pick your colour</p>
+          <CirclePicker colors={['#37d67a', '#2ccce4', '#555555', '#dce775', '#ff8a65', '#ba68c8']}
+                        onChange={(colour) => {
+                          console.log(colour.hex)
+                          setCurrentColour(colour.hex)
+                        }}/>
+          <p style={{color: currentColour}}>{hexColourNameMap[currentColour]}</p>
 
-          <Input type="submit" />
+          <Input style={{marginTop: "50px"}} type="submit"/>
         </SimpleForm>
       </section>
     </ThemeProvider>
