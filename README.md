@@ -6,10 +6,6 @@ This MVP is a functional prototype which includes the core features of the produ
 
 ---
 
-## Table of Contents
-
-[TOC]
-
 ## Team
 
 ![](https://i.imgur.com/CBzRZN8.jpg)
