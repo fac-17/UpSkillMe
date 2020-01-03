@@ -29,6 +29,9 @@ const FilterOpportunityButtonStyle = styled.button`
   border-radius: 10px;
   :focus {
     background: #1592DE;
+    h3${H3} {
+      color: white;
+    }
   }
 `;
 
