@@ -27,7 +27,7 @@ const FilterOpportunityButtonStyle = styled.button`
   background-color: inherit;
   border: 1px solid black;
   border-radius: 10px;
-  :visited {
+  :focus {
     background: #1592DE;
   }
 `;
