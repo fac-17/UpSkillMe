@@ -30,4 +30,13 @@ border-radius: 1rem;
 padding: 1rem;
 width: 80%
 `;
-export { H2, Input, EmailInput, SimpleForm };
+
+const PasswordInput = styled.input`
+  border: 1px black solid;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 80%
+`;
+
+export { H2, Input, EmailInput, SimpleForm, PasswordInput };
