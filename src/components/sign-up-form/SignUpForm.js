@@ -16,8 +16,6 @@ export default function SignUpForm({emailInput, setEmailInput, colour, setColour
   const [currSubmittedPassword, setCurrSubmittedPassword] = React.useState("");
   const [currentColour, setCurrentColour] = React.useState('#37d67a');
   const [newUser, setNewUser] = React.useState(true);
-  const [currentError, setCurrentError] = React.useState(true);
-
 
   const handleSignUpSubmit = async e => {
     e.preventDefault();
