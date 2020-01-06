@@ -17,6 +17,7 @@ function App() {
 
   const [data, setData] = React.useState([]);
   const [emailInput, setEmailInput] = React.useState("");
+  const [passwordInput, setPasswordInput] = React.useState("");
   const [colour, setColour] = React.useState("");
   const [opportunities, setOpportunities] = React.useState([]);
   const [trackerInitialised, setTrackerInitialised] = useState(false);
@@ -35,6 +36,8 @@ function App() {
               setEmailInput={setEmailInput}
               colour={colour}
               setColour={setColour}
+              passwordInput={passwordInput}
+              setPasswordInput={setPasswordInput}
             />
           </Route>
           <Route path="/profile">
