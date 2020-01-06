@@ -81,7 +81,7 @@ export default function LogInform({ emailInput, setEmailInput, colour, setColour
                         }}/>
           <p style={{color: currentColour}}>{hexColourNameMap[currentColour]}</p>
           <p style={{color: "#787881"}}>{currentError}</p>
-          <Input style={{marginTop: "50px"}} type="submit"/>
+          <Input style={{marginTop: "50px"}} type="submit" value="Login"/>
         </SimpleForm>
       </section>
     </ThemeProvider>
