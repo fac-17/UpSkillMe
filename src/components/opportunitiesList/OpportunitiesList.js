@@ -1,15 +1,8 @@
 import React from "react";
 import Opportunity from "../opportunity/Opportunity";
-import { ThemeProvider } from "styled-components";
-import theme from "../../theme";
-// import LogOutButton from "../../components/log-out-button/log-out-button";
-
-import{
-  H2,
-  H3
-} from "./OpportunitiesList.style";
 import FilterOpportunityButton from '../filter-opportunity-button/FilterOpportunityButton';
-import {ButtonDiv} from '../filter-opportunity-button/FilterOpportunityButton.style';
+import { ButtonDiv } from '../filter-opportunity-button/FilterOpportunityButton.style';
+import { H2,H3 } from "./OpportunitiesList.style";
 
 export default function OpportunitiesList({ opportunities, category, setCategory, categories }) {
   if (!opportunities) {
@@ -89,5 +82,5 @@ export default function OpportunitiesList({ opportunities, category, setCategory
       })}
     </div>
   );
-}
+ }
 }
