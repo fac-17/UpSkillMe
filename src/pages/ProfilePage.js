@@ -22,7 +22,7 @@ export default function ProfilePage({
   setPasswordInput
 }) {
   setEmailInput(window.sessionStorage.getItem("emailInput", emailInput));
-  setEmailInput(window.sessionStorage.getItem("passwordInput", passwordInput));
+  setPasswordInput(window.sessionStorage.getItem("passwordInput", passwordInput));
   setColour(window.sessionStorage.getItem("colour", colour));
 
   const [dataRefresh, setDataRefresh] = React.useState(true);
