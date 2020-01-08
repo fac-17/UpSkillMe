@@ -25,11 +25,13 @@ export default function SignUpForm({emailInput, setEmailInput, colour, setColour
     console.log(json.records.length)
     console.log(emailInput)
     console.log(colour)
+
     if (json.records.length === 0 && currSubmittedPassword.length >= 8) {
       setEmailInput(currSubmittedEmail);
       setPasswordInput(currSubmittedPassword);
       setColour(currentColour);
     }
+
   };
 
   React.useEffect(() => {
@@ -50,7 +52,6 @@ export default function SignUpForm({emailInput, setEmailInput, colour, setColour
               schoolEmail: emailInput,
               colour: hexColourNameMap[colour],
               skills: ["rec1aXpu34QFpVnDc"],
-              pass: passwordInput
             }
           }
         ]
@@ -77,7 +78,7 @@ export default function SignUpForm({emailInput, setEmailInput, colour, setColour
   return (
     <ThemeProvider theme={theme}>
       <section>
-        <H2> Sign Up</H2>
+        <H2>Sign Up</H2>
         <SimpleForm onSubmit={handleSignUpSubmit}>
           <Label>
             {/* Enter email: <br></br> */}

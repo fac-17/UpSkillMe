@@ -48,6 +48,8 @@ function App() {
               emailInput={emailInput}
               colour={colour}
               setColour={setColour}
+              passwordInput={passwordInput}
+              setPasswordInput={setPasswordInput}
             />
           </Route>
           <Route path="/opportunities">
@@ -57,6 +59,8 @@ function App() {
               setEmailInput={setEmailInput}
               colour={colour}
               setColour={setColour}
+              passwordInput={passwordInput}
+              setPasswordInput={setPasswordInput}
             />
           </Route>
           <Route path="*" component={FourZeroFour}/>

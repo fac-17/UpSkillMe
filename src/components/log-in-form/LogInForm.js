@@ -34,17 +34,17 @@ export default function LogInform({ emailInput, setEmailInput, colour, setColour
 
     if (hexColourNameMap[currentColour] === correctColour && correctPassword === currPasswordInput) {
       setEmailInput(currEmailInput);
-      setCurrPasswordInput(currPasswordInput);
+      setPasswordInput(currPasswordInput);
       setColour(currentColour);
       setSubmitted(true);
     }
 
   };
 
-  if (submitted && emailInput && colour) {
+  if (submitted && emailInput && colour && passwordInput) {
     return (
       <Route>
-        <Redirect to={{ pathname: "/profile", emailInput: emailInput, colour: colour }} />
+        <Redirect to={{ pathname: "/profile", emailInput: emailInput, colour: colour, passwordInput: passwordInput }} />
       </Route>
     );
   }
