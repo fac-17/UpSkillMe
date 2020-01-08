@@ -99,7 +99,8 @@ export default function EventForm({
   activityButtonDisplay,
   setActivityButtonDisplay,
   closeButtonDisplay,
-  setCloseButtonDisplay
+  setCloseButtonDisplay,
+  passwordInput
 }) {
   const [activityName, setActivityName] = React.useState("");
   const [date, setDate] = React.useState("");
@@ -192,7 +193,8 @@ export default function EventForm({
               supportingInfo: supportingInfo,
               schoolEmail: emailInput,
               colour: hexColourNameMap[colour],
-              skills: skillsConverter(badgeValues)
+              skills: skillsConverter(badgeValues),
+              pass: passwordInput
             }
           }
         ]

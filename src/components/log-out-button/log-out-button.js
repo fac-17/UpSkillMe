@@ -19,7 +19,7 @@ background-color: inherit;
 border: none;
 color: white;
 /* :hover {
-  
+
   background: #434343;
  letter-spacing: 1px;
  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -29,10 +29,11 @@ color: white;
 } */
 `;
 
-export default function LogOutButton({ setLoggedOut, setEmailInput, setColour }) {
+export default function LogOutButton({ setLoggedOut, setEmailInput, setColour, setPasswordInput }) {
   function logout(e) {
     window.sessionStorage.clear();
     setEmailInput("");
+    setPasswordInput("");
     setColour("");
     setLoggedOut(true);
   }

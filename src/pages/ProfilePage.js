@@ -17,10 +17,14 @@ export default function ProfilePage({
   emailInput,
   setEmailInput,
   colour,
-  setColour
+  setColour,
+  passwordInput,
+  setPasswordInput
 }) {
   setEmailInput(window.sessionStorage.getItem("emailInput", emailInput));
+  setEmailInput(window.sessionStorage.getItem("passwordInput", passwordInput));
   setColour(window.sessionStorage.getItem("colour", colour));
+
   const [dataRefresh, setDataRefresh] = React.useState(true);
   const [loggedOut, setLoggedOut] = React.useState(false);
   const [isFormDisplayed, setFormDisplayed] = React.useState("none");
@@ -41,6 +45,9 @@ export default function ProfilePage({
   React.useEffect(() => {
     if (!window.sessionStorage.getItem("emailInput")) {
       window.sessionStorage.setItem("emailInput", emailInput);
+    }
+    if (!window.sessionStorage.getItem("passwordInput")) {
+      window.sessionStorage.setItem("passwordInput", passwordInput);
     }
     if (!window.sessionStorage.getItem("colour")) {
       window.sessionStorage.setItem("colour", colour);
@@ -108,6 +115,7 @@ export default function ProfilePage({
           setLoggedOut={setLoggedOut}
           setEmailInput={setEmailInput}
           setColour={setColour}
+          setPasswordInput={setPasswordInput}
         />
         <OpportunitiesButton />
       </Navbar>
@@ -132,6 +140,7 @@ export default function ProfilePage({
         setActivityButtonDisplay={setActivityButtonDisplay}
         closeButtonDisplay={closeButtonDisplay}
         setCloseButtonDisplay={setCloseButtonDisplay}
+        passwordInput={passwordInput}
       />
       <ActivityButton
         isFormDisplayed={isFormDisplayed}
