@@ -37,29 +37,32 @@ export default function ForgotPasswordForm({setPageState}) {
     const response = await fetch(`/.netlify/functions/GetUserData?email=${emailStringified}`);
     const json = await response.json();
 
-    const records = []
-    json.records
-    .filter(x => 
-      delete x.fields.daysAgo && 
-      delete x.fields["totalPoints (Activity points x duration)"] && 
-      delete x.fields.skillsFrequency && 
-      delete x.fields.activityTypePoints && 
-      delete x.fields.pointsPerSkill && 
-      delete x.createdTime && 
-      delete x.fields.activityTypePoints
-    )
-    .map((i)=> {
-      i.fields.pass = currNewPasswordInput
-      console.log(i)
-      records.push(i)
-    })
+    if (currNewPasswordInput.length >= 8) {
+      const records = []
+      json.records
+      .filter(x => 
+        delete x.fields.daysAgo && 
+        delete x.fields["totalPoints (Activity points x duration)"] && 
+        delete x.fields.skillsFrequency && 
+        delete x.fields.activityTypePoints && 
+        delete x.fields.pointsPerSkill && 
+        delete x.createdTime && 
+        delete x.fields.activityTypePoints
+      )
+      .map((i)=> {
+        i.fields.pass = currNewPasswordInput
+        console.log(i)
+        records.push(i)
+      })
 
-    records.map((x) => {
-      console.log("x", x)
-    })
-    fetch(`/.netlify/functions/UpdateUserData?userData=${JSON.stringify({records})}`)
+      records.map((x) => {
+        console.log("x", x)
+      })
+      fetch(`/.netlify/functions/UpdateUserData?userData=${JSON.stringify({records})}`)
 
-    setPageState("")
+      setPageState("")
+   }
+   
   };
 
   if (submitted && currEmailInput && currentColour) {
