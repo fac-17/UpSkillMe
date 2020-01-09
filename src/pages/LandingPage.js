@@ -147,8 +147,9 @@ export default function LogInPage({ emailInput, setEmailInput, colour, setColour
                 passwordInput={passwordInput}
                 setPasswordInput={setPasswordInput}
               />
-              <ButtonContainer>
+              
               <Button
+                  style={{fontSize: '0.7rem', margin: ' 0 0 1rem'}}
                   onClick={() => {
                     setPageState("forgotPassword");
                   }}
@@ -156,13 +157,14 @@ export default function LogInPage({ emailInput, setEmailInput, colour, setColour
                   Forgot Password
                 </Button>
                 <Button
+                  style={{margin: 0}}
                   onClick={() => {
                     setPageState("");
                   }}
                 >
                   Back
                 </Button>
-              </ButtonContainer>
+              
             
             </FormSection>
           ) : pageState === "signup" ? (
