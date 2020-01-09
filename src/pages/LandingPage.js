@@ -1,6 +1,7 @@
 import React from "react";
 import LogInForm from "../components/log-in-form/LogInForm";
 import SignUpForm from "../components/sign-up-form/SignUpForm";
+import ForgotPasswordForm from "../components/forgot-password-form/ForgotPasswordForm";
 import { ThemeProvider } from "styled-components";
 import theme from "../theme";
 import {
@@ -146,13 +147,23 @@ export default function LogInPage({ emailInput, setEmailInput, colour, setColour
                 passwordInput={passwordInput}
                 setPasswordInput={setPasswordInput}
               />
+              <ButtonContainer>
               <Button
-                onClick={() => {
-                  setPageState("");
-                }}
-              >
-                Back
-              </Button>
+                  onClick={() => {
+                    setPageState("forgotPassword");
+                  }}
+                >
+                  Forgot Password
+                </Button>
+                <Button
+                  onClick={() => {
+                    setPageState("");
+                  }}
+                >
+                  Back
+                </Button>
+              </ButtonContainer>
+            
             </FormSection>
           ) : pageState === "signup" ? (
             <FormSection>
@@ -172,7 +183,21 @@ export default function LogInPage({ emailInput, setEmailInput, colour, setColour
                 Back
               </Button>
             </FormSection>
-          ) : (
+          ) : pageState === "forgotPassword" ? (
+            <FormSection>
+              <ForgotPasswordForm
+                setPageState={setPageState}
+              />
+              <Button
+                onClick={() => {
+                  setPageState("");
+                }}
+              >
+                Back
+              </Button>
+            </FormSection>
+          )
+          : (
             ""
           )}
         </Div>

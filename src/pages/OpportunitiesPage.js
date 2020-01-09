@@ -6,22 +6,13 @@ import activityConverter from "../utils/activityConverter";
 import { Navbar } from '../components/common/common';
 import BackButton from '../components/back-button/BackButton';
 import {useTracker} from "../utils/customHooks";
-import { ThemeProvider } from "styled-components";
-import theme from "../theme";
-import {
-  Div,
-  Ul,
-  Li,
-  H3,
-  H4,
-  Hr
-} from "../components/opportunity/Opportunity.style";
 
 export default function OpportunitiesPage({
   opportunities,
   setOpportunities,
   setEmailInput,
-  setColour
+  setColour,
+  setPasswordInput
 }) {
   const [loggedOut, setLoggedOut] = React.useState(false);
   const [category, setCategory] = React.useState("");
@@ -59,7 +50,7 @@ export default function OpportunitiesPage({
   return (
     <div>
       <Navbar>
-        <LogOutButton setLoggedOut={setLoggedOut} setEmailInput={setEmailInput} setColour={setColour} />
+        <LogOutButton setLoggedOut={setLoggedOut} setEmailInput={setEmailInput} setColour={setColour} setPasswordInput={setPasswordInput} />
         <BackButton></BackButton>
       </Navbar>
 
