@@ -5,9 +5,15 @@ import { Input, H2, EmailInput, SimpleForm, PasswordInput } from "./ForgotPasswo
 import { Label } from "../common/common";
 import {CirclePicker} from "react-color";
 
-const hexColourNameMap = {
-  '#37d67a': 'Green', '#2ccce4': 'Blue', '#555555': 'Black', '#dce775': 'Yellow', '#ff8a65': 'Orange', '#ba68c8': 'Pink'
-}
+let hexColourNameMap;
+hexColourNameMap = {
+    '#37d67a': 'Green',
+    '#2ccce4': 'Blue',
+    '#555555': 'Black',
+    '#dce775': 'Yellow',
+    '#ff8a65': 'Orange',
+    '#ba68c8': 'Pink'
+};
 
 export default function ForgotPasswordForm({setPageState}) {
 
@@ -37,32 +43,31 @@ export default function ForgotPasswordForm({setPageState}) {
     const response = await fetch(`/.netlify/functions/GetUserData?email=${emailStringified}`);
     const json = await response.json();
 
-    if (currNewPasswordInput.length >= 8) {
+      if (currNewPasswordInput.length < 8) {
+          return;
+      }
       const records = []
       json.records
-      .filter(x => 
-        delete x.fields.daysAgo && 
-        delete x.fields["totalPoints (Activity points x duration)"] && 
-        delete x.fields.skillsFrequency && 
-        delete x.fields.activityTypePoints && 
-        delete x.fields.pointsPerSkill && 
-        delete x.createdTime && 
-        delete x.fields.activityTypePoints
-      )
-      .map((i)=> {
-        i.fields.pass = currNewPasswordInput
-        console.log(i)
-        records.push(i)
-      })
-
+          .filter(x =>
+              delete x.fields.daysAgo &&
+              delete x.fields["totalPoints (Activity points x duration)"] &&
+              delete x.fields.skillsFrequency &&
+              delete x.fields.activityTypePoints &&
+              delete x.fields.pointsPerSkill &&
+              delete x.createdTime &&
+              delete x.fields.activityTypePoints
+          )
+          .map((i) => {
+              i.fields.pass = currNewPasswordInput
+              console.log(i)
+              records.push(i)
+          })
       records.map((x) => {
-        console.log("x", x)
+          console.log("x", x)
       })
       fetch(`/.netlify/functions/UpdateUserData?userData=${JSON.stringify({records})}`)
-
       setPageState("")
-   }
-   
+
   };
 
   if (submitted && currEmailInput && currentColour) {

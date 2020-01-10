@@ -39,4 +39,20 @@ const PasswordInput = styled.input`
   width: 80%
 `;
 
-export { H2, Input, EmailInput, SimpleForm, PasswordInput };
+const CheckBoxCollection = styled.div `
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+`;
+const CheckBox = styled.input `
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  transform: scale(2);
+  margin-right: 1rem;
+`;
+
+
+export { H2, Input, EmailInput, SimpleForm, PasswordInput, CheckBox, CheckBoxCollection  };

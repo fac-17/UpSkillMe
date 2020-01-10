@@ -1,6 +1,6 @@
 import React from "react";
 import {Redirect, Route} from "react-router-dom";
-import {H2, Input, EmailInput, SimpleForm, PasswordInput} from "./SignUpFormStyle";
+import { H2, Input, EmailInput, SimpleForm, PasswordInput, CheckBox,CheckBoxCollection } from "./SignUpFormStyle";
 import {ThemeProvider} from "styled-components";
 import {Label} from "../common/common";
 import theme from "../../theme";
@@ -109,6 +109,28 @@ export default function SignUpForm({emailInput, setEmailInput, colour, setColour
                         }}/>
           <p style={{color: currentColour}}>{hexColourNameMap[currentColour]}</p>
           <p style={{color: "#787881"}}>Pick one of these colors you'll be asked it you ever forgot your password</p>
+
+          <CheckBoxCollection>
+            <Label >
+              <CheckBox
+                  type="checkbox"
+              />
+              {"Subscribe me to the newsletter for updates on work experience, events, careers advice, courses & more"}
+            </Label>
+            <Label>
+              <br/>
+              <CheckBox
+                  required
+                  type="checkbox"
+              />
+              {"By submitting this form, I agree to the "}
+              <a href="https://upskill-site.s3-eu-west-1.amazonaws.com/Upskill+Global+Limited_Privacy+Policy+.pdf" style={{color: 'black'}}>Upskill Me Terms of Service</a>
+              {" and acknowledge that the "}
+              <a href="https://upskill-site.s3-eu-west-1.amazonaws.com/Upskill+Global+Limited_Privacy+Policy+.pdf" style={{color: 'black'}}>Privacy Policy</a>
+              {" applies to this service. "}
+            </Label>
+          </CheckBoxCollection>
+
           <Input style={{marginTop: "50px"}} type="submit"/>
         </SimpleForm>
       </section>
