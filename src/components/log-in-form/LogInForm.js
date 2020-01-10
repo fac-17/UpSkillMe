@@ -23,6 +23,7 @@ export default function LogInform({ emailInput, setEmailInput, colour, setColour
     const emailStringified = JSON.stringify({email: currEmailInput});
     const response = await fetch(`/.netlify/functions/GetUserData?email=${emailStringified}`);
     const json = await response.json();
+    const correctColour   = json.records[0].fields.colour;
     const correctPassword = json.records[0].fields.pass;
 
     if (currPasswordInput !== correctPassword) {
@@ -33,7 +34,7 @@ export default function LogInform({ emailInput, setEmailInput, colour, setColour
     if (correctPassword === currPasswordInput) {
       setEmailInput(currEmailInput);
       setPasswordInput(currPasswordInput);
-      setColour(currentColour);
+      setColour(correctColour);
       setSubmitted(true);
     }
 
