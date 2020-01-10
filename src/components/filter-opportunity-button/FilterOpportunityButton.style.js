@@ -18,6 +18,7 @@ const H3 = styled.h3`
 `;
 
 const FilterOpportunityButtonStyle = styled.button`
+  outline: none;
   height: 50px;
   color: white;
   width: 170px;
