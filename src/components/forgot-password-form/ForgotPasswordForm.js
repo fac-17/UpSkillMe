@@ -125,7 +125,8 @@ export default function ForgotPasswordForm({setPageState}) {
                         onChange={(colour) => {
                           console.log(colour.hex)
                           setCurrentColour(colour.hex)
-                        }}/>
+                        }}
+          />
           <p style={{color: currentColour}}>{hexColourNameMap[currentColour]}</p>
           <p style={{color: "#787881"}}>Select the color remember picking. If you can't do this then let your teacher know.</p>
           <p style={{color: "#787881"}}>Alternatively send us an email to info@appskillme.io from your school email and we'll reset it for you.</p>

@@ -21,6 +21,7 @@ export default function ProfilePage({
   passwordInput,
   setPasswordInput
 }) {
+
   setEmailInput(window.sessionStorage.getItem("emailInput", emailInput));
   setPasswordInput(window.sessionStorage.getItem("passwordInput", passwordInput));
   setColour(window.sessionStorage.getItem("colour", colour));
@@ -34,6 +35,8 @@ export default function ProfilePage({
   const [closeButtonDisplay, setCloseButtonDisplay] = React.useState(
     "inline-block"
   );
+  const [project, setProject] = React.useState('');
+
 
   useTracker('/profile');
 
@@ -129,7 +132,11 @@ export default function ProfilePage({
       />
 
       <Badges data={data} />
-      <Activites activities={data} />
+      <Activites
+          activities={data}
+          project={project}
+          setProject={setProject}
+      />
       <EventForm
         setDataRefresh={setDataRefresh}
         emailInput={emailInput}
