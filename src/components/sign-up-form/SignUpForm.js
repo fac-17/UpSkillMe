@@ -29,14 +29,13 @@ export default function SignUpForm({emailInput, setEmailInput, colour, setColour
     if (json.records.length === 0 && currSubmittedPassword.length >= 8) {
       setEmailInput(currSubmittedEmail);
       setPasswordInput(currSubmittedPassword);
-      setColour(currentColour);
+      setColour(hexColourNameMap[currentColour]);
     }
-
   };
 
   React.useEffect(() => {
     if (emailInput && colour && newUser && passwordInput) {
-      console.log('the colour is')
+      console.log('the colour is', hexColourNameMap[currentColour]);
       const today = new Date();
       const submittedData = JSON.stringify({
         records: [
@@ -50,7 +49,7 @@ export default function SignUpForm({emailInput, setEmailInput, colour, setColour
               durationHours: 0,
               link: "",
               schoolEmail: emailInput,
-              colour: hexColourNameMap[colour],
+              colour: hexColourNameMap[currentColour],
               skills: ["rec1aXpu34QFpVnDc"],
               pass: passwordInput
             }

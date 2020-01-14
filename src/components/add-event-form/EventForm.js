@@ -180,6 +180,7 @@ export default function EventForm({
   };
 
   const handleSubmit = e => {
+
     // Drop submission if duration is longer than eight hours.
     if (duration <= 50) {
       const submittedData = JSON.stringify({
@@ -192,9 +193,9 @@ export default function EventForm({
               durationHours: duration,
               supportingInfo: supportingInfo,
               schoolEmail: emailInput,
-              colour: hexColourNameMap[colour],
               skills: skillsConverter(badgeValues),
-              pass: passwordInput
+              pass: passwordInput,
+              colour: colour
             }
           }
         ]
