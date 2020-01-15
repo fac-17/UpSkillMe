@@ -36,7 +36,7 @@ export default function ProfilePage({
     const [closeButtonDisplay, setCloseButtonDisplay] = React.useState(
         "inline-block"
     );
-    const [project, setProject] = React.useState('');
+    const [filterProject, setFilterProject] = React.useState('');
     const [activityName, setActivityName] = React.useState("");
     const [activityType, setActivityType] = React.useState(["recbt3yRDLY9GjPc2"]);
     const [badgeValues, setBadgeValues] = React.useState([]);
@@ -146,8 +146,8 @@ export default function ProfilePage({
 
             <Activites
                 activities={data}
-                project={project}
-                setProject={setProject}
+                filterProject={filterProject}
+                setFilterProject={setFilterProject}
                 isFormDisplayed={isFormDisplayed}
                 setFormDisplayed={setFormDisplayed}
                 activityButtonDisplay={activityButtonDisplay}
