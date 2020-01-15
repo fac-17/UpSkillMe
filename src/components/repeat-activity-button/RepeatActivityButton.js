@@ -4,6 +4,8 @@ import {animateScroll as scroll} from "react-scroll";
 
 //Styled components
 const RepeatActivityButtonStyle = styled.button`
+  position: relative;
+  float: right;
   border-radius: 100%;
   width: 100px;
   height: 100px;

@@ -386,7 +386,7 @@ export default function EventForm({
                     activityButtonDisplay={activityButtonDisplay}
                     setActivityButtonDisplay={setActivityButtonDisplay}
                 />
-                <h2> Repeat activity</h2>
+                <h2>Repeat activity</h2>
                 <Label>
                     Name of Activity:
                     <Input
@@ -438,5 +438,4 @@ export default function EventForm({
             </FormStyle>
         );
     }
-
 }
