@@ -4,6 +4,7 @@ import activityConverter from "../../utils/activityConverter";
 import ActivityButton from "../add-activity-button/ActivityButton";
 import CloseButton from "../close-button/CloseButton";
 import {FormStyle, Input, Label, Select, Submit, TextArea} from "./EventForm.style";
+import Activites from "../activities/Activities";
 
 const hexColourNameMap = {
     '#37d67a': 'Green',
@@ -38,7 +39,9 @@ export default function EventForm({
                                       badgeValues,
                                       setBadgeValues,
                                       setCopyActivity,
-                                      copyActivity
+                                      copyActivity,
+                                      Project,
+                                      setProject
                                   }) {
 
     const [formDisplay, setFormDisplay] = React.useState(isFormDisplayed);
@@ -143,7 +146,7 @@ export default function EventForm({
                                 skills: skillsConverter(badgeValues),
                                 pass: passwordInput,
                                 colour: colour,
-                                Project: 'FALSE'
+                                Project: Project
                             }
                         }
                     ]
@@ -162,7 +165,7 @@ export default function EventForm({
                                 skills: skillsConverter(badgeValues),
                                 pass: passwordInput,
                                 colour: colour,
-                                Project: 'FALSE'
+                                Project: Project
                             }
                         }
                     ]
@@ -173,7 +176,7 @@ export default function EventForm({
                 `/.netlify/functions/CreateUserActivity?activityData=${submittedData}`
             )
                 .then(res => res.json())
-                .then(res => {
+                .then(() => {
                     setDataRefresh(true);
                 });
         }
@@ -185,6 +188,7 @@ export default function EventForm({
         setDuration(1);
         setSupportingInfo("");
         setBadgeValues([]);
+        setProject('FALSE');
 
          if(copyActivity === true) {
              setCopyActivity(false);

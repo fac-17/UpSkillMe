@@ -43,6 +43,7 @@ export default function ProfilePage({
     const [date, setDate] = React.useState("");
     const [duration, setDuration] = React.useState(1);
     const [supportingInfo, setSupportingInfo] = React.useState("");
+    const [Project, setProject] = React.useState('FALSE');
     const [copyActivity, setCopyActivity] = React.useState(false);
 
 
@@ -167,6 +168,8 @@ export default function ProfilePage({
                 badgeValues={badgeValues}
                 setBadgeValues={setBadgeValues}
                 setCopyActivity={setCopyActivity}
+                Project={Project}
+                setProject={setProject}
             />
             <EventForm
                 setDataRefresh={setDataRefresh}
@@ -193,6 +196,8 @@ export default function ProfilePage({
                 setBadgeValues={setBadgeValues}
                 setCopyActivity={setCopyActivity}
                 copyActivity={copyActivity}
+                Project={Project}
+                setProject={setProject}
             />
 
             <ActivityButton

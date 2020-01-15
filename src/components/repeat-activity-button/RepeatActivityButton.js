@@ -52,7 +52,9 @@ export default function RepeatActivityButton({
                                                  setActivityType,
                                                  badgeValues,
                                                  setBadgeValues,
-                                                 setCopyActivity
+                                                 setCopyActivity,
+                                                 Project,
+                                                 setProject
                                              }) {
     function handleShowAddActivityForm(e) {
         setFormDisplayed("block");
@@ -65,9 +67,8 @@ export default function RepeatActivityButton({
         setDate(date);
         setBadgeValues(badgeValues);
         setDuration(duration);
-
         setSupportingInfo(supportingInfo);
-
+        setProject(Project);
         setCloseButtonDisplay(closeButtonDisplay === "block" ? "none" : "block");
         scroll.scrollToBottom();
     }

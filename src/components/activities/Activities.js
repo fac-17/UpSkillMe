@@ -29,7 +29,9 @@ export default function Activities({
                                        setActivityType,
                                        badgeValues,
                                        setBadgeValues,
-                                       setCopyActivity
+                                       setCopyActivity,
+                                       Project,
+                                       setProject
                                    }) {
     if (!activities) {
         return <h3> Activities not loaded...</h3>;
@@ -86,6 +88,8 @@ export default function Activities({
                             badgeValues={badgeValues}
                             setBadgeValues={setBadgeValues}
                             setCopyActivity={setCopyActivity}
+                            Project={Project}
+                            setProject={setProject}
                         />
                     );
                 })}
@@ -144,6 +148,8 @@ export default function Activities({
                                 badgeValues={badgeValues}
                                 setBadgeValues={setBadgeValues}
                                 setCopyActivity={setCopyActivity}
+                                Project={Project}
+                                setProject={setProject}
                             />
                         );
                     })}

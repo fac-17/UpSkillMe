@@ -10,6 +10,7 @@ import {
     Hr
 } from "./Activity.style";
 import RepeatActivityButton from "../repeat-activity-button/RepeatActivityButton";
+import Activites from "../activities/Activities";
 
 export default function Activity({
                                      activity,
@@ -33,7 +34,9 @@ export default function Activity({
                                      setActivityType,
                                      badgeValues,
                                      setBadgeValues,
-                                     setCopyActivity
+                                     setCopyActivity,
+                                     Project,
+                                     setProject
                                  }) {
     if (!activity) {
         return <h2> Activity not loaded..</h2>;
@@ -63,6 +66,8 @@ export default function Activity({
                     badgeValues={activity.fields.skills}
                     setBadgeValues={setBadgeValues}
                     setCopyActivity={setCopyActivity}
+                    Project={activity.fields.Project}
+                    setProject={setProject}
                 >
                 </RepeatActivityButton>
                 <H3 style={{ marginLeft: '5rem'}}> Activity name: {activity.fields.nameOfActivity} </H3>
