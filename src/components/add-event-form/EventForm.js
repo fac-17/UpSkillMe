@@ -301,10 +301,9 @@ export default function EventForm({
                     Is this activity part of a longer term project?
                     <br/>
                 <ProjectRadioButtons
-                    name="soundEnabled"
                     switches={[
-                        {value: "TRUE",  label: '  YES  '},
-                        {value: "FALSE", label: '  NO  '}
+                        {value: "TRUE",  label: '  Yes  '},
+                        {value: "FALSE", label: '  No  '}
                     ]}
                     selected={Project}
                     onChange={(val)=>setProject(val)}

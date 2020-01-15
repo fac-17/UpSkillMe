@@ -365,7 +365,7 @@ template {
   display: block;
   cursor: pointer;
   position: relative;
-  font-size: 16px;
+  font-size: 18px;
   letter-spacing: 0.1px;
   text-align: left;
   color: #484848;
@@ -382,9 +382,9 @@ template {
 }
 
 .radio-buttons label i.inner {
-  width: 15px;
+  width: 16px;
   height: 11px;
-  transform: translate(4px, 6px);
+  transform: translate(6px, 3px);
   display: none;
   border: none;
 }
