@@ -354,3 +354,45 @@ template {
 [hidden] {
   display: none;
 }
+.radio-buttons {
+  margin-bottom: 24px;
+}
+
+.radio-buttons label {
+  padding-left: 30px;
+  margin-right: 30px;
+  width: 24%;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  font-size: 16px;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #484848;
+  white-space: nowrap;
+  font-weight: unset;
+}
+
+.radio-buttons label i {
+  position: absolute;
+  margin-left: -30px;
+  width: 22px;
+  height: 22px;
+  border: solid 1px black;
+}
+
+.radio-buttons label i.inner {
+  width: 15px;
+  height: 11px;
+  transform: translate(4px, 6px);
+  display: none;
+  border: none;
+}
+
+.radio-buttons label input[type="radio"] {
+  display: none;
+}
+
+.radio-buttons label input[type="radio"]:checked ~ i.inner {
+  display: block;
+}

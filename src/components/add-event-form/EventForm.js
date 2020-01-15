@@ -5,6 +5,7 @@ import ActivityButton from "../add-activity-button/ActivityButton";
 import CloseButton from "../close-button/CloseButton";
 import {FormStyle, Input, Label, Select, Submit, TextArea} from "./EventForm.style";
 import Activites from "../activities/Activities";
+import ProjectRadioButtons from "../project-radio-buttons/ProjectRadioButtons";
 
 const hexColourNameMap = {
     '#37d67a': 'Green',
@@ -295,6 +296,19 @@ export default function EventForm({
                         value={supportingInfo}
                         onChange={e => setSupportingInfo(e.target.value)}
                     />
+                </Label>
+                <Label style={{marginBottom: '0.5%'}}>
+                    Is this activity part of a longer term project?
+                    <br/>
+                <ProjectRadioButtons
+                    name="soundEnabled"
+                    switches={[
+                        {value: "TRUE",  label: '  YES  '},
+                        {value: "FALSE", label: '  NO  '}
+                    ]}
+                    selected={Project}
+                    onChange={(val)=>setProject(val)}
+                />
                 </Label>
                 <Submit type="submit" value="Submit"/>
             </FormStyle>
