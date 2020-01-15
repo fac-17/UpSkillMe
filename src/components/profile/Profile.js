@@ -26,7 +26,7 @@ const ColoredLine = styled.hr`
   background: #ff5964;
   border: none;
   transition: 0.3s ease-in-out;
- `
+ `;
 
 export default function Profile({
   data,

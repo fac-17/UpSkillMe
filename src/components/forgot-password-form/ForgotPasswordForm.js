@@ -46,7 +46,7 @@ export default function ForgotPasswordForm({setPageState}) {
       if (currNewPasswordInput.length < 8) {
           return;
       }
-      const records = []
+      const records = [];
       json.records
           .filter(x =>
               delete x.fields.daysAgo &&
@@ -58,14 +58,14 @@ export default function ForgotPasswordForm({setPageState}) {
               delete x.fields.activityTypePoints
           )
           .map((i) => {
-              i.fields.pass = currNewPasswordInput
-              console.log(i)
+              i.fields.pass = currNewPasswordInput;
+              console.log(i);
               records.push(i)
-          })
+          });
       records.map((x) => {
           console.log("x", x)
-      })
-      fetch(`/.netlify/functions/UpdateUserData?userData=${JSON.stringify({records})}`)
+      });
+      fetch(`/.netlify/functions/UpdateUserData?userData=${JSON.stringify({records})}`);
       setPageState("")
 
   };
@@ -123,7 +123,7 @@ export default function ForgotPasswordForm({setPageState}) {
           <p>Pick your colour</p>
           <CirclePicker colors={['#37d67a', '#2ccce4', '#555555', '#dce775', '#ff8a65', '#ba68c8']}
                         onChange={(colour) => {
-                          console.log(colour.hex)
+                          console.log(colour.hex);
                           setCurrentColour(colour.hex)
                         }}
           />

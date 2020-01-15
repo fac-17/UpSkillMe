@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { animateScroll as scroll } from "react-scroll";
+import {animateScroll as scroll} from "react-scroll";
 
 //Styled components
 const ActivityButtonStyle = styled.button`
@@ -34,28 +34,30 @@ const ActivityButtonStyle = styled.button`
 `;
 
 export default function ActivityButton({
-  isFormDisplayed,
-  setFormDisplayed,
-  activityButtonDisplay,
-  setActivityButtonDisplay,
-  closeButtonDisplay,
-  setCloseButtonDisplay
-}) {
-  function handleShowAddActivityForm(e) {
-    setFormDisplayed(isFormDisplayed === "block" ? "none" : "block");
-    setActivityButtonDisplay(
-      activityButtonDisplay === "block" ? "none" : "block"
-    );
-    setCloseButtonDisplay(closeButtonDisplay === "block" ? "none" : "block");
-    scroll.scrollToBottom();
-  }
+                                           isFormDisplayed,
+                                           setFormDisplayed,
+                                           activityButtonDisplay,
+                                           setActivityButtonDisplay,
+                                           closeButtonDisplay,
+                                           setCloseButtonDisplay,
+                                           setCopyActivity
+                                       }) {
+    function handleShowAddActivityForm(e) {
+        setFormDisplayed(isFormDisplayed === "block" ? "none" : "block");
+        setActivityButtonDisplay(
+            activityButtonDisplay === "block" ? "none" : "block"
+        );
+        setCloseButtonDisplay(closeButtonDisplay === "block" ? "none" : "block");
+        setCopyActivity(false);
+        scroll.scrollToBottom();
+    }
 
-  return (
-    <ActivityButtonStyle
-      activityButtonDisplay={activityButtonDisplay}
-      onClick={handleShowAddActivityForm}
-    >
-      Add Activity <br></br> +
-    </ActivityButtonStyle>
-  );
+    return (
+        <ActivityButtonStyle
+            activityButtonDisplay={activityButtonDisplay}
+            onClick={handleShowAddActivityForm}
+        >
+            Add Activity <br></br> +
+        </ActivityButtonStyle>
+    );
 }

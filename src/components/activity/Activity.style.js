@@ -64,4 +64,4 @@ const H3 = styled.h3`
   margin: 0.5rem;
 `;
 
-export { Div, ListStyle, ActivityLinkButton, StyledImg, H3, Hr };
+export {Div, ListStyle, ActivityLinkButton, StyledImg, H3, Hr};

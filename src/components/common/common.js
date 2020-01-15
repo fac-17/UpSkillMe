@@ -23,4 +23,4 @@ export const Navbar = styled.section`
     align-items: center;
     height: 2.5rem;
     padding: 0rem 0.5rem;
-`
+`;

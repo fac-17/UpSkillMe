@@ -21,7 +21,7 @@ export default function OpportunitiesList({ opportunities, category, setCategory
         {
           categories
           .map((category, index) => {
-            console.log("button category", category)
+            console.log("button category", category);
             return (
               <FilterOpportunityButton
               key={category}
@@ -58,7 +58,7 @@ export default function OpportunitiesList({ opportunities, category, setCategory
         {
           categories
           .map((category) => {
-            console.log("button category", category)
+            console.log("button category", category);
             return (
               <FilterOpportunityButton
               key={category}

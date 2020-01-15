@@ -8,7 +8,7 @@ import {CirclePicker} from "react-color";
 
 const hexColourNameMap = {
   '#37d67a': 'Green', '#2ccce4': 'Blue', '#555555': 'Black', '#dce775': 'Yellow', '#ff8a65': 'Orange', '#ba68c8': 'Pink'
-}
+};
 
 export default function SignUpForm({emailInput, setEmailInput, colour, setColour, passwordInput, setPasswordInput}) {
 
@@ -22,9 +22,9 @@ export default function SignUpForm({emailInput, setEmailInput, colour, setColour
     const emailStringified = JSON.stringify({email: currSubmittedEmail});
     const response = await fetch(`/.netlify/functions/GetUserData?email=${emailStringified}`);
     const json = await response.json();
-    console.log(json.records.length)
-    console.log(emailInput)
-    console.log(colour)
+    console.log(json.records.length);
+    console.log(emailInput);
+    console.log(colour);
 
     if (json.records.length === 0 && currSubmittedPassword.length >= 8) {
       setEmailInput(currSubmittedEmail);
@@ -103,7 +103,7 @@ export default function SignUpForm({emailInput, setEmailInput, colour, setColour
           <p>Pick your colour</p>
           <CirclePicker colors={['#37d67a', '#2ccce4', '#555555', '#dce775', '#ff8a65', '#ba68c8']}
                         onChange={(colour) => {
-                          console.log(colour.hex)
+                          console.log(colour.hex);
                           setCurrentColour(colour.hex)
                         }}/>
           <p style={{color: currentColour}}>{hexColourNameMap[currentColour]}</p>
