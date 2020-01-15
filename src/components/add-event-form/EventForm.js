@@ -223,7 +223,8 @@ export default function EventForm({
                                 schoolEmail: emailInput,
                                 skills: skillsConverter(badgeValues),
                                 pass: passwordInput,
-                                colour: colour
+                                colour: colour,
+                                Project: 'FALSE'
                             }
                         }
                     ]
@@ -241,7 +242,8 @@ export default function EventForm({
                                 schoolEmail: emailInput,
                                 skills: skillsConverter(badgeValues),
                                 pass: passwordInput,
-                                colour: colour
+                                colour: colour,
+                                Project: 'FALSE'
                             }
                         }
                     ]

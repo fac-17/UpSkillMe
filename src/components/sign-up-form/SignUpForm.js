@@ -51,7 +51,8 @@ export default function SignUpForm({emailInput, setEmailInput, colour, setColour
               schoolEmail: emailInput,
               colour: hexColourNameMap[currentColour],
               skills: ["rec1aXpu34QFpVnDc"],
-              pass: passwordInput
+              pass: passwordInput,
+              Project: 'FALSE'
             }
           }
         ]
