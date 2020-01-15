@@ -77,7 +77,12 @@ export default function RepeatActivityButton({
         <RepeatActivityButtonStyle
             onClick={handleShowAddActivityForm}
         >
-            Repeat Activity <br></br> ()
+            Repeat Activity <br></br>
+            <img
+            src={`assets/RepeatActivity.svg`}
+            alt="info image"
+            width="30px"
+        />
         </RepeatActivityButtonStyle>
     );
 }
