@@ -191,6 +191,7 @@ export default function ProfilePage({
                 setActivityType={setActivityType}
                 badgeValues={badgeValues}
                 setBadgeValues={setBadgeValues}
+                setCopyActivity={setCopyActivity}
                 copyActivity={copyActivity}
             />
 

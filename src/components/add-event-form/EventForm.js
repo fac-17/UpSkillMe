@@ -118,6 +118,7 @@ export default function EventForm({
                                       setActivityType,
                                       badgeValues,
                                       setBadgeValues,
+                                      setCopyActivity,
                                       copyActivity
                                   }) {
 
@@ -264,7 +265,9 @@ export default function EventForm({
         setSupportingInfo("");
         setBadgeValues([]);
 
-
+         if(copyActivity === true) {
+             setCopyActivity(false);
+         }
         alert("Well done, you've added your skill block!");
         e.preventDefault();
     };
@@ -372,6 +375,7 @@ export default function EventForm({
             </FormStyle>
         );
     } else {
+
         return (
             <FormStyle formDisplay={formDisplay} onSubmit={handleSubmit}>
                 <CloseButton
