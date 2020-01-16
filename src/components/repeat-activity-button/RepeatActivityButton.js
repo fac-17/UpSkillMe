@@ -31,7 +31,7 @@ const RepeatActivityButtonStyle = styled.button`
     transition: all 0.4s ease 0s;
     .repeat-activity {
         filter: brightness(0) invert(1);
-        transition: all 0.4s ease 0s;
+        transition: all 0.1s ease 0s;
     }
     
   }
