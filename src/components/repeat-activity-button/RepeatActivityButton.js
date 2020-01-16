@@ -77,17 +77,14 @@ export default function RepeatActivityButton({
         scroll.scrollToBottom();
     }
 
-    return (
-        <RepeatActivityButtonStyle
-            onClick={handleShowAddActivityForm}
-        >
-            Repeat Activity <br></br>
-            <img
+    return <RepeatActivityButtonStyle onClick={handleShowAddActivityForm}>
+        {Project === 'FALSE' ? "Repeat Activity" : "Repeat Project"}
+        <br/>
+        <img
             className={"repeat-activity"}
             src={`assets/RepeatActivity.svg`}
             alt="info image"
             width="30px"
         />
-        </RepeatActivityButtonStyle>
-    );
+    </RepeatActivityButtonStyle>;
 }
