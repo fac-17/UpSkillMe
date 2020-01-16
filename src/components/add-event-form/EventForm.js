@@ -324,7 +324,7 @@ export default function EventForm({
                     activityButtonDisplay={activityButtonDisplay}
                     setActivityButtonDisplay={setActivityButtonDisplay}
                 />
-                <h2>Repeat activity</h2>
+                <h2>{ Project === 'TRUE' ? "Repeat Project" :"Repeat activity" }</h2>
                 <Label>
                     Name of Activity:
                     <Input
