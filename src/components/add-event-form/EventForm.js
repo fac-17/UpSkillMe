@@ -191,9 +191,9 @@ export default function EventForm({
         setBadgeValues([]);
         setProject('FALSE');
 
-         if(copyActivity === true) {
-             setCopyActivity(false);
-         }
+        if (copyActivity === true) {
+            setCopyActivity(false);
+        }
         alert("Well done, you've added your skill block!");
         e.preventDefault();
     };
@@ -300,14 +300,14 @@ export default function EventForm({
                 <Label style={{marginBottom: '0.5%'}}>
                     Is this activity part of a longer term project?
                     <br/>
-                <ProjectRadioButtons
-                    switches={[
-                        {value: "TRUE",  label: '  Yes  '},
-                        {value: "FALSE", label: '  No  '}
-                    ]}
-                    selected={Project}
-                    onChange={(val)=>setProject(val)}
-                />
+                    <ProjectRadioButtons
+                        switches={[
+                            {value: "TRUE", label: '  Yes  '},
+                            {value: "FALSE", label: '  No  '}
+                        ]}
+                        selected={Project}
+                        onChange={(val) => setProject(val)}
+                    />
                 </Label>
                 <Submit type="submit" value="Submit"/>
             </FormStyle>

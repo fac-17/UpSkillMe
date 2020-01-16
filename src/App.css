@@ -384,7 +384,7 @@ template {
 .radio-buttons label i.inner {
   width: 16px;
   height: 11px;
-  transform: translate(6px, 3px);
+  transform: translate(7px, 3px);
   display: none;
   border: none;
 }
