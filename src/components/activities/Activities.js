@@ -5,7 +5,6 @@ import {
 } from "./Activities.style"
 import {ButtonDiv} from "../filter-opportunity-button/FilterOpportunityButton.style";
 import FilterActivitiesButton from "../filter-activities-button/FilterActivitiesButton";
-import EventForm from "../add-event-form/EventForm";
 
 export default function Activities({
                                        activities,
@@ -19,12 +18,6 @@ export default function Activities({
                                        setCloseButtonDisplay,
                                        activityName,
                                        setActivityName,
-                                       date,
-                                       setDate,
-                                       duration,
-                                       setDuration,
-                                       supportingInfo,
-                                       setSupportingInfo,
                                        activityType,
                                        setActivityType,
                                        badgeValues,
@@ -77,12 +70,6 @@ export default function Activities({
                             setCloseButtonDisplay={setCloseButtonDisplay}
                             activityName={activityName}
                             setActivityName={setActivityName}
-                            date={date}
-                            setDate={setDate}
-                            duration={duration}
-                            setDuration={setDuration}
-                            supportingInfo={supportingInfo}
-                            setSupportingInfo={setSupportingInfo}
                             activityType={activityType}
                             setActivityType={setActivityType}
                             badgeValues={badgeValues}
@@ -137,12 +124,6 @@ export default function Activities({
                                 setCloseButtonDisplay={setCloseButtonDisplay}
                                 activityName={activityName}
                                 setActivityName={setActivityName}
-                                date={date}
-                                setDate={setDate}
-                                duration={duration}
-                                setDuration={setDuration}
-                                supportingInfo={supportingInfo}
-                                setSupportingInfo={setSupportingInfo}
                                 activityType={activityType}
                                 setActivityType={setActivityType}
                                 badgeValues={badgeValues}

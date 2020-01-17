@@ -4,13 +4,10 @@ import ActivityBadges from "../../components/activity-badges/ActivityBadges";
 import {
     Div,
     ListStyle,
-    ActivityLinkButton,
-    StyledImg,
     H3,
     Hr
 } from "./Activity.style";
 import RepeatActivityButton from "../repeat-activity-button/RepeatActivityButton";
-import Activites from "../activities/Activities";
 
 export default function Activity({
                                      activity,
@@ -24,12 +21,6 @@ export default function Activity({
                                      setCloseButtonDisplay,
                                      activityName,
                                      setActivityName,
-                                     date,
-                                     setDate,
-                                     duration,
-                                     setDuration,
-                                     supportingInfo,
-                                     setSupportingInfo,
                                      activityType,
                                      setActivityType,
                                      badgeValues,
@@ -55,12 +46,6 @@ export default function Activity({
                     setCloseButtonDisplay={setCloseButtonDisplay}
                     activityName={activity.fields.nameOfActivity}
                     setActivityName={setActivityName}
-                    date={activity.fields.date}
-                    setDate={setDate}
-                    duration={activity.fields.durationHours}
-                    setDuration={setDuration}
-                    supportingInfo={activity.fields.supportingInfo}
-                    setSupportingInfo={setSupportingInfo}
                     activityType={activity.fields.activityType}
                     setActivityType={setActivityType}
                     badgeValues={activity.fields.skills}

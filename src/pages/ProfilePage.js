@@ -157,12 +157,6 @@ export default function ProfilePage({
                 setCloseButtonDisplay={setCloseButtonDisplay}
                 activityName={activityName}
                 setActivityName={setActivityName}
-                date={date}
-                setDate={setDate}
-                duration={duration}
-                setDuration={setDuration}
-                supportingInfo={supportingInfo}
-                setSupportingInfo={setSupportingInfo}
                 activityType={activityType}
                 setActivityType={setActivityType}
                 badgeValues={badgeValues}
