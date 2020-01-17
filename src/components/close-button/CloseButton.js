@@ -44,28 +44,42 @@ const CloseButtonStyle = styled.button`
 `;
 
 export default function CloseButton({
-  closeButtonDisplay,
-  setCloseButtonDisplay,
-  setFormDisplayed,
-  isFormDisplayed,
-  activityButtonDisplay,
-  setActivityButtonDisplay
-}) {
-  function handleCloseButton(e) {
-    e.preventDefault();
-    setCloseButtonDisplay(
-      closeButtonDisplay === "none" ? "inline-block" : "none"
-    );
-    setFormDisplayed(isFormDisplayed === "block" ? "none" : "block");
-    setActivityButtonDisplay(
-      activityButtonDisplay === "block" ? "none" : "block"
-    );
-  }
+                                        closeButtonDisplay,
+                                        setCloseButtonDisplay,
+                                        setFormDisplayed,
+                                        isFormDisplayed,
+                                        activityButtonDisplay,
+                                        setActivityButtonDisplay,
+                                        setActivityName,
+                                        setDate,
+                                        setDuration,
+                                        setSupportingInfo,
+                                        setActivityType,
+                                        setBadgeValues,
+                                        setProject
+                                    }) {
+    function handleCloseButton(e) {
+        e.preventDefault();
+        setCloseButtonDisplay(
+            closeButtonDisplay === "none" ? "inline-block" : "none"
+        );
+        setFormDisplayed(isFormDisplayed === "block" ? "none" : "block");
+        setActivityName("");
+        setActivityType(["recbt3yRDLY9GjPc2"]);
+        setDate("");
+        setDuration(1);
+        setSupportingInfo("");
+        setBadgeValues([]);
+        setProject('FALSE');
+        setActivityButtonDisplay(
+            activityButtonDisplay === "block" ? "none" : "block"
+        );
+    }
 
-  return (
-    <CloseButtonStyle
-      closeButtonDisplay={closeButtonDisplay}
-      onClick={handleCloseButton}
-    >X</CloseButtonStyle>
-  );
+    return (
+        <CloseButtonStyle
+            closeButtonDisplay={closeButtonDisplay}
+            onClick={handleCloseButton}
+        >X</CloseButtonStyle>
+    );
 }

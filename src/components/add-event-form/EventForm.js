@@ -6,6 +6,7 @@ import CloseButton from "../close-button/CloseButton";
 import {FormStyle, Input, Label, Select, Submit, TextArea} from "./EventForm.style";
 import Activites from "../activities/Activities";
 import ProjectRadioButtons from "../project-radio-buttons/ProjectRadioButtons";
+import RepeatActivityButton from "../repeat-activity-button/RepeatActivityButton";
 
 const hexColourNameMap = {
     '#37d67a': 'Green',
@@ -211,6 +212,13 @@ export default function EventForm({
                     isFormDisplayed={isFormDisplayed}
                     activityButtonDisplay={activityButtonDisplay}
                     setActivityButtonDisplay={setActivityButtonDisplay}
+                    setActivityName={setActivityName}
+                    setDate={setDate}
+                    setDuration={setDuration}
+                    setSupportingInfo={setSupportingInfo}
+                    setActivityType={setActivityType}
+                    setBadgeValues={setBadgeValues}
+                    setProject={setProject}
                 />
                 <h2> Add new activity</h2>
                 <Label>
@@ -323,6 +331,13 @@ export default function EventForm({
                     isFormDisplayed={isFormDisplayed}
                     activityButtonDisplay={activityButtonDisplay}
                     setActivityButtonDisplay={setActivityButtonDisplay}
+                    setActivityName={setActivityName}
+                    setDate={setDate}
+                    setDuration={setDuration}
+                    setSupportingInfo={setSupportingInfo}
+                    setActivityType={setActivityType}
+                    setBadgeValues={setBadgeValues}
+                    setProject={setProject}
                 />
                 <h2>{ Project === 'TRUE' ? "Repeat Project" :"Repeat activity" }</h2>
                 <Label>
