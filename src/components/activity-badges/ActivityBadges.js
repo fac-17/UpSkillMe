@@ -114,7 +114,7 @@ export default function ActivityBadges({ selectedBadges, data }) {
     <BadgesStyle>
       {badges.map(item => {
         return (
-          <ListBadges>
+          <ListBadges key={item}>
             <h3 key={item}>{item}</h3>
             <img src={`assets/${item}.svg`} height="110px" alt={item} />
             {!selectedBadges ? <PointsStyle>Points: {skillPoints[item]}</PointsStyle> : ""}
