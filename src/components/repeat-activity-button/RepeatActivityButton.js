@@ -67,7 +67,9 @@ export default function RepeatActivityButton({
         );
         setCopyActivity(true);
         setActivityName(activityName);
+        setActivityType(activityType);
         setProject(Project);
+        setBadgeValues(badgeValues);
         setCloseButtonDisplay(closeButtonDisplay === "block" ? "none" : "block");
         scroll.scrollToBottom();
     }
