@@ -5,14 +5,14 @@ const skillsConverter = idArrayInput => {
   let resultArray = [];
 
   const skills = {
-    Communication: "rec1aXpu34QFpVnDc",
-    Creativity: "recilXHxEAlJqZFeu",
-    Innovation: "recQtkW5IWh0z3tH5",
-    Leadership: "reczDCLXfOC5iHLiQ",
-    Media: "recSIsNHGiRbV8CR7",
-    "Problem-solving": "recOt8tI1ZLivhoZV",
-    Teamwork: "recTHKDy3NJghbCrJ",
-    Technology: "recVncOYn99qVNwir"
+    Communication: "recDSomsyfHDUjRPn",
+    Creativity: "recU3oEv9LcHVn9qF",
+    Innovation: "recsbLT3d78Y4rXTg",
+    Leadership: "recbl3IVKZt3N5fu1",
+    Media: "recuqTKFbtI9qw63i",
+    "Problem-solving": "recqbzqGwaCg0FSb6",
+    Teamwork: "recvpbAwyYAeMz6DU",
+    Technology: "recx5DLWSk0oqb0uC"
   };
   const keyArray = Object.keys(skills);
 

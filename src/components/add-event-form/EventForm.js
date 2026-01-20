@@ -47,7 +47,7 @@ const Select = styled.select`
 const Submit = styled.input`
   font-family: "Nunito", sans-serif;
   font-size: 1.5rem;
-  background-color: rgb(16,156,241);
+  background-color: rgb(16, 156, 241);
   color: white;
   border-radius: 5px;
   height: 50px;
@@ -105,7 +105,7 @@ export default function EventForm({
 
   //Initialising activity type with the an array containing
   //the id of after school club. Default value is legitimate value.
-  const [activityType, setActivityType] = React.useState(["recbt3yRDLY9GjPc2"]);
+  const [activityType, setActivityType] = React.useState(["recbZLGHiKTHX9ZJ7"]);
   const activityOptions = [
     "After school club",
     "Careers workshop",
@@ -124,20 +124,20 @@ export default function EventForm({
   ];
 
   const activityDictionary = {
-    "After school club": "recbt3yRDLY9GjPc2",
-    "Careers workshop": "rec7lzaalxuMGOc1z",
-    Competition: "recX0DSvfI0EkTWzP",
-    "Employer event": "recO6WjBempBCwXPW",
-    Mentoring: "recINqvhi14OEQ16V",
-    "Online course": "recan6J6O1yDNNaum",
-    "School project": "recKUogjAsEuiz7LZ",
-    "Skills workshop": "recWvSVTJnacRMxGi",
-    "Summer school": "recKKc2X7Rx40sy7T",
-    "University event": "rec7KmKGVf7Bj2IrE",
-    Volunteering: "recv1xg4hehyyybA4",
-    "Work experience": "recFP2EcUV54UQiDB",
-    "Sports club": "recUe5uzB4CJoT6Xk",
-    Other: "reczhkJJNz2JsLvxW"
+    "After school club": "recNbuvP8WP7bHjod",
+    "Careers workshop": "recJ3078QIlKbcGdK",
+    Competition: "reczI4PtKTRCPhqL0",
+    "Employer event": "recqOngzJxgz7Ur17",
+    Mentoring: "reckvRsfNcVM9evi6",
+    "Online course": "recM5xG4jcpBibEGx",
+    "School project": "recmCPdh5DvsNXBXa",
+    "Skills workshop": "recydjSRey1ama1St",
+    "Summer school": "recmsDZVC2o2vQ2j4",
+    "University event": "recJsNHEqqYzOqcDP",
+    Volunteering: "rec7JYd2Mp8w3WFMf",
+    "Work experience": "rechxtBap6W2peMPM",
+    "Sports club": "recwWwrx6ftHThA9v",
+    Other: "recbZLGHiKTHX9ZJ7"
   };
 
   const [duration, setDuration] = React.useState(1);
@@ -177,6 +177,7 @@ export default function EventForm({
     });
     fetch(
       `/.netlify/functions/CreateUserActivity?activityData=${submittedData}`
+      // `http://localhost:9000/CreateUserActivity?activityData=${submittedData}`
     )
       .then(res => res.json())
       .then(res => {
