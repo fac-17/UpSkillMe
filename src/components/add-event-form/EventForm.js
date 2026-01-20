@@ -183,7 +183,7 @@ export default function EventForm({
         setDataRefresh(true);
       });
 
-    alert("This form was submitted");
+    alert("Well done, you've added your skill block!");
     e.preventDefault();
   };
 
